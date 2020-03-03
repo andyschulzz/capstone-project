@@ -1,17 +1,21 @@
 import React from 'react'
+import Exercise from '../Exercise/Exercise.js'
+import PageLayout from './PageLayout'
 import styled from 'styled-components/macro'
 
 export default function ExerciseList({ exerciseData }) {
   return (
-    <Wrapper>
-      {exerciseData.map(exercise => {
-        return <div>{exercise.name}</div>
-      })}
-    </Wrapper>
+    <PageLayout title="Exercises">
+      <ExerciseListStyled>
+        {exerciseData.map(exercise => {
+          return <Exercise key={exercise.id} {...exercise} />
+        })}
+      </ExerciseListStyled>
+    </PageLayout>
   )
 }
 
-const Wrapper = styled.div`
+const ExerciseListStyled = styled.section`
   display: flex;
   flex-direction: column;
   margin: 20px 0 20px 30px;

@@ -1,7 +1,9 @@
 import React from 'react'
+import ExerciseList from './components/pages/ExerciseList'
+import { exerciseData } from './components/data/exercises'
 
 function App() {
-  return <div>Hello World</div>
+  return <ExerciseList exerciseData={exerciseData} />
 }
 
 export default App

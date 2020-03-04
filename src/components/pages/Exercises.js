@@ -6,7 +6,6 @@ import PageLayout from './PageLayout'
 
 export default function Exercises({ exercises, handleExerciseSelect }) {
   let { path } = useRouteMatch()
-  console.log(exercises, 'Exercises')
   return (
     <PageLayout title="Exercises">
       <Switch>

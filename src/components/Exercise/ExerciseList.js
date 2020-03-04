@@ -5,7 +5,6 @@ import Button from '../utils/Button'
 import { Link } from 'react-router-dom'
 
 export default function ExerciseList({ exercises, handleExerciseSelect }) {
-  console.log(exercises, 'ExerciseList')
   const renderExercises = exercises.map((exercise, index) => {
     return (
       <Exercise

@@ -1,5 +1,6 @@
 import React from 'react'
 import ExerciseList from '../Exercise/ExerciseList'
+import ExerciseAdd from '../Exercise/ExerciseAdd'
 import { Switch, Route, useRouteMatch } from 'react-router-dom'
 import PageLayout from './PageLayout'
 

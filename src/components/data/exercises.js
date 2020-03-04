@@ -6,28 +6,28 @@ export const exerciseData = [
     name: 'Ab Wheel',
     type: 'Core',
     instructions:
-      '1. Hold the ab wheel with both hands and kneel on the floor.\n \n2. Place the ab roller on the floor in front of your knees. This is your starting position.\n \nSlowly roll the wheel forward in a controlled manner, stretching out the torso as far as you can without touching the floor with your body.\n \nStop when fully stretched and pause for a moment.\nPull yourself back to the starting position by contracting the abs',
+      '1. Hold the ab wheel with both hands and kneel on the floor.\n \n2. Place the ab roller on the floor in front of your knees. This is your starting position.\n \n3. Slowly roll the wheel forward in a controlled manner, stretching out the torso as far as you can without touching the floor with your body.\n \n4. Stop when fully stretched and pause for a moment.\n \n5. Pull yourself back to the starting position by contracting the abs',
   },
   {
     id: uuidv4(),
     name: 'Arnold Press',
     type: 'Shoulder',
     instructions:
-      '1. Sit upright on a bench and hold a dumbell in each hand, at chest level. Keep your palms facing your body as if you are performing a dumbbell curl.\n \nRaise the dumbbells upwards while simultaneously rotating your palms until they face forwards, until your arms are fully extended straight above you.\n \nAfter pausing briefly, lower the dumbbells while rotating your palms towards you back to the starting position.',
+      '1. Sit upright on a bench and hold a dumbell in each hand, at chest level. Keep your palms facing your body as if you are performing a dumbbell curl.\n \n2. Raise the dumbbells upwards while simultaneously rotating your palms until they face forwards, until your arms are fully extended straight above you.\n \n3. After pausing briefly, lower the dumbbells while rotating your palms towards you back to the starting position.',
   },
   {
     id: uuidv4(),
     name: 'Bench Press',
     type: 'Chest',
     instructions:
-      '1. Lie flat on the bench holding the barbell with a shoulder width pronated grip.\n \n. Retract scapula and have elbows between 45 to 90 degree angle. An advanced tip is to tuck the shoulders down into the sockets and driven back.\n \n3.Lift bar from the rack and hold above the chest with arms extended.\n \n4. Breathe in and lower bar to the middle chest.\n \n5.After pausing at the bottom, push the bar towards the starting position squeezing the chest.',
+      '1. Lie flat on the bench holding the barbell with a shoulder width pronated grip.\n \n2. Retract scapula and have elbows between 45 to 90 degree angle. An advanced tip is to tuck the shoulders down into the sockets and driven back.\n \n3. Lift bar from the rack and hold above the chest with arms extended.\n \n4. Breathe in and lower bar to the middle chest.\n \n5. After pausing at the bottom, push the bar towards the starting position squeezing the chest.',
   },
   {
     id: uuidv4(),
     name: 'Bent Over Row',
     type: 'Back',
     instructions:
-      '1. Holding the barbell with a pronated grip, bend the legs and tilt the torso wit a straight back.\n \n2.Flexing the core, keep head in neutral position, pull the barbell towards your stomach.\n \n3.Squeeze your back as you breath out at the top position.\n \n4. Inhale and lower the barbell to the starting position.\n \n',
+      '1. Holding the barbell with a pronated grip, bend the legs and tilt the torso wit a straight back.\n \n2.Flexing the core, keep head in neutral position, pull the barbell towards your stomach.\n \n3. Squeeze your back as you breath out at the top position.\n \n4. Inhale and lower the barbell to the starting position.\n \n',
   },
   {
     id: uuidv4(),

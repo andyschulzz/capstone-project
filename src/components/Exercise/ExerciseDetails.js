@@ -1,17 +1,18 @@
 import React from 'react'
 import styled from 'styled-components/macro'
-import PageLayout from '../pages/PageLayout'
+import pageBackIcon from '../icons/back.png'
+import { Link } from 'react-router-dom'
 
-export default function ExerciseDetails({ exercise }) {
+export default function ExerciseDetails({ exercise = '' }) {
   return (
-    <PageLayout title="Exercises">
-      <ExerciseGrid>
-        <Title>Name</Title>
-        <Text disabled value={exercise.name} />
-        <Title description>Instructions</Title>
-        <Text description disabled value={exercise.instructions} />
-      </ExerciseGrid>
-    </PageLayout>
+    <ExerciseGrid>
+      <Link exact to="/">
+        <Image src={pageBackIcon} alt="" />
+      </Link>
+      <Title disabled value={exercise.name} />
+      <Heading description>Instructions</Heading>
+      <Text description disabled value={exercise.instructions} />
+    </ExerciseGrid>
   )
 }
 
@@ -20,24 +21,40 @@ const ExerciseGrid = styled.section`
   max-height: 100%;
   overflow-y: auto;
   border-left: 1px solid black;
-  margin-bottom: 20px;
+  gap: 20px;
   padding: 30px;
 `
 
-const Title = styled.div`
+const Heading = styled.div`
   font-weight: bold;
+  font-size: 1.1rem;
+`
+const Title = styled.textarea`
+  margin-top: 15px;
+  border: none;
+  padding: 0;
+  outline: none;
+  width: 100%;
+  height: 40px;
+  resize: none;
+  font-size: 1.7rem;
+  font-weight: bold;
+  background-color: #fff;
+  color: #333;
 `
 
 const Text = styled.textarea`
-  margin-top: 10px;
   border: none;
-  border-radius: 5px;
-  font-size: inherit;
-  padding: 5px 10px;
   outline: none;
   width: 100%;
-  height: ${props => (props.description ? '400px' : '50px')};
+  height: 400px;
   resize: none;
+  font-size: inherit;
   background-color: #fff;
   color: #333;
+  padding: 10px;
+`
+const Image = styled.img`
+  width: 25px;
+  height: 25px;
 `

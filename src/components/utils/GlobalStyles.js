@@ -1,10 +1,10 @@
 import { createGlobalStyle } from 'styled-components'
-import dinotBold from '../../fonts/DINOT-Bold.woff'
-import dinotBold2 from '../../fonts/DINOT-Bold.woff2'
-import dinotLight from '../../fonts/DINOT-Light.woff'
-import dinotLight2 from '../../fonts/DINOT-Light.woff2'
-import dinotRegular from '../../fonts/DINOT-Regular.woff'
-import dinotRegular2 from '../../fonts/DINOT-Regular.woff2'
+import dinotBold from '../fonts/DINOT-Bold.woff'
+import dinotBold2 from '../fonts/DINOT-Bold.woff2'
+import dinotLight from '../fonts/DINOT-Light.woff'
+import dinotLight2 from '../fonts/DINOT-Light.woff2'
+import dinotRegular from '../fonts/DINOT-Regular.woff'
+import dinotRegular2 from '../fonts/DINOT-Regular.woff2'
 
 export default createGlobalStyle`
 

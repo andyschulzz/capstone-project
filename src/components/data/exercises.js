@@ -13,7 +13,7 @@ export const exerciseData = [
     name: 'Arnold Press',
     type: 'Shoulder',
     instructions:
-      '1. Sit upright on a bench and hold a dumbell in each hand, at chest level. Keep your palms facing your body as if you are performing a dumbbell curl.\n \nRaise the dumbbells upwards while simultaneously rotating your palms until they face forwards, until your arms are fully extended straight above you.\n \nAfter pausing briefly, lower the dumbbells while rotating your palms towards you back to the starting position.',
+      '1. Sit upright on a bench and hold a dumbell in each hand, at chest level. Keep your palms facing your body as if you are performing a dumbbell curl.\n \n2. Raise the dumbbells upwards while simultaneously rotating your palms until they face forwards, until your arms are fully extended straight above you.\n \n3. After pausing briefly, lower the dumbbells while rotating your palms towards you back to the starting position.',
   },
   {
     id: uuidv4(),

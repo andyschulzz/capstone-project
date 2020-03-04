@@ -3,11 +3,7 @@ import ExerciseList from '../Exercise/ExerciseList'
 import { Switch, Route, useRouteMatch } from 'react-router-dom'
 import PageLayout from './PageLayout'
 
-export default function Exercises({
-  exerciseData,
-  handleExerciseSelect,
-  selectedExercise,
-}) {
+export default function Exercises({ exerciseData, handleExerciseSelect }) {
   let { path } = useRouteMatch()
 
   return (
@@ -17,7 +13,6 @@ export default function Exercises({
           <ExerciseList
             exerciseData={exerciseData}
             handleExerciseSelect={handleExerciseSelect}
-            selectedExercise={selectedExercise}
           />
         </Route>
       </Switch>

@@ -7,9 +7,8 @@ import { Route, Switch } from 'react-router-dom'
 function App() {
   const [exercises, setExercises] = useState(exerciseData)
   const [selectedExerciseId, setSelectedExerciseId] = useState()
-  const [selectedExercise, setSelectedExercise] = useState([])
 
-  const selectedEx = exercises.find(
+  const selectedExercise = exercises.find(
     exercise => exercise.id === selectedExerciseId
   )
 
@@ -19,23 +18,16 @@ function App() {
         <Exercises
           exerciseData={exerciseData}
           handleExerciseSelect={handleExerciseSelect}
-          selectedExercise={selectedExercise}
         />
       </Route>
       <Route path="/details/:id">
-        <ExerciseDetails exercise={selectedEx} />
+        <ExerciseDetails exercise={selectedExercise} />
       </Route>
     </Switch>
   )
 
   function handleExerciseSelect(id) {
     setSelectedExerciseId(id)
-    const selectedExercise = exercises.find(
-      exercise => exercise.id === selectedExerciseId
-    )
-    setSelectedExercise(selectedExercise)
-    console.log(id, 'id')
-    console.log(selectedExercise, 'selected Exercise')
   }
 }
 

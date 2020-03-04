@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom'
 export default function ExerciseDetails({ exercise = '' }) {
   return (
     <ExerciseGrid>
-      <Link exact to="/">
+      <Link to="/">
         <Image src={pageBackIcon} alt="" />
       </Link>
       <Title disabled value={exercise.name} />

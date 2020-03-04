@@ -14,13 +14,13 @@ function App() {
   const selectedExercise = exercises.find(
     exercise => exercise.id === selectedExerciseId
   )
-
+  console.log(exercises, 'on render')
   return (
     <AppGrid>
       <Switch>
         <Route exact path="/">
           <Exercises
-            exerciseData={exerciseData}
+            exercises={exercises}
             handleExerciseSelect={handleExerciseSelect}
           />
         </Route>

@@ -1,59 +1,75 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import styled from 'styled-components/macro'
 import pageBackIcon from '../icons/back.png'
 import { Link } from 'react-router-dom'
 import Button from '../utils/Button'
+import useForm from '../utils/hooks/useForm'
 
 export default function ExerciseAdd({ handleExerciseAdd }) {
+  const inputEl = useRef(null)
+
+  const handleAdd = () => {
+    handleExerciseAdd(inputs.name, inputs.type, inputs.instructions)
+  }
+  const { inputs, handleInputChange, handleSubmit } = useForm(handleAdd)
+
   return (
-    <ExerciseGrid>
+    <ExerciseGrid onSubmit={handleSubmit}>
       <ButtonWrapper>
         <Link to="/">
           <Image src={pageBackIcon} alt="" />
         </Link>
-        <Button primary>save</Button>
+        <Button primary type="submit">
+          save
+        </Button>
       </ButtonWrapper>
       <Title
+        ref={inputEl}
+        autoFocus
         exerciseTitle
         type="text"
         name="name"
         id="name"
         placeholder="Name of the exercise?"
-        onChange={e => handleChange({ name: e.target.value })}
+        value={inputs.name}
+        onChange={handleInputChange}
+        required
       />
-      <Heading>Type</Heading>
+      <Heading htmlFor="type">Type</Heading>
       <Title
         type="text"
         name="type"
         id="type"
         placeholder="Type of the exercise?"
-        onChange={e => handleChange({ type: e.target.value })}
+        value={inputs.type}
+        onChange={handleInputChange}
+        required
       />
-      <Heading description>Instructions</Heading>
+      <Heading description htmlFor="instructions">
+        Instructions
+      </Heading>
       <Text
         description
         type="text"
         name="instructions"
         id="instructions"
         placeholder="Please exlpain the exercise!"
-        onChange={e => handleChange({ instructions: e.target.value })}
+        value={inputs.instructions}
+        onChange={handleInputChange}
+        required
       />
     </ExerciseGrid>
   )
-
-  function handleChange(name, type, instructions) {
-    handleExerciseAdd(name, type, instructions)
-  }
 }
 
-const ExerciseGrid = styled.section`
+const ExerciseGrid = styled.form`
   display: grid;
   max-height: 100%;
   overflow-y: auto;
   gap: 10px;
   padding: 30px;
 `
-const Heading = styled.div`
+const Heading = styled.label`
   font-weight: bold;
   font-size: 1.1rem;
 `

@@ -4,8 +4,9 @@ import Exercise from './Exercise'
 import Button from '../utils/Button'
 import { Link } from 'react-router-dom'
 
-export default function ExerciseList({ exerciseData, handleExerciseSelect }) {
-  const renderExercises = exerciseData.map((exercise, index) => {
+export default function ExerciseList({ exercises, handleExerciseSelect }) {
+  console.log(exercises, 'ExerciseList')
+  const renderExercises = exercises.map((exercise, index) => {
     return (
       <Exercise
         key={exercise.id}
@@ -38,7 +39,6 @@ const ButtonWrapper = styled.div`
     text-decoration: none;
   }
 `
-
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;

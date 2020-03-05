@@ -1,66 +1,45 @@
 import React from 'react'
-import styled from 'styled-components/macro'
 import pageBackIcon from '../icons/back.png'
 import { Link } from 'react-router-dom'
+import { Styled } from './ExerciseDetails.styles'
 
-export default function ExerciseDetails({ exercise = '' }) {
+export default function ExerciseDetails({ selectedExercise = '' }) {
   return (
-    <ExerciseGrid>
-      <ButtonWrapper>
+    <Styled.Wrapper>
+      <Styled.ButtonWrapper>
         <Link to="/">
-          <Image src={pageBackIcon} alt="" />
+          <Styled.Image src={pageBackIcon} alt="" />
         </Link>
-      </ButtonWrapper>
-      <Title
-        exerciseTitle
-        disabled
-        value={exercise.name}
-        type="text"
-        name="name"
-        id="name"
-      />
-      <Heading>Instructions</Heading>
-      <Title
-        disabled
-        type="text"
-        name="instructions"
-        id="instructions"
-        value={exercise.instructions}
-      />
-    </ExerciseGrid>
+      </Styled.ButtonWrapper>
+      <div>
+        <Styled.Textarea
+          isTitle
+          isExerciseName
+          disabled
+          value={selectedExercise.name}
+          type="text"
+          name="name"
+          id="name"
+        />
+        <Styled.Label htmlFor="type">Type</Styled.Label>
+        <Styled.Textarea
+          isTitle
+          type="text"
+          name="type"
+          id="type"
+          placeholder="Type of the exercise?"
+          value={selectedExercise.type}
+          disabled
+        />
+        <Styled.Label htmlFor="instructions">Instructions</Styled.Label>
+        <Styled.Textarea
+          disabled
+          type="text"
+          name="instructions"
+          id="instructions"
+          value={selectedExercise.instructions}
+        />
+      </div>
+    </Styled.Wrapper>
   )
 }
-
-const ExerciseGrid = styled.section`
-  display: grid;
-  max-height: 100%;
-  overflow-y: auto;
-  border-left: 1px solid black;
-  gap: 20px;
-  padding: 30px;
-`
-
-const Heading = styled.div`
-  font-weight: bold;
-  font-size: 1.1rem;
-`
-const Title = styled.textarea`
-  border: none;
-  padding: ${props => (props.exerciseTitle ? 0 : 10)}px;
-  outline: none;
-  width: 100%;
-  height: ${props => (props.exerciseTitle ? 40 : 400)}px;
-  resize: none;
-  font-size: ${props => (props.exerciseTitle ? 1.7 : 1)}rem;
-  font-weight: ${props => (props.exerciseTitle ? 'bold' : 400)};
-  background-color: #fff;
-  color: #333;
-`
-const Image = styled.img`
-  width: 25px;
-  height: 25px;
-`
-const ButtonWrapper = styled.div`
-  display: flex;
-  margin-bottom: 25px;
-`

@@ -5,7 +5,7 @@ export default styled.button`
   border: none;
   outline: none;
   border-radius: 5px;
-  margin-left: auto;
+  margin-left: ${props => (props.mla ? 'auto' : '')};
   padding: 5px 15px;
   font-size: 1rem;
   cursor: pointer;

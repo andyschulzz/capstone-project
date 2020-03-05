@@ -1,10 +1,11 @@
 import React from 'react'
-import styled from 'styled-components/macro'
 import Exercise from './Exercise'
 import Button from '../utils/Button'
-import { Link } from 'react-router-dom'
+import { useRouteMatch, Link } from 'react-router-dom'
+import { Styled } from './ExerciseList.styles'
 
 export default function ExerciseList({ exercises, handleExerciseSelect }) {
+  let { url } = useRouteMatch()
   const renderExercises = exercises.map((exercise, index) => {
     return (
       <Exercise
@@ -17,32 +18,13 @@ export default function ExerciseList({ exercises, handleExerciseSelect }) {
   })
 
   return (
-    <>
-      <ButtonWrapper>
+    <section>
+      <Styled.ButtonWrapper>
         <Button primary>
-          <Link to={`/add`}>Add</Link>
+          <Link to={`${url}/add`}>Add</Link>
         </Button>
-      </ButtonWrapper>
-      <Wrapper>{renderExercises}</Wrapper>
-    </>
+      </Styled.ButtonWrapper>
+      <Styled.Wrapper>{renderExercises}</Styled.Wrapper>
+    </section>
   )
 }
-
-const ButtonWrapper = styled.div`
-  display: flex;
-  margin: 20px auto 10px 30px;
-  top: 0;
-
-  & a {
-    color: white;
-    text-decoration: none;
-  }
-`
-const Wrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  margin: 20px 0 30px 30px;
-  gap: 15px;
-  overflow-y: auto;
-  scroll-behavior: smooth;
-`

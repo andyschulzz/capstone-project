@@ -3,7 +3,7 @@ import Exercises from './components/pages/Exercises'
 import ExerciseDetails from './components/Exercise/ExerciseDetails'
 import ExerciseAdd from './components/Exercise/ExerciseAdd'
 import { exerciseData } from './components/data/exercises'
-import { Route, Switch } from 'react-router-dom'
+import { Route, Switch, Redirect } from 'react-router-dom'
 import { v4 as uuidv4 } from 'uuid'
 import styled from 'styled-components/macro'
 
@@ -17,17 +17,14 @@ function App() {
   return (
     <AppGrid>
       <Switch>
-        <Route exact path="/">
+        <Redirect exact from="/" to="exercises" />
+        <Route path="/exercises">
           <Exercises
             exercises={exercises}
             handleExerciseSelect={handleExerciseSelect}
+            selectedExercise={selectedExercise}
+            handleExerciseAdd={handleExerciseAdd}
           />
-        </Route>
-        <Route path="/details/:id">
-          <ExerciseDetails exercise={selectedExercise} />
-        </Route>
-        <Route path="/add">
-          <ExerciseAdd handleExerciseAdd={handleExerciseAdd} />
         </Route>
       </Switch>
     </AppGrid>
@@ -60,10 +57,6 @@ export default App
 const AppGrid = styled.div`
   display: grid;
   grid-template-rows: auto 48px;
-  position: fixed;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
+  width: 100%;
   height: 100%;
 `

@@ -36,6 +36,7 @@ function App() {
   function handleExerciseSelect(id) {
     setSelectedExerciseId(id)
   }
+
   function handleExerciseAdd(name, type, instructions) {
     const newExercise = {
       id: uuidv4(),
@@ -43,9 +44,17 @@ function App() {
       type,
       instructions,
     }
-    setExercises([...exercises, newExercise])
+    const filteredExercises = exercises.filter(
+      exercise => exercise.name === name
+    )
+    if (exercises.some(exercise => filteredExercises.includes(exercise))) {
+      return
+    }
+    const newExercises = [...exercises, newExercise]
+    setExercises(newExercises)
   }
 }
+
 export default App
 
 const AppGrid = styled.div`

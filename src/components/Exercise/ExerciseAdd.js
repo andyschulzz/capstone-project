@@ -7,10 +7,6 @@ import useForm from '../utils/hooks/useForm'
 
 export default function ExerciseAdd({ handleExerciseAdd }) {
   const inputEl = useRef(null)
-
-  const handleAdd = () => {
-    handleExerciseAdd(inputs.name, inputs.type, inputs.instructions)
-  }
   const { inputs, handleInputChange, handleSubmit } = useForm(handleAdd)
 
   return (
@@ -53,13 +49,16 @@ export default function ExerciseAdd({ handleExerciseAdd }) {
         type="text"
         name="instructions"
         id="instructions"
-        placeholder="Please exlpain the exercise!"
+        placeholder="Please explain the exercise!"
         value={inputs.instructions}
         onChange={handleInputChange}
         required
       />
     </ExerciseGrid>
   )
+  function handleAdd() {
+    handleExerciseAdd(inputs.name, inputs.type, inputs.instructions)
+  }
 }
 
 const ExerciseGrid = styled.form`

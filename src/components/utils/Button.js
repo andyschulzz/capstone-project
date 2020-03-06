@@ -17,4 +17,9 @@ export default styled.button`
     background-color: ${props => props.danger && 'hsl(0, 100%, 35%)'}
       ${props => props.primary && 'hsl(200, 100%, 35%)'};
   }
+
+  &:disabled {
+    background: ${props => props.danger && 'hsl(0, 100%, 35%)'}
+      ${props => props.primary && 'hsla(200, 100%, 50%, 0.2)'};
+  }
 `

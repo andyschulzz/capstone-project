@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useRef } from 'react'
 import Button from '../utils/Button'
 import BackButton from '../utils/BackButton'
 import { Styled } from './ExerciseAdd.styles'
@@ -10,23 +10,31 @@ ExerciseAdd.propTypes = {
 }
 
 export default function ExerciseAdd({ handleExerciseAdd }) {
+  const [disabled, setDisabled] = useState(false)
   const { register, handleSubmit, formState } = useForm({ mode: 'onChange' })
+  const mainRef = useRef(null)
 
   return (
     <section>
       <Styled.Wrapper onSubmit={handleSubmit(handleAdd)}>
         <Styled.ButtonWrapper>
           <BackButton />
-          <Button
-            primary
-            mla
-            disabled={
-              !formState.dirty || (formState.dirty && !formState.isValid)
-            }
-            type="submit"
-          >
-            save
-          </Button>
+          {(!disabled && (
+            <Button
+              danger
+              mla
+              disabled={
+                !formState.dirty || (formState.dirty && !formState.isValid)
+              }
+              type="submit"
+            >
+              Save
+            </Button>
+          )) || (
+            <Button primary mla onClick={() => handleAdd}>
+              Edit
+            </Button>
+          )}
         </Styled.ButtonWrapper>
         <Styled.Textarea
           ref={register({ required: true, minLength: 4 })}
@@ -37,9 +45,8 @@ export default function ExerciseAdd({ handleExerciseAdd }) {
           name="name"
           id="name"
           placeholder="Name of the exercise?"
-          // value={inputs.name}
-          // onChange={handleInputChange}
           required
+          disabled={disabled}
         />
         <Styled.Label htmlFor="type">Type</Styled.Label>
         <Styled.Textarea
@@ -49,9 +56,8 @@ export default function ExerciseAdd({ handleExerciseAdd }) {
           name="type"
           id="type"
           placeholder="Type of the exercise?"
-          // value={inputs.type}
-          // onChange={handleInputChange}
           required
+          disabled={disabled}
         />
         <Styled.Label htmlFor="instructions">Instructions</Styled.Label>
         <Styled.Textarea
@@ -60,31 +66,16 @@ export default function ExerciseAdd({ handleExerciseAdd }) {
           name="instructions"
           id="instructions"
           placeholder="Please explain the exercise!"
-          // value={inputs.instructions}
-          // onChange={handleInputChange}
           required
+          disabled={disabled}
         />
       </Styled.Wrapper>
     </section>
   )
   function handleAdd(data) {
-    console.log(data)
-    // handleExerciseAdd(name, type, instructions)
+    setDisabled(!disabled)
+    if (!disabled) {
+      handleExerciseAdd(data.name, data.type, data.instructions)
+    }
   }
-
-  // function validateInput() {
-  //   const name = inputs.name.trim()
-  //   const type = inputs.type.trim()
-  //   const instructions = inputs.instructions.trim()
-  //   name.length &&
-  //     typeof name === 'string' &&
-  //     name.length >= 4 &&
-  //     type.length &&
-  //     typeof type === 'string' &&
-  //     type.length >= 4 &&
-  //     instructions.length &&
-  //     typeof instructions === 'string' &&
-  //     instructions.length >= 4 &&
-  //     handleAdd(name, type, instructions)
-  // }
 }

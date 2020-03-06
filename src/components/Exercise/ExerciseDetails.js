@@ -1,6 +1,5 @@
 import React from 'react'
 import GoBack from '../utils/BackButton'
-import { Link } from 'react-router-dom'
 import { Styled } from './ExerciseDetails.styles'
 import PropTypes from 'prop-types'
 

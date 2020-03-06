@@ -33,12 +33,14 @@ function App() {
   }
 
   function handleExerciseAdd(name, type, instructions) {
+    console.log(name, 'trigger?')
     const newExercise = {
       id: uuidv4(),
       name,
       type,
       instructions,
     }
+    console.log(newExercise, 'newEx')
     const filteredExercises = exercises.filter(
       exercise => exercise.name === name
     )

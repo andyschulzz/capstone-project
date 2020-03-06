@@ -1,5 +1,4 @@
 import styled from 'styled-components/macro'
-import { Link } from 'react-router-dom'
 
 const Wrapper = styled.form`
   display: grid;
@@ -25,6 +24,7 @@ const Textarea = styled.textarea`
   font-weight: ${props => (props.isExerciseName ? 'bold' : 400)};
   background-color: #fff;
   color: #333;
+  overflow-y: ${props => (props.isTitle ? 'hidden' : 'auto')};
 `
 const Image = styled.img`
   width: 25px;

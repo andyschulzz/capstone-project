@@ -4,19 +4,15 @@ import BackButton from '../utils/BackButton'
 import { Styled } from './ExerciseAdd.styles'
 import PropTypes from 'prop-types'
 import { useForm } from 'react-hook-form'
-import { Link, useRouteMatch } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 ExerciseAdd.propTypes = {
   handleExerciseAdd: PropTypes.func.isRequired,
 }
 
-export default function ExerciseAdd({
-  handleExerciseAdd,
-  handleExerciseChange,
-}) {
+export default function ExerciseAdd({ handleExerciseAdd }) {
   const [disabled, setDisabled] = useState(false)
   const { register, handleSubmit, formState } = useForm({ mode: 'onChange' })
-  let { url } = useRouteMatch()
 
   return (
     <section>
@@ -35,13 +31,10 @@ export default function ExerciseAdd({
               Save
             </Button>
           )) || (
-            <Button primary mla onClick={() => handleAdd}>
-              Edit
+            <Button primary mla>
+              <Link to={`/exercises/edit`}>Edit</Link>
             </Button>
           )}
-          <Button primary>
-            <Link to={`/exercises/edit`}>Test</Link>
-          </Button>
         </Styled.ButtonWrapper>
         <Styled.Textarea
           ref={register({ required: true, minLength: 4 })}

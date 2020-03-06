@@ -3,7 +3,7 @@ import GoBack from '../utils/BackButton'
 import Button from '../utils/Button'
 import { Styled } from './ExerciseDetails.styles'
 import PropTypes from 'prop-types'
-import { Link, useRouteMatch } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 ExerciseDetails.propTypes = {
   selectedExercise: PropTypes.object,

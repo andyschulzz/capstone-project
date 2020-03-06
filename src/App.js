@@ -8,7 +8,6 @@ import styled from 'styled-components/macro'
 function App() {
   const [exercises, setExercises] = useState(exerciseData)
   const [selectedExerciseId, setSelectedExerciseId] = useState()
-  const [exerciseEdit, setExerciseEdit] = useState()
 
   const selectedExercise = exercises.find(
     exercise => exercise.id === selectedExerciseId
@@ -23,7 +22,6 @@ function App() {
             handleExerciseSelect={handleExerciseSelect}
             selectedExercise={selectedExercise}
             handleExerciseAdd={handleExerciseAdd}
-            exerciseEdit={exerciseEdit}
             handleExerciseChange={handleExerciseChange}
           />
         </Route>
@@ -58,7 +56,6 @@ function App() {
   function handleExerciseChange(id, exercise) {
     const newExercises = [...exercises]
     const index = newExercises.findIndex(e => e.id === selectedExerciseId)
-    console.log(index, 'correct exercise?')
     newExercises[index] = exercise
     setExercises(newExercises)
   }

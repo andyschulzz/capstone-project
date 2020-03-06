@@ -1,29 +1,36 @@
 import React from 'react'
-import styled from 'styled-components/macro'
 import Exercise from './Exercise'
+import Button from '../utils/Button'
+import { useRouteMatch, Link } from 'react-router-dom'
+import { Styled } from './ExerciseList.styles'
+import PropTypes from 'prop-types'
 
-export default function ExerciseList({ exerciseData, handleExerciseSelect }) {
-  return (
-    <ExerciseListStyled>
-      {exerciseData.map((exercise, index) => {
-        return (
-          <Exercise
-            key={exercise.id}
-            {...exercise}
-            index={index}
-            handleExerciseSelect={handleExerciseSelect}
-          />
-        )
-      })}
-    </ExerciseListStyled>
-  )
+ExerciseList.propTypes = {
+  exercises: PropTypes.array.isRequired,
+  handleExerciseSelect: PropTypes.func.isRequired,
 }
 
-const ExerciseListStyled = styled.section`
-  display: flex;
-  flex-direction: column;
-  margin: 30px 0 30px 30px;
-  gap: 15px;
-  overflow-y: auto;
-  scroll-behavior: smooth;
-`
+export default function ExerciseList({ exercises, handleExerciseSelect }) {
+  let { url } = useRouteMatch()
+  const renderExercises = exercises.map((exercise, index) => {
+    return (
+      <Exercise
+        key={exercise.id}
+        {...exercise}
+        index={index}
+        handleExerciseSelect={handleExerciseSelect}
+      />
+    )
+  })
+
+  return (
+    <section>
+      <Styled.ButtonWrapper>
+        <Button primary>
+          <Link to={`${url}/add`}>Add</Link>
+        </Button>
+      </Styled.ButtonWrapper>
+      <Styled.Wrapper>{renderExercises}</Styled.Wrapper>
+    </section>
+  )
+}

@@ -1,6 +1,15 @@
 import React from 'react'
-import styled from 'styled-components/macro'
-import { Link } from 'react-router-dom'
+import { Styled } from './Exercise.styles'
+import { useRouteMatch } from 'react-router-dom'
+import PropTypes from 'prop-types'
+
+Exercise.propTypes = {
+  name: PropTypes.string.isRequired,
+  type: PropTypes.string.isRequired,
+  handleExerciseSelect: PropTypes.func.isRequired,
+  id: PropTypes.string.isRequired,
+  index: PropTypes.number.isRequired,
+}
 
 export default function Exercise({
   name,
@@ -9,35 +18,14 @@ export default function Exercise({
   id,
   index,
 }) {
+  let { url } = useRouteMatch()
   return (
-    <ExerciseStyled
-      to={`/details/${index + 1}`}
+    <Styled.Exercise
+      to={`${url}/details/${index + 1}`}
       onClick={() => handleExerciseSelect(id)}
     >
-      <Name>{name}</Name>
-      <Type>{type}</Type>
-    </ExerciseStyled>
+      <Styled.Name>{name}</Styled.Name>
+      <Styled.Type>{type}</Styled.Type>
+    </Styled.Exercise>
   )
 }
-
-const ExerciseStyled = styled(Link)`
-  display: flex;
-  flex-direction: column;
-  text-decoration: none;
-  color: #333;
-
-  p:first-child {
-    margin-top: 0;
-  }
-`
-
-const Name = styled.p`
-  font-size: 1.1rem;
-  margin-bottom: 5px;
-  margin-top: 10px;
-`
-
-const Type = styled.p`
-  font-size: 0.8rem;
-  margin: 0;
-`

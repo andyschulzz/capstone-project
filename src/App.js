@@ -33,7 +33,6 @@ function App() {
   }
 
   function handleExerciseAdd(name, type, instructions) {
-    console.log(name, 'trigger?')
     const newExercise = {
       id: uuidv4(),
       name,

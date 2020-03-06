@@ -1,7 +1,6 @@
 import React, { useRef } from 'react'
-import pageBackIcon from '../icons/back.png'
-import { Link } from 'react-router-dom'
 import Button from '../utils/Button'
+import BackButton from '../utils/BackButton'
 import useForm from '../utils/hooks/useForm'
 import { Styled } from './ExerciseAdd.styles'
 import PropTypes from 'prop-types'
@@ -12,15 +11,13 @@ ExerciseAdd.propTypes = {
 
 export default function ExerciseAdd({ handleExerciseAdd }) {
   const inputEl = useRef(null)
-  const { inputs, handleInputChange, handleSubmit } = useForm(handleAdd)
+  const { inputs, handleInputChange, handleSubmit } = useForm(validateInput)
 
   return (
     <section>
       <Styled.Wrapper onSubmit={handleSubmit}>
         <Styled.ButtonWrapper>
-          <Link to="/">
-            <Styled.Image src={pageBackIcon} alt="" />
-          </Link>
+          <BackButton />
           <Button primary mla type="submit">
             save
           </Button>
@@ -62,7 +59,23 @@ export default function ExerciseAdd({ handleExerciseAdd }) {
       </Styled.Wrapper>
     </section>
   )
-  function handleAdd() {
-    handleExerciseAdd(inputs.name, inputs.type, inputs.instructions)
+  function handleAdd(name, type, instructions) {
+    handleExerciseAdd(name, type, instructions)
+  }
+
+  function validateInput() {
+    const name = inputs.name.trim()
+    const type = inputs.type.trim()
+    const instructions = inputs.instructions.trim()
+    name.length &&
+      typeof name === 'string' &&
+      name.length >= 4 &&
+      type.length &&
+      typeof type === 'string' &&
+      type.length >= 4 &&
+      instructions.length &&
+      typeof instructions === 'string' &&
+      instructions.length >= 4 &&
+      handleAdd(name, type, instructions)
   }
 }

@@ -1,5 +1,5 @@
 import React from 'react'
-import pageBackIcon from '../icons/back.png'
+import GoBack from '../utils/BackButton'
 import { Link } from 'react-router-dom'
 import { Styled } from './ExerciseDetails.styles'
 import PropTypes from 'prop-types'
@@ -12,9 +12,7 @@ export default function ExerciseDetails({ selectedExercise = {} }) {
   return (
     <Styled.Wrapper>
       <Styled.ButtonWrapper>
-        <Link to="/">
-          <Styled.Image src={pageBackIcon} alt="" />
-        </Link>
+        <GoBack />
       </Styled.ButtonWrapper>
       <div>
         <Styled.Textarea

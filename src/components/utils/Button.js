@@ -22,4 +22,9 @@ export default styled.button`
     background: ${props => props.danger && 'hsla(0, 100%, 50%, 0.2)'}
       ${props => props.primary && 'hsla(200, 100%, 50%, 0.2)'};
   }
+
+  a {
+    text-decoration: none;
+    color: white;
+  }
 `

@@ -8,6 +8,7 @@ import styled from 'styled-components/macro'
 function App() {
   const [exercises, setExercises] = useState(exerciseData)
   const [selectedExerciseId, setSelectedExerciseId] = useState()
+  const [exerciseEdit, setExerciseEdit] = useState()
 
   const selectedExercise = exercises.find(
     exercise => exercise.id === selectedExerciseId
@@ -22,6 +23,8 @@ function App() {
             handleExerciseSelect={handleExerciseSelect}
             selectedExercise={selectedExercise}
             handleExerciseAdd={handleExerciseAdd}
+            exerciseEdit={exerciseEdit}
+            handleExerciseChange={handleExerciseChange}
           />
         </Route>
       </Switch>
@@ -40,14 +43,23 @@ function App() {
       type,
       instructions,
     }
-    console.log(newExercise, 'newEx')
     const filteredExercises = exercises.filter(
       exercise => exercise.name === name
     )
+    console.log(filteredExercises, 'filter')
     if (exercises.some(exercise => filteredExercises.includes(exercise))) {
       return
     }
     const newExercises = [...exercises, newExercise]
+    setSelectedExerciseId(newExercise.id)
+    setExercises(newExercises)
+  }
+
+  function handleExerciseChange(id, exercise) {
+    const newExercises = [...exercises]
+    const index = newExercises.findIndex(e => e.id === selectedExerciseId)
+    console.log(index, 'correct exercise?')
+    newExercises[index] = exercise
     setExercises(newExercises)
   }
 }

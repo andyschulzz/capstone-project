@@ -1,47 +1,42 @@
 import React, { useState } from 'react'
 import Button from '../utils/Button'
 import BackButton from '../utils/BackButton'
-import { Styled } from './ExerciseAdd.styles'
+import { Styled } from './ExerciseEdit.styles'
 import PropTypes from 'prop-types'
 import { useForm } from 'react-hook-form'
-import { Link, useRouteMatch } from 'react-router-dom'
 
 ExerciseAdd.propTypes = {
-  handleExerciseAdd: PropTypes.func.isRequired,
+  handleExerciseChange: PropTypes.func.isRequired,
 }
 
 export default function ExerciseAdd({
-  handleExerciseAdd,
   handleExerciseChange,
+  selectedExercise = {},
 }) {
   const [disabled, setDisabled] = useState(false)
-  const { register, handleSubmit, formState } = useForm({ mode: 'onChange' })
-  let { url } = useRouteMatch()
+  const { register, handleSubmit, formState } = useForm({
+    mode: 'onChange',
+    defaultValues: {
+      name: selectedExercise.name,
+      type: selectedExercise.type,
+      instructions: selectedExercise.instructions,
+    },
+  })
 
   return (
     <section>
-      <Styled.Wrapper onSubmit={handleSubmit(handleAdd)}>
+      <Styled.Wrapper onSubmit={handleSubmit(handleChange)}>
         <Styled.ButtonWrapper>
           <BackButton />
           {(!disabled && (
-            <Button
-              danger
-              mla
-              disabled={
-                !formState.dirty || (formState.dirty && !formState.isValid)
-              }
-              type="submit"
-            >
+            <Button danger mla disabled={!formState.isValid} type="submit">
               Save
             </Button>
           )) || (
-            <Button primary mla onClick={() => handleAdd}>
+            <Button primary mla onClick={() => handleChange}>
               Edit
             </Button>
           )}
-          <Button primary>
-            <Link to={`/exercises/edit`}>Test</Link>
-          </Button>
         </Styled.ButtonWrapper>
         <Styled.Textarea
           ref={register({ required: true, minLength: 4 })}
@@ -51,7 +46,6 @@ export default function ExerciseAdd({
           type="text"
           name="name"
           id="name"
-          placeholder="Name of the exercise?"
           required
           disabled={disabled}
         />
@@ -62,7 +56,6 @@ export default function ExerciseAdd({
           type="text"
           name="type"
           id="type"
-          placeholder="Type of the exercise?"
           required
           disabled={disabled}
         />
@@ -72,17 +65,20 @@ export default function ExerciseAdd({
           type="text"
           name="instructions"
           id="instructions"
-          placeholder="Please explain the exercise!"
           required
           disabled={disabled}
         />
       </Styled.Wrapper>
     </section>
   )
-  function handleAdd(data) {
+
+  function handleChange(data) {
     setDisabled(!disabled)
     if (!disabled) {
-      handleExerciseAdd(data.name, data.type, data.instructions)
+      handleExerciseChange(selectedExercise.id, {
+        ...selectedExercise,
+        ...data,
+      })
     }
   }
 }

@@ -2,8 +2,13 @@ import React from 'react'
 import pageBackIcon from '../icons/back.png'
 import { Link } from 'react-router-dom'
 import { Styled } from './ExerciseDetails.styles'
+import PropTypes from 'prop-types'
 
-export default function ExerciseDetails({ selectedExercise = '' }) {
+ExerciseDetails.propTypes = {
+  selectedExercise: PropTypes.object,
+}
+
+export default function ExerciseDetails({ selectedExercise = {} }) {
   return (
     <Styled.Wrapper>
       <Styled.ButtonWrapper>

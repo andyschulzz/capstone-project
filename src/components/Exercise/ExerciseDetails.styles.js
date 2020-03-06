@@ -1,6 +1,6 @@
 import styled from 'styled-components/macro'
 
-const Wrapper = styled.section`
+const Wrapper = styled.form`
   display: grid;
   max-height: 100%;
   overflow-y: auto;

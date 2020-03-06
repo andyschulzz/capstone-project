@@ -4,6 +4,11 @@ import { Link } from 'react-router-dom'
 import Button from '../utils/Button'
 import useForm from '../utils/hooks/useForm'
 import { Styled } from './ExerciseAdd.styles'
+import PropTypes from 'prop-types'
+
+ExerciseAdd.propTypes = {
+  handleExerciseAdd: PropTypes.func.isRequired,
+}
 
 export default function ExerciseAdd({ handleExerciseAdd }) {
   const inputEl = useRef(null)

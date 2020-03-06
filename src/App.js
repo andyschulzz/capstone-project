@@ -1,7 +1,5 @@
 import React, { useState } from 'react'
 import Exercises from './components/pages/Exercises'
-import ExerciseDetails from './components/Exercise/ExerciseDetails'
-import ExerciseAdd from './components/Exercise/ExerciseAdd'
 import { exerciseData } from './components/data/exercises'
 import { Route, Switch, Redirect } from 'react-router-dom'
 import { v4 as uuidv4 } from 'uuid'
@@ -35,6 +33,7 @@ function App() {
   }
 
   function handleExerciseAdd(name, type, instructions) {
+    console.log(name, 'trigger?')
     const newExercise = {
       id: uuidv4(),
       name,

@@ -1,6 +1,15 @@
 import React from 'react'
 import { Styled } from './Exercise.styles'
 import { useRouteMatch } from 'react-router-dom'
+import PropTypes from 'prop-types'
+
+Exercise.propTypes = {
+  name: PropTypes.string.isRequired,
+  type: PropTypes.string.isRequired,
+  handleExerciseSelect: PropTypes.func.isRequired,
+  id: PropTypes.string.isRequired,
+  index: PropTypes.number.isRequired,
+}
 
 export default function Exercise({
   name,

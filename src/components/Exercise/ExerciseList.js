@@ -3,6 +3,12 @@ import Exercise from './Exercise'
 import Button from '../utils/Button'
 import { useRouteMatch, Link } from 'react-router-dom'
 import { Styled } from './ExerciseList.styles'
+import PropTypes from 'prop-types'
+
+ExerciseList.propTypes = {
+  exercises: PropTypes.array.isRequired,
+  handleExerciseSelect: PropTypes.func.isRequired,
+}
 
 export default function ExerciseList({ exercises, handleExerciseSelect }) {
   let { url } = useRouteMatch()

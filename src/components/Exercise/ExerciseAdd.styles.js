@@ -1,7 +1,6 @@
 import styled from 'styled-components/macro'
-import { Link } from 'react-router-dom'
 
-const Wrapper = styled.section`
+const Wrapper = styled.form`
   display: grid;
   max-height: 100%;
   overflow-y: auto;

@@ -10,6 +10,7 @@ export default styled.button`
   font-size: 1rem;
   cursor: pointer;
   color: white;
+  text-decoration: none;
   background-color: ${props => props.danger && 'hsl(0, 100%, 50%)'}
     ${props => props.primary && 'hsl(200, 100%, 50%)'};
 

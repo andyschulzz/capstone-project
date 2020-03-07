@@ -1,51 +1,30 @@
 import React from 'react'
-import GoBack from '../utils/BackButton'
-import Button from '../utils/Button'
-import { Styled } from './ExerciseDetails.styles'
+import ButtonBackToHome from '../common/ButtonBackToHome'
+import ExerciseButtonEdit from './ExerciseButtonEdit'
+import ExerciseText from './ExerciseText'
+import * as S from './Exercise.styles'
 import PropTypes from 'prop-types'
-import { Link } from 'react-router-dom'
+import { useForm } from 'react-hook-form'
 
 ExerciseDetails.propTypes = {
   selectedExercise: PropTypes.object,
 }
 
-export default function ExerciseDetails({ selectedExercise = {} }) {
+export default function ExerciseDetails({ selectedExercise = '' }) {
+  const { register } = useForm({
+    defaultValues: {
+      name: selectedExercise.name,
+      type: selectedExercise.type,
+      instructions: selectedExercise.instructions,
+    },
+  })
   return (
-    <Styled.Wrapper>
-      <Styled.ButtonWrapper>
-        <GoBack />
-        <Button primary mla>
-          <Link to={`/exercises/edit`}>Edit</Link>
-        </Button>
-      </Styled.ButtonWrapper>
-
-      <Styled.Textarea
-        isTitle
-        isExerciseName
-        disabled
-        value={selectedExercise.name}
-        type="text"
-        name="name"
-        id="name"
-      />
-      <Styled.Label htmlFor="type">Type</Styled.Label>
-      <Styled.Textarea
-        isTitle
-        type="text"
-        name="type"
-        id="type"
-        placeholder="Type of the exercise?"
-        value={selectedExercise.type}
-        disabled
-      />
-      <Styled.Label htmlFor="instructions">Instructions</Styled.Label>
-      <Styled.Textarea
-        disabled
-        type="text"
-        name="instructions"
-        id="instructions"
-        value={selectedExercise.instructions}
-      />
-    </Styled.Wrapper>
+    <S.Wrapper>
+      <S.ButtonWrapper>
+        <ButtonBackToHome />
+        <ExerciseButtonEdit />
+      </S.ButtonWrapper>
+      <ExerciseText register={register} selectedExercise={selectedExercise} />
+    </S.Wrapper>
   )
 }

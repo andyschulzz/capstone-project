@@ -17,7 +17,5 @@ const Wrapper = styled.div`
   overflow-y: auto;
   scroll-behavior: smooth;
 `
-export const Styled = {
-  ButtonWrapper,
-  Wrapper,
-}
+
+export { ButtonWrapper, Wrapper }

@@ -2,6 +2,7 @@ import React from 'react'
 import ExerciseList from '../Exercise/ExerciseList'
 import ExerciseAdd from '../Exercise/ExerciseAdd'
 import ExerciseDetails from '../Exercise/ExerciseDetails'
+import ExerciseEdit from '../Exercise/ExerciseEdit'
 import { Switch, Route, useRouteMatch } from 'react-router-dom'
 import PageLayout from './PageLayout'
 
@@ -9,10 +10,10 @@ export default function Exercises({
   exercises,
   handleExerciseSelect,
   handleExerciseAdd,
+  handleExerciseChange,
   selectedExercise,
 }) {
   let { path } = useRouteMatch()
-  console.log(path, 'path?')
   return (
     <PageLayout title="Exercises">
       <Switch>
@@ -26,7 +27,16 @@ export default function Exercises({
           <ExerciseDetails selectedExercise={selectedExercise} />
         </Route>
         <Route path={`${path}/add`}>
-          <ExerciseAdd handleExerciseAdd={handleExerciseAdd} />
+          <ExerciseAdd
+            handleExerciseAdd={handleExerciseAdd}
+            handleExerciseChange={handleExerciseChange}
+          />
+        </Route>
+        <Route path={`${path}/edit`}>
+          <ExerciseEdit
+            selectedExercise={selectedExercise}
+            handleExerciseChange={handleExerciseChange}
+          />
         </Route>
       </Switch>
     </PageLayout>

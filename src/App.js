@@ -22,6 +22,7 @@ function App() {
             handleExerciseSelect={handleExerciseSelect}
             selectedExercise={selectedExercise}
             handleExerciseAdd={handleExerciseAdd}
+            handleExerciseChange={handleExerciseChange}
           />
         </Route>
       </Switch>
@@ -33,6 +34,7 @@ function App() {
   }
 
   function handleExerciseAdd(name, type, instructions) {
+    console.log(name, 'trigger?')
     const newExercise = {
       id: uuidv4(),
       name,
@@ -42,10 +44,19 @@ function App() {
     const filteredExercises = exercises.filter(
       exercise => exercise.name === name
     )
+    console.log(filteredExercises, 'filter')
     if (exercises.some(exercise => filteredExercises.includes(exercise))) {
       return
     }
     const newExercises = [...exercises, newExercise]
+    setSelectedExerciseId(newExercise.id)
+    setExercises(newExercises)
+  }
+
+  function handleExerciseChange(id, exercise) {
+    const newExercises = [...exercises]
+    const index = newExercises.findIndex(e => e.id === selectedExerciseId)
+    newExercises[index] = exercise
     setExercises(newExercises)
   }
 }

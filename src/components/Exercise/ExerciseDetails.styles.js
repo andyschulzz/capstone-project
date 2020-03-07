@@ -24,6 +24,7 @@ const Textarea = styled.textarea`
   font-weight: ${props => (props.isExerciseName ? 'bold' : 400)};
   background-color: #fff;
   color: #333;
+  overflow-y: ${props => (props.isTitle ? 'hidden' : 'auto')};
 `
 const Image = styled.img`
   width: 25px;

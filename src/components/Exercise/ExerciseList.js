@@ -1,8 +1,8 @@
 import React from 'react'
 import Exercise from './Exercise'
-import Button from '../utils/Button'
+import Button from '../common/Button'
 import { useRouteMatch, Link } from 'react-router-dom'
-import { Styled } from './ExerciseList.styles'
+import * as S from './ExerciseList.styles'
 import PropTypes from 'prop-types'
 
 ExerciseList.propTypes = {
@@ -25,12 +25,12 @@ export default function ExerciseList({ exercises, handleExerciseSelect }) {
 
   return (
     <section>
-      <Styled.ButtonWrapper>
+      <S.ButtonWrapper>
         <Button primary>
           <Link to={`${url}/add`}>Add</Link>
         </Button>
-      </Styled.ButtonWrapper>
-      <Styled.Wrapper>{renderExercises}</Styled.Wrapper>
+      </S.ButtonWrapper>
+      <S.Wrapper>{renderExercises}</S.Wrapper>
     </section>
   )
 }

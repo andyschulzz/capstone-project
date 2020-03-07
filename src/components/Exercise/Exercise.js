@@ -1,5 +1,5 @@
 import React from 'react'
-import { Styled } from './Exercise.styles'
+import * as S from './Exercise.styles'
 import { useRouteMatch } from 'react-router-dom'
 import PropTypes from 'prop-types'
 
@@ -20,12 +20,12 @@ export default function Exercise({
 }) {
   let { url } = useRouteMatch()
   return (
-    <Styled.Exercise
+    <S.Exercise
       to={`${url}/details/${index + 1}`}
       onClick={() => handleExerciseSelect(id)}
     >
-      <Styled.Name>{name}</Styled.Name>
-      <Styled.Type>{type}</Styled.Type>
-    </Styled.Exercise>
+      <S.Name>{name}</S.Name>
+      <S.Type>{type}</S.Type>
+    </S.Exercise>
   )
 }

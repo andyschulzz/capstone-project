@@ -35,7 +35,7 @@ const Header = styled.header`
 
 const Wrapper = styled.div`
   text-transform: uppercase;
-  font-weigth: 300;
+  font-weight: 300;
   letter-spacing: 0.1em;
   color: #efefef;
   margin-right: 20px;

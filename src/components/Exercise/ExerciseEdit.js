@@ -1,12 +1,15 @@
-import React, { useState } from 'react'
-import Button from '../utils/Button'
-import BackButton from '../utils/BackButton'
-import { Styled } from './ExerciseEdit.styles'
 import PropTypes from 'prop-types'
+import React, { useState } from 'react'
 import { useForm } from 'react-hook-form'
+import ButtonBackToHome from '../common/ButtonBackToHome'
+import Button from '../common/Button'
+import * as S from './Exercise.styles'
+import ExerciseButtonSave from './ExerciseButtonSave'
+import ExerciseText from './ExerciseText'
 
 ExerciseAdd.propTypes = {
   handleExerciseChange: PropTypes.func.isRequired,
+  selectedExercise: PropTypes.object,
 }
 
 export default function ExerciseAdd({
@@ -25,50 +28,21 @@ export default function ExerciseAdd({
 
   return (
     <section>
-      <Styled.Wrapper onSubmit={handleSubmit(handleChange)}>
-        <Styled.ButtonWrapper>
-          <BackButton />
-          {(!disabled && (
-            <Button danger mla disabled={!formState.isValid} type="submit">
-              Save
-            </Button>
-          )) || (
+      <S.Wrapper onSubmit={handleSubmit(handleChange)}>
+        <S.ButtonWrapper>
+          <ButtonBackToHome />
+          {(!disabled && <ExerciseButtonSave formState={formState} />) || (
             <Button primary mla onClick={() => handleChange}>
               Edit
             </Button>
           )}
-        </Styled.ButtonWrapper>
-        <Styled.Textarea
-          ref={register({ required: true, minLength: 4 })}
-          autoFocus
-          isTitle
-          isExerciseName
-          type="text"
-          name="name"
-          id="name"
-          required
+        </S.ButtonWrapper>
+        <ExerciseText
+          register={register}
+          selectedExercise={selectedExercise}
           disabled={disabled}
         />
-        <Styled.Label htmlFor="type">Type</Styled.Label>
-        <Styled.Textarea
-          ref={register({ required: true, minLength: 4 })}
-          isTitle
-          type="text"
-          name="type"
-          id="type"
-          required
-          disabled={disabled}
-        />
-        <Styled.Label htmlFor="instructions">Instructions</Styled.Label>
-        <Styled.Textarea
-          ref={register({ required: true, minLength: 4 })}
-          type="text"
-          name="instructions"
-          id="instructions"
-          required
-          disabled={disabled}
-        />
-      </Styled.Wrapper>
+      </S.Wrapper>
     </section>
   )
 

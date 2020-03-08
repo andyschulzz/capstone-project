@@ -33,9 +33,9 @@ const Text = styled.p`
 `
 
 const Image = styled.img`
-  width: 42px;
-  height: 42px;
-  margin-right: 30px;
+  width: ${props => (props.isPlaceholder ? 32 : 46)}px;
+  height: ${props => (props.isPlaceholder ? 32 : 46)}px;
+  margin-right: ${props => (props.isPlaceholder ? 44 : 30)}px;
 `
 
 export { Exercise, Text, Wrapper, Image }

@@ -2,6 +2,7 @@ import React from 'react'
 import * as S from './Exercise.styles'
 import { useRouteMatch } from 'react-router-dom'
 import PropTypes from 'prop-types'
+import placeholder from '../icons/placeholder.png'
 
 Exercise.propTypes = {
   name: PropTypes.string.isRequired,
@@ -25,7 +26,11 @@ export default function Exercise({
       to={`${url}/details/${index + 1}`}
       onClick={() => handleExerciseSelect(id)}
     >
-      <S.Image src={image} alt="" />
+      {image ? (
+        <S.Image src={image} alt="" />
+      ) : (
+        <S.Image isPlaceholder src={placeholder} alt="" />
+      )}
       <S.Wrapper>
         <S.Text isName>{name}</S.Text>
         <S.Text isType>{type}</S.Text>

@@ -10,6 +10,10 @@ const Wrapper = styled.section`
   gap: 36px;
   overflow-y: auto;
   scroll-behavior: smooth;
+
+  & span:first-child {
+    margin-top: 5px;
+  }
 `
 const Heading = styled.span`
   font-size: 0.8rem;

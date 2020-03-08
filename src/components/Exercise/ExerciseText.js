@@ -1,5 +1,5 @@
 import React from 'react'
-import * as S from './Exercise.styles'
+import * as S from './ExerciseForm.styles'
 
 export default function ExerciseText({ disabled = true, register }) {
   return (

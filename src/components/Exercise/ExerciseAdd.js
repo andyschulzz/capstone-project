@@ -3,7 +3,7 @@ import ExerciseText from './ExerciseText'
 import ButtonBackToHome from '../common/ButtonBackToHome'
 import ExerciseButtonEdit from './ExerciseButtonEdit'
 import ExerciseButtonSave from './ExerciseButtonSave'
-import * as S from './Exercise.styles'
+import * as S from './ExerciseForm.styles'
 import PropTypes from 'prop-types'
 import { useForm } from 'react-hook-form'
 

@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import ButtonBackToHome from '../common/ButtonBackToHome'
 import Button from '../common/Button'
-import * as S from './Exercise.styles'
+import * as S from './ExerciseForm.styles'
 import ExerciseButtonSave from './ExerciseButtonSave'
 import ExerciseText from './ExerciseText'
 

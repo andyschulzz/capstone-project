@@ -17,6 +17,7 @@ export default function Exercise({
   handleExerciseSelect,
   id,
   index,
+  image,
 }) {
   const { url } = useRouteMatch()
   return (
@@ -24,8 +25,11 @@ export default function Exercise({
       to={`${url}/details/${index + 1}`}
       onClick={() => handleExerciseSelect(id)}
     >
-      <S.Text isName>{name}</S.Text>
-      <S.Text>{type}</S.Text>
+      <S.Image src={image} alt="" />
+      <S.Wrapper>
+        <S.Text isName>{name}</S.Text>
+        <S.Text isType>{type}</S.Text>
+      </S.Wrapper>
     </S.Exercise>
   )
 }

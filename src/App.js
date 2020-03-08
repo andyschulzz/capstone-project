@@ -66,6 +66,7 @@ export default App
 const AppGrid = styled.div`
   display: grid;
   grid-template-rows: auto 48px;
+  position: fixed;
   width: 100%;
   height: 100%;
 `

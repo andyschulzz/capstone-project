@@ -2,7 +2,7 @@ import React from 'react'
 import ButtonBackToHome from '../common/ButtonBackToHome'
 import ExerciseButtonEdit from './ExerciseButtonEdit'
 import ExerciseText from './ExerciseText'
-import * as S from './Exercise.styles'
+import * as S from './ExerciseForm.styles'
 import PropTypes from 'prop-types'
 import { useForm } from 'react-hook-form'
 
@@ -19,12 +19,14 @@ export default function ExerciseDetails({ selectedExercise = '' }) {
     },
   })
   return (
-    <S.Wrapper>
+    <>
       <S.ButtonWrapper>
         <ButtonBackToHome />
         <ExerciseButtonEdit />
       </S.ButtonWrapper>
-      <ExerciseText register={register} selectedExercise={selectedExercise} />
-    </S.Wrapper>
+      <S.Wrapper>
+        <ExerciseText register={register} selectedExercise={selectedExercise} />
+      </S.Wrapper>
+    </>
   )
 }

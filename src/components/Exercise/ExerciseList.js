@@ -11,26 +11,70 @@ ExerciseList.propTypes = {
 }
 
 export default function ExerciseList({ exercises, handleExerciseSelect }) {
-  let { url } = useRouteMatch()
-  const renderExercises = exercises.map((exercise, index) => {
-    return (
-      <Exercise
-        key={exercise.id}
-        {...exercise}
-        index={index}
-        handleExerciseSelect={handleExerciseSelect}
-      />
-    )
-  })
+  const { url } = useRouteMatch()
+
+  function filterExercises(letter) {
+    const filter = exercises
+      .filter(exercise => String(exercise.name).startsWith(letter))
+      .map((exercise, index) => {
+        return (
+          <Exercise
+            key={exercise.id}
+            {...exercise}
+            index={index}
+            handleExerciseSelect={handleExerciseSelect}
+          />
+        )
+      })
+    return filter
+  }
+
+  const letters = [
+    'A',
+    'B',
+    'C',
+    'D',
+    'E',
+    'F',
+    'G',
+    'H',
+    'I',
+    'J',
+    'K',
+    'L',
+    'M',
+    'N',
+    'O',
+    'P',
+    'Q',
+    'R',
+    'S',
+    'T',
+    'U',
+    'V',
+    'W',
+    'X',
+    'Y',
+    'Z',
+  ]
+
+  const renderExercises = letters.reduce((acc, letter) => {
+    const letterExercises = filterExercises(letter)
+    if (letterExercises.length !== 0) {
+      acc.push(<S.Heading key={letter}>{letter}</S.Heading>)
+      letterExercises.forEach(lc => acc.push(lc))
+    }
+    return acc
+  }, [])
 
   return (
-    <section>
+    <>
       <S.ButtonWrapper>
-        <Button primary>
-          <Link to={`${url}/add`}>Add</Link>
+        <Button as={Link} to={`${url}/add`} primary="true">
+          Add
         </Button>
       </S.ButtonWrapper>
       <S.Wrapper>{renderExercises}</S.Wrapper>
-    </section>
+    </>
   )
 }

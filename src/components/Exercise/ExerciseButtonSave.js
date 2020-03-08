@@ -1,10 +1,16 @@
 import React from 'react'
 import Button from '../common/Button'
 
-export default function ExerciseSaveButton({ formState }) {
+export default function ExerciseSaveButton({ formState, form }) {
   return (
     <>
-      <Button danger mla disabled={!formState.isValid} type="submit">
+      <Button
+        danger
+        mla
+        disabled={!formState.isValid}
+        type="submit"
+        form={form}
+      >
         Save
       </Button>
     </>

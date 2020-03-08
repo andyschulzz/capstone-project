@@ -33,8 +33,7 @@ const Image = styled.img`
 `
 const ButtonWrapper = styled.div`
   display: flex;
-  margin-bottom: 25px;
-  top: 0;
+  padding: 30px;
 `
 
 const Exercise = styled(Link)`
@@ -48,15 +47,11 @@ const Exercise = styled(Link)`
   }
 `
 
-const Name = styled.p`
-  font-size: 1.1rem;
-  margin-bottom: 5px;
-  margin-top: 10px;
+const Text = styled.p`
+  font-size: ${props => (props.isName ? 1.1 : 0.8)}rem;
+  margin-bottom: ${props => (props.isName ? '5px' : '')};
+  margin-top: ${props => (props.isName ? '10px' : '')};
+  margin: ${props => (props.isName ? '10 0 5 0px' : 0)};
 `
 
-const Type = styled.p`
-  font-size: 0.8rem;
-  margin: 0;
-`
-
-export { Wrapper, Textarea, Image, ButtonWrapper, Label, Exercise, Name, Type }
+export { Wrapper, Textarea, Image, ButtonWrapper, Label, Exercise, Text }

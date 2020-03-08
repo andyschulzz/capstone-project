@@ -16,17 +16,17 @@ export default function ExerciseAdd({ handleExerciseAdd }) {
   const { register, handleSubmit, formState } = useForm({ mode: 'onChange' })
 
   return (
-    <section>
-      <S.Wrapper onSubmit={handleSubmit(handleAdd)}>
-        <S.ButtonWrapper>
-          <ButtonBackToHome />
-          {(!disabled && <ExerciseButtonSave formState={formState} />) || (
-            <ExerciseButtonEdit />
-          )}
-        </S.ButtonWrapper>
+    <>
+      <S.ButtonWrapper>
+        <ButtonBackToHome />
+        {(!disabled && (
+          <ExerciseButtonSave formState={formState} form={'add'} />
+        )) || <ExerciseButtonEdit />}
+      </S.ButtonWrapper>
+      <S.Wrapper id="add" onSubmit={handleSubmit(handleAdd)}>
         <ExerciseText register={register} disabled={disabled} />
       </S.Wrapper>
-    </section>
+    </>
   )
   function handleAdd(data) {
     Object.keys(data).map(key => (data[key] = data[key].trim()))

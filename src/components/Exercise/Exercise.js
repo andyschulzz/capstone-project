@@ -18,14 +18,14 @@ export default function Exercise({
   id,
   index,
 }) {
-  let { url } = useRouteMatch()
+  const { url } = useRouteMatch()
   return (
     <S.Exercise
       to={`${url}/details/${index + 1}`}
       onClick={() => handleExerciseSelect(id)}
     >
-      <S.Name>{name}</S.Name>
-      <S.Type>{type}</S.Type>
+      <S.Text isName>{name}</S.Text>
+      <S.Text>{type}</S.Text>
     </S.Exercise>
   )
 }

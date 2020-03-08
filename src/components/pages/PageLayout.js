@@ -16,8 +16,6 @@ const PageStyled = styled.main`
   display: grid;
   grid-template-rows: 48px auto;
   overflow: auto;
-  position: sticky;
-  top: 0;
 `
 const Header = styled.header`
   display: flex;

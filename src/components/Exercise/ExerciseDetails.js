@@ -19,12 +19,14 @@ export default function ExerciseDetails({ selectedExercise = '' }) {
     },
   })
   return (
-    <S.Wrapper>
+    <>
       <S.ButtonWrapper>
         <ButtonBackToHome />
         <ExerciseButtonEdit />
       </S.ButtonWrapper>
-      <ExerciseText register={register} selectedExercise={selectedExercise} />
-    </S.Wrapper>
+      <S.Wrapper>
+        <ExerciseText register={register} selectedExercise={selectedExercise} />
+      </S.Wrapper>
+    </>
   )
 }

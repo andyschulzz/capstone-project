@@ -1,11 +1,7 @@
 import React from 'react'
 import * as S from './Exercise.styles'
 
-export default function ExerciseText({
-  disabled = true,
-  selectedExercise = '',
-  register,
-}) {
+export default function ExerciseText({ disabled = true, register }) {
   return (
     <>
       <S.Textarea

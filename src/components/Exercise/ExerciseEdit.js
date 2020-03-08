@@ -27,23 +27,25 @@ export default function ExerciseAdd({
   })
 
   return (
-    <section>
-      <S.Wrapper onSubmit={handleSubmit(handleChange)}>
-        <S.ButtonWrapper>
-          <ButtonBackToHome />
-          {(!disabled && <ExerciseButtonSave formState={formState} />) || (
-            <Button primary mla onClick={() => handleChange}>
-              Edit
-            </Button>
-          )}
-        </S.ButtonWrapper>
+    <>
+      <S.ButtonWrapper>
+        <ButtonBackToHome />
+        {(!disabled && (
+          <ExerciseButtonSave formState={formState} form={'edit'} />
+        )) || (
+          <Button form="edit" primary mla onClick={() => handleChange}>
+            Edit
+          </Button>
+        )}
+      </S.ButtonWrapper>
+      <S.Wrapper id="edit" onSubmit={handleSubmit(handleChange)}>
         <ExerciseText
           register={register}
           selectedExercise={selectedExercise}
           disabled={disabled}
         />
       </S.Wrapper>
-    </section>
+    </>
   )
 
   function handleChange(data) {

@@ -11,7 +11,7 @@ ExerciseList.propTypes = {
 }
 
 export default function ExerciseList({ exercises, handleExerciseSelect }) {
-  let { url } = useRouteMatch()
+  const { url } = useRouteMatch()
   const renderExercises = exercises.map((exercise, index) => {
     return (
       <Exercise
@@ -24,13 +24,13 @@ export default function ExerciseList({ exercises, handleExerciseSelect }) {
   })
 
   return (
-    <section>
+    <>
       <S.ButtonWrapper>
-        <Button primary>
-          <Link to={`${url}/add`}>Add</Link>
+        <Button as={Link} to={`${url}/add`} primary="true">
+          Add
         </Button>
       </S.ButtonWrapper>
       <S.Wrapper>{renderExercises}</S.Wrapper>
-    </section>
+    </>
   )
 }

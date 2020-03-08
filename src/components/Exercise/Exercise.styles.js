@@ -7,12 +7,21 @@ const Wrapper = styled.form`
   overflow-y: auto;
   gap: 10px;
   padding: 30px;
+
+  img {
+    width: 130px;
+    height: 130px;
+    position: absolute;
+    right: 48px;
+    top: 200px;
+  }
 `
 
 const Label = styled.label`
   font-weight: bold;
   font-size: 1.1rem;
 `
+
 const Textarea = styled.textarea`
   border: none;
   outline: none;
@@ -27,10 +36,12 @@ const Textarea = styled.textarea`
   color: #333;
   overflow-y: ${props => (props.isTitle ? 'hidden' : 'auto')};
 `
+
 const Image = styled.img`
   width: 25px;
   height: 25px;
 `
+
 const ButtonWrapper = styled.div`
   display: flex;
   padding: 30px;

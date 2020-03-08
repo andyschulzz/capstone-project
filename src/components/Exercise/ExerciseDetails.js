@@ -25,6 +25,7 @@ export default function ExerciseDetails({ selectedExercise = '' }) {
         <ExerciseButtonEdit />
       </S.ButtonWrapper>
       <S.Wrapper>
+        {selectedExercise.image && <img alt="" src={selectedExercise.image} />}
         <ExerciseText register={register} selectedExercise={selectedExercise} />
       </S.Wrapper>
     </>

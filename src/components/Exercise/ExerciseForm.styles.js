@@ -6,13 +6,14 @@ const Wrapper = styled.form`
   overflow-y: auto;
   gap: 10px;
   padding: 30px;
+  position: relative;
 
   img {
     width: 130px;
     height: 130px;
     position: absolute;
     right: 48px;
-    top: 200px;
+    top: 64px;
   }
 `
 

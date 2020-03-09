@@ -1,19 +1,21 @@
 import React from 'react'
-import { action } from '@storybook/addon-actions'
 import Exercise from './Exercise'
-import { BrowserRouter } from 'react-router-dom'
-import GlobalStyles from '../utils/GlobalStyles'
+import placeholder from '../icons/placeholder.png'
 
 export default {
-  title: 'Exercise',
+  title: 'Exercise/Exercise',
   component: Exercise,
+  decorators: [
+    renderComponent => (
+      <div style={{ padding: 20, width: 400 }}>{renderComponent()}</div>
+    ),
+  ],
 }
 
 export const Default = () => {
   return (
-    <BrowserRouter>
-      <GlobalStyles />
-      <Exercise name="Ab Wheel" type="Core" />
-    </BrowserRouter>
+    <>
+      <Exercise name="Ab Wheel" type="Core" image={placeholder} />
+    </>
   )
 }

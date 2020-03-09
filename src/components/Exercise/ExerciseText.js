@@ -1,11 +1,7 @@
 import React from 'react'
 import * as S from './ExerciseForm.styles'
 
-export default function ExerciseText({
-  disabled = true,
-  register,
-  selectedExercise = '',
-}) {
+export default function ExerciseText({ disabled = true, register, image }) {
   return (
     <>
       <S.Textarea
@@ -20,7 +16,7 @@ export default function ExerciseText({
         required
         disabled={disabled}
       />
-      {selectedExercise.image && <img alt="" src={selectedExercise.image} />}
+      {image && <img alt="" src={image} />}
       <S.Label htmlFor="type">Type</S.Label>
       <S.Textarea
         ref={register({ required: true, minLength: 4 })}

@@ -7,9 +7,9 @@ import placeholder from '../icons/placeholder.png'
 Exercise.propTypes = {
   name: PropTypes.string.isRequired,
   type: PropTypes.string.isRequired,
-  handleExerciseSelect: PropTypes.func.isRequired,
-  id: PropTypes.string.isRequired,
-  index: PropTypes.number.isRequired,
+  handleExerciseSelect: PropTypes.func,
+  id: PropTypes.string,
+  index: PropTypes.number,
 }
 
 export default function Exercise({

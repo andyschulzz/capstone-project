@@ -10,12 +10,12 @@ ExerciseDetails.propTypes = {
   selectedExercise: PropTypes.object,
 }
 
-export default function ExerciseDetails({ selectedExercise = '' }) {
+export default function ExerciseDetails({ name, type, instructions, image }) {
   const { register } = useForm({
     defaultValues: {
-      name: selectedExercise.name,
-      type: selectedExercise.type,
-      instructions: selectedExercise.instructions,
+      name,
+      type,
+      instructions,
     },
   })
   return (
@@ -25,7 +25,7 @@ export default function ExerciseDetails({ selectedExercise = '' }) {
         <ExerciseButtonEdit />
       </S.ButtonWrapper>
       <S.Wrapper>
-        <ExerciseText register={register} selectedExercise={selectedExercise} />
+        <ExerciseText register={register} image={image} />
       </S.Wrapper>
     </>
   )

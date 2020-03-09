@@ -7,22 +7,26 @@ import * as S from './ExerciseForm.styles'
 import ExerciseButtonSave from './ExerciseButtonSave'
 import ExerciseText from './ExerciseText'
 
-ExerciseAdd.propTypes = {
+ExerciseEdit.propTypes = {
   handleExerciseChange: PropTypes.func.isRequired,
   selectedExercise: PropTypes.object,
 }
 
-export default function ExerciseAdd({
+export default function ExerciseEdit({
   handleExerciseChange,
-  selectedExercise = {},
+  id,
+  name,
+  type,
+  instructions,
+  image,
 }) {
   const [disabled, setDisabled] = useState(false)
   const { register, handleSubmit, formState } = useForm({
     mode: 'onChange',
     defaultValues: {
-      name: selectedExercise.name,
-      type: selectedExercise.type,
-      instructions: selectedExercise.instructions,
+      name,
+      type,
+      instructions,
     },
   })
 
@@ -39,11 +43,7 @@ export default function ExerciseAdd({
         )}
       </S.ButtonWrapper>
       <S.Wrapper id="edit" onSubmit={handleSubmit(handleChange)}>
-        <ExerciseText
-          register={register}
-          selectedExercise={selectedExercise}
-          disabled={disabled}
-        />
+        <ExerciseText register={register} image={image} disabled={disabled} />
       </S.Wrapper>
     </>
   )
@@ -51,10 +51,7 @@ export default function ExerciseAdd({
   function handleChange(data) {
     setDisabled(!disabled)
     if (!disabled) {
-      handleExerciseChange(selectedExercise.id, {
-        ...selectedExercise,
-        ...data,
-      })
+      handleExerciseChange(id, { id, name, type, instructions, image, ...data })
     }
   }
 }

@@ -24,7 +24,7 @@ export default function Exercises({
           />
         </Route>
         <Route path={`${path}/details/:id`}>
-          <ExerciseDetails selectedExercise={selectedExercise} />
+          <ExerciseDetails {...selectedExercise} />
         </Route>
         <Route path={`${path}/add`}>
           <ExerciseAdd
@@ -34,7 +34,7 @@ export default function Exercises({
         </Route>
         <Route path={`${path}/edit`}>
           <ExerciseEdit
-            selectedExercise={selectedExercise}
+            {...selectedExercise}
             handleExerciseChange={handleExerciseChange}
           />
         </Route>

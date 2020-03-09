@@ -54,6 +54,7 @@ function App() {
   }
 
   function handleExerciseChange(id, exercise) {
+    console.log(exercise, 'exercise')
     const newExercises = [...exercises]
     const index = newExercises.findIndex(e => e.id === selectedExerciseId)
     newExercises[index] = exercise

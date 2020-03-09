@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import Exercises from './components/pages/Exercises'
+import Workouts from './components/pages/Workouts'
 import { exerciseData } from './components/data/exercises'
 import { Route, Switch, Redirect } from 'react-router-dom'
 import { v4 as uuidv4 } from 'uuid'
@@ -25,6 +26,9 @@ function App() {
             handleExerciseChange={handleExerciseChange}
           />
         </Route>
+        <Route path="/workouts">
+          <Workouts />
+        </Route>
       </Switch>
     </AppGrid>
   )
@@ -34,7 +38,6 @@ function App() {
   }
 
   function handleExerciseAdd(name, type, instructions) {
-    console.log(name, 'trigger?')
     const newExercise = {
       id: uuidv4(),
       name,
@@ -44,7 +47,6 @@ function App() {
     const filteredExercises = exercises.filter(
       exercise => exercise.name === name
     )
-    console.log(filteredExercises, 'filter')
     if (exercises.some(exercise => filteredExercises.includes(exercise))) {
       return
     }
@@ -54,7 +56,6 @@ function App() {
   }
 
   function handleExerciseChange(id, exercise) {
-    console.log(exercise, 'exercise')
     const newExercises = [...exercises]
     const index = newExercises.findIndex(e => e.id === selectedExerciseId)
     newExercises[index] = exercise

@@ -1,24 +1,26 @@
 import React from 'react'
-import Exercise from './Exercise'
+import WorkoutExercise from './WorkoutExercise'
 import Button from '../common/Button'
 import { useRouteMatch, Link } from 'react-router-dom'
-import * as S from './ExerciseList.styles'
+import * as S from './WorkoutAdd.styles'
 import PropTypes from 'prop-types'
+import { useForm } from 'react-hook-form'
 
-ExerciseList.propTypes = {
+WorkoutAdd.propTypes = {
   exercises: PropTypes.array.isRequired,
   handleExerciseSelect: PropTypes.func.isRequired,
 }
 
-export default function ExerciseList({ exercises, handleExerciseSelect }) {
+export default function WorkoutAdd({ exercises, handleExerciseSelect }) {
   const { url } = useRouteMatch()
+  const { register } = useForm()
 
   function filterExercises(letter) {
     const filter = exercises
       .filter(exercise => String(exercise.name).startsWith(letter))
       .map((exercise, index) => {
         return (
-          <Exercise
+          <WorkoutExercise
             key={exercise.id}
             {...exercise}
             index={index}
@@ -45,9 +47,13 @@ export default function ExerciseList({ exercises, handleExerciseSelect }) {
   return (
     <>
       <S.ButtonWrapper>
-        <Button as={Link} to={`${url}/add`} primary="true">
-          Add
-        </Button>
+        <S.Textarea
+          ref={register({ required: true })}
+          type="text"
+          name="name"
+          id="name"
+          placeholder="Name your workout"
+        />
       </S.ButtonWrapper>
       <S.Wrapper>{renderExercises}</S.Wrapper>
     </>

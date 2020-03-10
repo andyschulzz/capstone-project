@@ -13,7 +13,7 @@ export default function Exercises({
   handleExerciseChange,
   selectedExercise,
 }) {
-  let { path } = useRouteMatch()
+  const { path } = useRouteMatch()
   return (
     <PageLayout title="Exercises">
       <Switch>

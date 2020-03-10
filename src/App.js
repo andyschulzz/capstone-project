@@ -27,7 +27,13 @@ function App() {
           />
         </Route>
         <Route path="/workouts">
-          <Workouts />
+          <Workouts
+            exercises={exercises}
+            handleExerciseSelect={handleExerciseSelect}
+            selectedExercise={selectedExercise}
+            handleExerciseAdd={handleExerciseAdd}
+            handleExerciseChange={handleExerciseChange}
+          />
         </Route>
       </Switch>
     </AppGrid>

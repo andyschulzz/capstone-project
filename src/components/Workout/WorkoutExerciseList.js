@@ -2,11 +2,7 @@ import React from 'react'
 import WorkoutExercise from './WorkoutExercise'
 import * as S from './WorkoutExerciseList.styles'
 
-export default function WorkoutExerciseList({
-  exercises,
-  handleExerciseSelect,
-  handleWorkoutAdd,
-}) {
+export default function WorkoutExerciseList({ exercises, handleWorkoutAdd }) {
   const lettersAtoZ = [...Array(26)].map((_, i) =>
     String.fromCharCode('A'.charCodeAt(0) + i)
   )
@@ -30,7 +26,6 @@ export default function WorkoutExerciseList({
           <WorkoutExercise
             key={exercise.id}
             {...exercise}
-            handleExerciseSelect={handleExerciseSelect}
             handleWorkoutAdd={handleWorkoutAdd}
           />
         )

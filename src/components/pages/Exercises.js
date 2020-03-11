@@ -11,8 +11,11 @@ export default function Exercises({
   handleExerciseSelect,
   handleExerciseAdd,
   handleExerciseChange,
-  selectedExercise,
+  selectedExerciseId,
 }) {
+  const selectedExercise = exercises.find(
+    exercise => exercise.id === selectedExerciseId
+  )
   const { path } = useRouteMatch()
   return (
     <PageLayout title="Exercises">

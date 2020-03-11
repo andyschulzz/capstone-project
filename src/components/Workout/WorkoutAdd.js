@@ -8,7 +8,6 @@ import { useForm } from 'react-hook-form'
 
 WorkoutAdd.propTypes = {
   exercises: PropTypes.array.isRequired,
-  handleExerciseSelect: PropTypes.func.isRequired,
   handleWorkoutAdd: PropTypes.func.isRequired,
   handleWorkoutSubmit: PropTypes.func.isRequired,
   selectedWorkouts: PropTypes.array.isRequired,
@@ -16,7 +15,6 @@ WorkoutAdd.propTypes = {
 
 export default function WorkoutAdd({
   exercises,
-  handleExerciseSelect,
   handleWorkoutAdd,
   handleWorkoutSubmit,
   selectedWorkouts,
@@ -41,7 +39,6 @@ export default function WorkoutAdd({
       <S.Wrapper>
         <WorkoutExerciseList
           exercises={exercises}
-          handleExerciseSelect={handleExerciseSelect}
           handleWorkoutAdd={handleWorkoutAdd}
         />
       </S.Wrapper>

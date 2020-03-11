@@ -22,7 +22,6 @@ export default function Workouts({
         <Route path={`${path}/add`}>
           <WorkoutAdd
             exercises={exercises}
-            handleExerciseSelect={handleExerciseSelect}
             handleWorkoutAdd={handleWorkoutAdd}
             handleWorkoutSubmit={handleWorkoutSubmit}
             selectedWorkouts={selectedWorkouts}

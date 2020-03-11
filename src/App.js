@@ -13,9 +13,6 @@ function App() {
   const [workouts, setWorkouts] = useState([])
   const [selectedWorkouts, setSelectedWorkouts] = useState([])
 
-  const selectedExercise = exercises.find(
-    exercise => exercise.id === selectedExerciseId
-  )
   return (
     <AppGrid>
       <Switch>
@@ -23,8 +20,8 @@ function App() {
         <Route path="/exercises">
           <Exercises
             exercises={exercises}
+            selectedExerciseId={selectedExerciseId}
             handleExerciseSelect={handleExerciseSelect}
-            selectedExercise={selectedExercise}
             handleExerciseAdd={handleExerciseAdd}
             handleExerciseChange={handleExerciseChange}
           />
@@ -33,7 +30,6 @@ function App() {
           <Workouts
             exercises={exercises}
             workouts={workouts}
-            handleExerciseSelect={handleExerciseSelect}
             handleWorkoutAdd={handleWorkoutAdd}
             handleWorkoutSubmit={handleWorkoutSubmit}
             selectedWorkouts={selectedWorkouts}

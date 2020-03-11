@@ -1,27 +1,42 @@
 import React from 'react'
 import * as S from './WorkoutList.styles'
-import Button from '../common/Button'
-import { useRouteMatch, Link } from 'react-router-dom'
+import ButtonNewWorkout from './WorkoutButtonNewWorkout'
 
-export default function WorkoutList() {
-  const { url } = useRouteMatch()
+export default function WorkoutList({ workouts }) {
+  const groupByTitle = workouts.reduce((acc, obj) => {
+    const key = obj['title']
+    if (!acc[key]) {
+      acc[key] = []
+    }
+    acc[key].push(obj)
+    return acc
+  }, {})
+
+  const renderWorkouts = Object.entries(groupByTitle).map(
+    ([title, exercises]) => (
+      <S.WorkoutWrapper key={title}>
+        <h3>{title}</h3>
+        {exercises.map((exercise, index) => {
+          return <div key={index}>{exercise.name}</div>
+        })}
+      </S.WorkoutWrapper>
+    )
+  )
   return (
     <>
       <S.ButtonWrapper>
-        <h3>Quickstart</h3>
-        <Button as={Link} to={`${url}/add`} primary="true">
-          New Workout
-        </Button>
+        <p>Quickstart</p>
+        <ButtonNewWorkout />
       </S.ButtonWrapper>
-
       <S.Wrapper>
-        <div>Legs</div>
-        <div>Exercise A</div>
-        <div>Exercise B</div>
-        <div>Exercise C</div>
-        <div>Exercise A</div>
-        <div>Exercise B</div>
-        <div>Exercise C</div>
+        <p>My Routines</p>
+        {workouts ? (
+          <S.WorkoutWrapper isPlaceholder>
+            Please create a new workout!
+          </S.WorkoutWrapper>
+        ) : (
+          renderWorkouts
+        )}
       </S.Wrapper>
     </>
   )

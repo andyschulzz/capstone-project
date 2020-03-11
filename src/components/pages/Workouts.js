@@ -7,21 +7,25 @@ import { Switch, Route, useRouteMatch } from 'react-router-dom'
 export default function Workouts({
   exercises,
   handleExerciseSelect,
-  handleExerciseAdd,
-  handleExerciseChange,
-  selectedExercise,
+  handleWorkoutAdd,
+  handleWorkoutSubmit,
+  selectedWorkouts,
+  workouts,
 }) {
   let { path } = useRouteMatch()
   return (
     <PageLayout title="Workouts">
       <Switch>
         <Route exact path={path}>
-          <WorkoutList />
+          <WorkoutList workouts={workouts} />
         </Route>
         <Route path={`${path}/add`}>
-          <WorkoutAdd.js
+          <WorkoutAdd
             exercises={exercises}
             handleExerciseSelect={handleExerciseSelect}
+            handleWorkoutAdd={handleWorkoutAdd}
+            handleWorkoutSubmit={handleWorkoutSubmit}
+            selectedWorkouts={selectedWorkouts}
           />
         </Route>
       </Switch>

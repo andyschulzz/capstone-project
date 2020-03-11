@@ -10,6 +10,9 @@ function App() {
   const [exercises, setExercises] = useState(exerciseData)
   const [selectedExerciseId, setSelectedExerciseId] = useState()
 
+  const [workouts, setWorkouts] = useState([])
+  const [selectedWorkouts, setSelectedWorkouts] = useState([])
+
   const selectedExercise = exercises.find(
     exercise => exercise.id === selectedExerciseId
   )
@@ -29,10 +32,11 @@ function App() {
         <Route path="/workouts">
           <Workouts
             exercises={exercises}
+            workouts={workouts}
             handleExerciseSelect={handleExerciseSelect}
-            selectedExercise={selectedExercise}
-            handleExerciseAdd={handleExerciseAdd}
-            handleExerciseChange={handleExerciseChange}
+            handleWorkoutAdd={handleWorkoutAdd}
+            handleWorkoutSubmit={handleWorkoutSubmit}
+            selectedWorkouts={selectedWorkouts}
           />
         </Route>
       </Switch>
@@ -61,11 +65,30 @@ function App() {
     setExercises(newExercises)
   }
 
-  function handleExerciseChange(id, exercise) {
+  function handleExerciseChange(exercise) {
     const newExercises = [...exercises]
     const index = newExercises.findIndex(e => e.id === selectedExerciseId)
     newExercises[index] = exercise
     setExercises(newExercises)
+  }
+
+  function handleWorkoutAdd(id) {
+    const newExercises = [...exercises]
+    const selectedExercise = newExercises.filter(exercise => exercise.id === id)
+    if (selectedWorkouts.some(workout => selectedExercise.includes(workout))) {
+      return setSelectedWorkouts(
+        selectedWorkouts.filter(workout => workout.id !== id)
+      )
+    }
+    const newWorkout = [...selectedWorkouts, ...selectedExercise]
+    setSelectedWorkouts(newWorkout)
+  }
+
+  function handleWorkoutSubmit(title) {
+    const addTitle = selectedWorkouts.map(workout => ({ ...workout, title }))
+    const newWorkoutList = [...workouts, ...addTitle]
+    setWorkouts(newWorkoutList)
+    setSelectedWorkouts([])
   }
 }
 

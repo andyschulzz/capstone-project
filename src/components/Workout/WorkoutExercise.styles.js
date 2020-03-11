@@ -1,12 +1,12 @@
 import styled from 'styled-components/macro'
-import { Link } from 'react-router-dom'
 
-const Exercise = styled(Link)`
+const Exercise = styled.div`
   display: flex;
   align-items: center;
   margin-left: 16px;
   text-decoration: none;
   color: #333;
+  cursor: pointer;
 
   p:first-child {
     margin-top: 0;

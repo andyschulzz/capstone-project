@@ -1,7 +1,7 @@
 import React from 'react'
-import WorkoutExercise from './WorkoutExercise'
-import Button from '../common/Button'
-import { useRouteMatch, Link } from 'react-router-dom'
+import WorkoutExerciseList from './WorkoutExerciseList'
+import WorkoutButtonSubmit from './WorkoutButtonSubmit'
+import { useHistory } from 'react-router-dom'
 import * as S from './WorkoutAdd.styles'
 import PropTypes from 'prop-types'
 import { useForm } from 'react-hook-form'
@@ -9,53 +9,51 @@ import { useForm } from 'react-hook-form'
 WorkoutAdd.propTypes = {
   exercises: PropTypes.array.isRequired,
   handleExerciseSelect: PropTypes.func.isRequired,
+  handleWorkoutAdd: PropTypes.func.isRequired,
+  handleWorkoutSubmit: PropTypes.func.isRequired,
+  selectedWorkouts: PropTypes.array.isRequired,
 }
 
-export default function WorkoutAdd({ exercises, handleExerciseSelect }) {
-  const { url } = useRouteMatch()
-  const { register } = useForm()
-
-  function filterExercises(letter) {
-    const filter = exercises
-      .filter(exercise => String(exercise.name).startsWith(letter))
-      .map((exercise, index) => {
-        return (
-          <WorkoutExercise
-            key={exercise.id}
-            {...exercise}
-            index={index}
-            handleExerciseSelect={handleExerciseSelect}
-          />
-        )
-      })
-    return filter
-  }
-
-  const lettersAtoZ = [...Array(26)].map((_, i) =>
-    String.fromCharCode('A'.charCodeAt(0) + i)
-  )
-
-  const renderExercises = lettersAtoZ.reduce((acc, letter) => {
-    const letterExercises = filterExercises(letter)
-    if (letterExercises.length !== 0) {
-      acc.push(<S.Heading key={letter}>{letter}</S.Heading>)
-      letterExercises.forEach(lc => acc.push(lc))
-    }
-    return acc
-  }, [])
+export default function WorkoutAdd({
+  exercises,
+  handleExerciseSelect,
+  handleWorkoutAdd,
+  handleWorkoutSubmit,
+  selectedWorkouts,
+}) {
+  const history = useHistory()
+  const { register, handleSubmit } = useForm({
+    mode: 'onChange',
+  })
 
   return (
     <>
-      <S.ButtonWrapper>
+      <form id="add" onSubmit={handleSubmit(onSubmit)}>
         <S.Textarea
           ref={register({ required: true })}
+          autoFocus
           type="text"
           name="name"
           id="name"
           placeholder="Name your workout"
         />
-      </S.ButtonWrapper>
-      <S.Wrapper>{renderExercises}</S.Wrapper>
+      </form>
+      <S.Wrapper>
+        <WorkoutExerciseList
+          exercises={exercises}
+          handleExerciseSelect={handleExerciseSelect}
+          handleWorkoutAdd={handleWorkoutAdd}
+        />
+      </S.Wrapper>
+      <WorkoutButtonSubmit
+        handleWorkoutSubmit={handleWorkoutSubmit}
+        selectedWorkouts={selectedWorkouts}
+      />
     </>
   )
+
+  function onSubmit(input) {
+    handleWorkoutSubmit(input.name)
+    history.push('/workouts')
+  }
 }

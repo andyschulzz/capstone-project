@@ -1,5 +1,5 @@
 import React from 'react'
-import ExerciseDetails from './ExerciseAdd'
+import ExerciseDetails from './ExerciseDetails'
 
 export default {
   title: 'Exercise/ExerciseDetails',
@@ -12,5 +12,11 @@ export default {
 }
 
 export const Default = () => {
-  return <ExerciseDetails name={'Test'} type={'Test'} />
+  return (
+    <ExerciseDetails
+      name={'Example Name'}
+      type={'Example Type'}
+      instructions={'Example Instructions'}
+    />
+  )
 }

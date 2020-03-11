@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import Exercises from './components/pages/Exercises'
+import Workouts from './components/pages/Workouts'
 import { exerciseData } from './components/data/exercises'
 import { Route, Switch, Redirect } from 'react-router-dom'
 import { v4 as uuidv4 } from 'uuid'
@@ -8,6 +9,9 @@ import styled from 'styled-components/macro'
 function App() {
   const [exercises, setExercises] = useState(exerciseData)
   const [selectedExerciseId, setSelectedExerciseId] = useState()
+
+  const [workouts, setWorkouts] = useState([])
+  const [selectedWorkouts, setSelectedWorkouts] = useState([])
 
   const selectedExercise = exercises.find(
     exercise => exercise.id === selectedExerciseId
@@ -25,6 +29,16 @@ function App() {
             handleExerciseChange={handleExerciseChange}
           />
         </Route>
+        <Route path="/workouts">
+          <Workouts
+            exercises={exercises}
+            workouts={workouts}
+            handleExerciseSelect={handleExerciseSelect}
+            handleWorkoutAdd={handleWorkoutAdd}
+            handleWorkoutSubmit={handleWorkoutSubmit}
+            selectedWorkouts={selectedWorkouts}
+          />
+        </Route>
       </Switch>
     </AppGrid>
   )
@@ -34,7 +48,6 @@ function App() {
   }
 
   function handleExerciseAdd(name, type, instructions) {
-    console.log(name, 'trigger?')
     const newExercise = {
       id: uuidv4(),
       name,
@@ -44,7 +57,6 @@ function App() {
     const filteredExercises = exercises.filter(
       exercise => exercise.name === name
     )
-    console.log(filteredExercises, 'filter')
     if (exercises.some(exercise => filteredExercises.includes(exercise))) {
       return
     }
@@ -53,12 +65,30 @@ function App() {
     setExercises(newExercises)
   }
 
-  function handleExerciseChange(id, exercise) {
-    console.log(exercise, 'exercise')
+  function handleExerciseChange(exercise) {
     const newExercises = [...exercises]
     const index = newExercises.findIndex(e => e.id === selectedExerciseId)
     newExercises[index] = exercise
     setExercises(newExercises)
+  }
+
+  function handleWorkoutAdd(id) {
+    const newExercises = [...exercises]
+    const selectedExercise = newExercises.filter(exercise => exercise.id === id)
+    if (selectedWorkouts.some(workout => selectedExercise.includes(workout))) {
+      return setSelectedWorkouts(
+        selectedWorkouts.filter(workout => workout.id !== id)
+      )
+    }
+    const newWorkout = [...selectedWorkouts, ...selectedExercise]
+    setSelectedWorkouts(newWorkout)
+  }
+
+  function handleWorkoutSubmit(title) {
+    const addTitle = selectedWorkouts.map(workout => ({ ...workout, title }))
+    const newWorkoutList = [...workouts, ...addTitle]
+    setWorkouts(newWorkoutList)
+    setSelectedWorkouts([])
   }
 }
 

@@ -15,8 +15,8 @@ export default function PageLayout({ title, children }) {
 }
 
 const PageStyled = styled.main`
-  display: grid;
-  grid-template-rows: 48px auto;
+  display: flex;
+  flex-direction: column;
   overflow: auto;
 `
 const Header = styled.header`
@@ -24,6 +24,7 @@ const Header = styled.header`
   justify-content: center;
   align-items: center;
   background: #57595d;
+  height: 48px;
 
   img {
     width: 38px;

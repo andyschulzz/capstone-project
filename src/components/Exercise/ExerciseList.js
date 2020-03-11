@@ -29,36 +29,11 @@ export default function ExerciseList({ exercises, handleExerciseSelect }) {
     return filter
   }
 
-  const letters = [
-    'A',
-    'B',
-    'C',
-    'D',
-    'E',
-    'F',
-    'G',
-    'H',
-    'I',
-    'J',
-    'K',
-    'L',
-    'M',
-    'N',
-    'O',
-    'P',
-    'Q',
-    'R',
-    'S',
-    'T',
-    'U',
-    'V',
-    'W',
-    'X',
-    'Y',
-    'Z',
-  ]
+  const lettersAtoZ = [...Array(26)].map((_, i) =>
+    String.fromCharCode('A'.charCodeAt(0) + i)
+  )
 
-  const renderExercises = letters.reduce((acc, letter) => {
+  const renderExercises = lettersAtoZ.reduce((acc, letter) => {
     const letterExercises = filterExercises(letter)
     if (letterExercises.length !== 0) {
       acc.push(<S.Heading key={letter}>{letter}</S.Heading>)

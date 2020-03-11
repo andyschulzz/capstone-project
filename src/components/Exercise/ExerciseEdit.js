@@ -51,7 +51,7 @@ export default function ExerciseEdit({
   function handleChange(data) {
     setDisabled(!disabled)
     if (!disabled) {
-      handleExerciseChange(id, { id, name, type, instructions, image, ...data })
+      handleExerciseChange({ id, name, type, instructions, image, ...data })
     }
   }
 }

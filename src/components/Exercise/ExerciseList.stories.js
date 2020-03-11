@@ -1,6 +1,11 @@
 import React from 'react'
 import ExerciseList from './ExerciseList'
 
+const exercises = [
+  { id: 1, name: 'example', type: 'example', instructions: 'example' },
+  { id: 2, name: 'example', type: 'example', instructions: 'example' },
+]
+
 export default {
   title: 'Exercise/ExerciseList',
   component: ExerciseList,
@@ -12,9 +17,5 @@ export default {
 }
 
 export const Default = () => {
-  const exercises = [
-    { id: 1, name: 'example', type: 'example', instructions: 'example' },
-    { id: 2, name: 'example', type: 'example', instructions: 'example' },
-  ]
   return <ExerciseList exercises={exercises} />
 }

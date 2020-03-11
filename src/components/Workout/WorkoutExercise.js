@@ -1,10 +1,11 @@
 import React from 'react'
-import * as S from './Exercise.styles'
-import { useRouteMatch } from 'react-router-dom'
+import * as S from './WorkoutExercise.styles'
 import PropTypes from 'prop-types'
 import placeholder from '../icons/placeholder.png'
+import checked from '../icons/checked.png'
+import { useToggle } from 'react-hooks-lib'
 
-Exercise.propTypes = {
+WorkoutExercise.propTypes = {
   name: PropTypes.string.isRequired,
   type: PropTypes.string.isRequired,
   handleExerciseSelect: PropTypes.func,
@@ -12,25 +13,25 @@ Exercise.propTypes = {
   index: PropTypes.number,
 }
 
-export default function Exercise({
+export default function WorkoutExercise({
   name,
   type,
-  handleExerciseSelect,
+  handleWorkoutAdd,
   id,
-  index,
   image = placeholder,
 }) {
-  const { url } = useRouteMatch()
+  const { on, toggle } = useToggle(false)
   return (
-    <S.Exercise
-      to={`${url}/details/${index + 1}`}
-      onClick={() => handleExerciseSelect(id)}
-    >
-      <S.Image src={image} alt="" />
+    <S.Exercise onClick={() => handleWorkoutSelect()}>
+      {on ? <S.Image src={checked} alt="" /> : <S.Image src={image} alt="" />}
       <S.Wrapper>
         <S.Text isName>{name}</S.Text>
         <S.Text isType>{type}</S.Text>
       </S.Wrapper>
     </S.Exercise>
   )
+  function handleWorkoutSelect() {
+    handleWorkoutAdd(id)
+    toggle()
+  }
 }

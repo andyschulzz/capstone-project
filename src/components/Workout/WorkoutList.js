@@ -3,7 +3,6 @@ import * as S from './WorkoutList.styles'
 import ButtonNewWorkout from './WorkoutButtonNewWorkout'
 
 export default function WorkoutList({ workouts }) {
-  console.log(workouts, 'workouts')
   const groupByTitle = workouts.reduce((acc, obj) => {
     const key = obj['title']
     if (!acc[key]) {

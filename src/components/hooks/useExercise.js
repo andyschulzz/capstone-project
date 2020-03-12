@@ -15,7 +15,6 @@ export default function useExercise() {
       id: uuidv4(),
       ...data,
     }
-    console.log(newExercise)
     const filteredExercises = exercises.filter(
       exercise => exercise.name === data.name
     )

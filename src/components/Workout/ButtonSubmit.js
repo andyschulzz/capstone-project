@@ -1,8 +1,8 @@
 import React from 'react'
 import submit from '../icons/submitone.png'
-import * as S from './WorkoutButtonSubmit.styles'
+import * as S from './ButtonSubmit.styles'
 
-export default function WorkoutButtonSubmit({ selectedWorkouts }) {
+export default function ButtonSubmit({ selectedWorkouts }) {
   return (
     <S.SubmitWrapper>
       {selectedWorkouts.length !== 0 && (

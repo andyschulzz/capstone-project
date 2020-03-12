@@ -1,6 +1,6 @@
 import React from 'react'
 import * as S from './WorkoutList.styles'
-import ButtonNewWorkout from './WorkoutButtonNewWorkout'
+import ButtonNewWorkout from './ButtonNewWorkout'
 
 export default function WorkoutList({ workouts }) {
   const groupByTitle = workouts.reduce((acc, obj) => {

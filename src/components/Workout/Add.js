@@ -1,19 +1,19 @@
 import React from 'react'
-import WorkoutExerciseList from './WorkoutExerciseList'
-import WorkoutButtonSubmit from './WorkoutButtonSubmit'
+import WorkoutExerciseList from './ExerciseList'
+import ButtonSubmit from './ButtonSubmit'
 import { useHistory } from 'react-router-dom'
-import * as S from './WorkoutAdd.styles'
+import * as S from './Add.styles'
 import PropTypes from 'prop-types'
 import { useForm } from 'react-hook-form'
 
-WorkoutAdd.propTypes = {
+Add.propTypes = {
   exercises: PropTypes.array.isRequired,
   handleWorkoutAdd: PropTypes.func.isRequired,
   handleWorkoutSubmit: PropTypes.func.isRequired,
   selectedWorkouts: PropTypes.array.isRequired,
 }
 
-export default function WorkoutAdd({
+export default function Add({
   exercises,
   handleWorkoutAdd,
   handleWorkoutSubmit,
@@ -42,7 +42,7 @@ export default function WorkoutAdd({
           handleWorkoutAdd={handleWorkoutAdd}
         />
       </S.Wrapper>
-      <WorkoutButtonSubmit
+      <ButtonSubmit
         handleWorkoutSubmit={handleWorkoutSubmit}
         selectedWorkouts={selectedWorkouts}
       />

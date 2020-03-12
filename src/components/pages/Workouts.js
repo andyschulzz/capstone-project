@@ -1,7 +1,7 @@
 import React from 'react'
 import PageLayout from './PageLayout'
 import WorkoutList from '../Workout/WorkoutList'
-import WorkoutAdd from '../Workout/WorkoutAdd'
+import Add from '../Workout/Add'
 import { Switch, Route, useRouteMatch } from 'react-router-dom'
 
 export default function Workouts({
@@ -19,7 +19,7 @@ export default function Workouts({
           <WorkoutList workouts={workouts} />
         </Route>
         <Route path={`${path}/add`}>
-          <WorkoutAdd
+          <Add
             exercises={exercises}
             handleWorkoutAdd={handleWorkoutAdd}
             handleWorkoutSubmit={handleWorkoutSubmit}

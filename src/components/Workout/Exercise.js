@@ -1,11 +1,11 @@
 import React from 'react'
-import * as S from './WorkoutExercise.styles'
+import * as S from './Exercise.styles'
 import PropTypes from 'prop-types'
 import placeholder from '../icons/placeholder.png'
 import checked from '../icons/checked.png'
 import { useToggle } from 'react-hooks-lib'
 
-WorkoutExercise.propTypes = {
+Exercise.propTypes = {
   name: PropTypes.string.isRequired,
   type: PropTypes.string.isRequired,
   handleExerciseSelect: PropTypes.func,
@@ -13,7 +13,7 @@ WorkoutExercise.propTypes = {
   index: PropTypes.number,
 }
 
-export default function WorkoutExercise({
+export default function Exercise({
   name,
   type,
   handleWorkoutAdd,

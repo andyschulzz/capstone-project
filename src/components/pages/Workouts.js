@@ -1,12 +1,11 @@
 import React from 'react'
 import PageLayout from './PageLayout'
 import WorkoutList from '../Workout/WorkoutList'
-import WorkoutAdd from '../Workout/WorkoutAdd'
+import Add from '../Workout/Add'
 import { Switch, Route, useRouteMatch } from 'react-router-dom'
 
 export default function Workouts({
   exercises,
-  handleExerciseSelect,
   handleWorkoutAdd,
   handleWorkoutSubmit,
   selectedWorkouts,
@@ -20,9 +19,8 @@ export default function Workouts({
           <WorkoutList workouts={workouts} />
         </Route>
         <Route path={`${path}/add`}>
-          <WorkoutAdd
+          <Add
             exercises={exercises}
-            handleExerciseSelect={handleExerciseSelect}
             handleWorkoutAdd={handleWorkoutAdd}
             handleWorkoutSubmit={handleWorkoutSubmit}
             selectedWorkouts={selectedWorkouts}

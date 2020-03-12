@@ -1,12 +1,8 @@
 import React from 'react'
-import WorkoutExercise from './WorkoutExercise'
-import * as S from './WorkoutExerciseList.styles'
+import Exercise from './Exercise'
+import * as S from './ExerciseList.styles'
 
-export default function WorkoutExerciseList({
-  exercises,
-  handleExerciseSelect,
-  handleWorkoutAdd,
-}) {
+export default function ExerciseList({ exercises, handleWorkoutAdd }) {
   const lettersAtoZ = [...Array(26)].map((_, i) =>
     String.fromCharCode('A'.charCodeAt(0) + i)
   )
@@ -27,10 +23,9 @@ export default function WorkoutExerciseList({
       .filter(exercise => String(exercise.name).startsWith(letter))
       .map((exercise, index) => {
         return (
-          <WorkoutExercise
+          <Exercise
             key={exercise.id}
             {...exercise}
-            handleExerciseSelect={handleExerciseSelect}
             handleWorkoutAdd={handleWorkoutAdd}
           />
         )

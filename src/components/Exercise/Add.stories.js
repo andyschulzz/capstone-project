@@ -1,9 +1,9 @@
 import React from 'react'
-import ExerciseAdd from './ExerciseAdd'
+import Add from './Add'
 
 export default {
-  title: 'Exercise/ExerciseAdd',
-  component: ExerciseAdd,
+  title: 'Exercise/Add',
+  component: Add,
   decorators: [
     renderComponent => (
       <div style={{ padding: 20, width: 400 }}>{renderComponent()}</div>
@@ -12,5 +12,5 @@ export default {
 }
 
 export const Default = () => {
-  return <ExerciseAdd />
+  return <Add />
 }

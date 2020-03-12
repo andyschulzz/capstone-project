@@ -1,16 +1,16 @@
 import React from 'react'
-import ButtonBackToHome from '../common/ButtonBackToHome'
-import ExerciseButtonEdit from './ExerciseButtonEdit'
-import ExerciseText from './ExerciseText'
-import * as S from './ExerciseForm.styles'
-import PropTypes from 'prop-types'
 import { useForm } from 'react-hook-form'
+import ButtonBackToHome from '../common/ButtonBackToHome'
+import ButtonEdit from './ButtonEdit'
+import Form from './Form'
+import * as S from './Form.styles'
+import PropTypes from 'prop-types'
 
-ExerciseDetails.propTypes = {
+Details.propTypes = {
   selectedExercise: PropTypes.object,
 }
 
-export default function ExerciseDetails({ name, type, instructions, image }) {
+export default function Details({ name, type, instructions, image }) {
   const { register } = useForm({
     defaultValues: {
       name,
@@ -22,10 +22,10 @@ export default function ExerciseDetails({ name, type, instructions, image }) {
     <>
       <S.ButtonWrapper>
         <ButtonBackToHome />
-        <ExerciseButtonEdit />
+        <ButtonEdit />
       </S.ButtonWrapper>
       <S.Wrapper>
-        <ExerciseText register={register} image={image} />
+        <Form register={register} image={image} />
       </S.Wrapper>
     </>
   )

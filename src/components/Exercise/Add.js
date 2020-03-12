@@ -32,7 +32,7 @@ export default function Add({ handleExerciseAdd }) {
     Object.keys(data).map(key => (data[key] = data[key].trim()))
     setDisabled(!disabled)
     if (!disabled) {
-      handleExerciseAdd(data.name, data.type, data.instructions)
+      handleExerciseAdd(data)
     }
   }
 }

@@ -10,15 +10,13 @@ export default function useExercise() {
     setSelectedExerciseId(id)
   }
 
-  function handleExerciseAdd(name, type, instructions) {
+  function handleExerciseAdd(data) {
     const newExercise = {
       id: uuidv4(),
-      name,
-      type,
-      instructions,
+      ...data,
     }
     const filteredExercises = exercises.filter(
-      exercise => exercise.name === name
+      exercise => exercise.name === data.name
     )
     if (exercises.some(exercise => filteredExercises.includes(exercise))) {
       return

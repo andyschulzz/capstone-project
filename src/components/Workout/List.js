@@ -21,5 +21,5 @@ export default function List({ workouts }) {
       </S.WorkoutWrapper>
     )
   )
-  return <S.WorkoutWrapper>{renderWorkouts}</S.WorkoutWrapper>
+  return <>{renderWorkouts}</>
 }

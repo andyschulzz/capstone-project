@@ -1,17 +1,17 @@
 import React, { useState } from 'react'
-import ExerciseText from './ExerciseText'
-import ButtonBackToHome from '../common/ButtonBackToHome'
-import ExerciseButtonEdit from './ExerciseButtonEdit'
-import ExerciseButtonSave from './ExerciseButtonSave'
-import * as S from './ExerciseForm.styles'
-import PropTypes from 'prop-types'
 import { useForm } from 'react-hook-form'
+import Form from './Form'
+import ButtonBackToHome from '../common/ButtonBackToHome'
+import ButtonEdit from './ButtonEdit'
+import ButtonSave from './ButtonSave'
+import * as S from './Form.styles'
+import PropTypes from 'prop-types'
 
-ExerciseAdd.propTypes = {
+Add.propTypes = {
   handleExerciseAdd: PropTypes.func.isRequired,
 }
 
-export default function ExerciseAdd({ handleExerciseAdd }) {
+export default function Add({ handleExerciseAdd }) {
   const [disabled, setDisabled] = useState(false)
   const { register, handleSubmit, formState } = useForm({ mode: 'onChange' })
 
@@ -19,12 +19,12 @@ export default function ExerciseAdd({ handleExerciseAdd }) {
     <>
       <S.ButtonWrapper>
         <ButtonBackToHome />
-        {(!disabled && (
-          <ExerciseButtonSave formState={formState} form={'add'} />
-        )) || <ExerciseButtonEdit />}
+        {(!disabled && <ButtonSave formState={formState} form={'add'} />) || (
+          <ButtonEdit />
+        )}
       </S.ButtonWrapper>
       <S.Wrapper id="add" onSubmit={handleSubmit(handleAdd)}>
-        <ExerciseText register={register} disabled={disabled} />
+        <Form register={register} disabled={disabled} />
       </S.Wrapper>
     </>
   )

@@ -25,5 +25,11 @@ export default function useWorkout() {
     setSelectedWorkouts([])
   }
 
-  return { workouts, selectedWorkouts, handleWorkoutAdd, handleWorkoutSubmit }
+  return {
+    workouts,
+    exercises,
+    selectedWorkouts,
+    handleWorkoutAdd,
+    handleWorkoutSubmit,
+  }
 }

@@ -1,5 +1,5 @@
 import React from 'react'
-import ExerciseList from './ExerciseList'
+import List from './List'
 
 const exercises = [
   { id: 1, name: 'example', type: 'example', instructions: 'example' },
@@ -7,8 +7,8 @@ const exercises = [
 ]
 
 export default {
-  title: 'Exercise/ExerciseList',
-  component: ExerciseList,
+  title: 'Exercise/List',
+  component: List,
   decorators: [
     renderComponent => (
       <div style={{ padding: 20, width: 400 }}>{renderComponent()}</div>
@@ -17,5 +17,5 @@ export default {
 }
 
 export const Default = () => {
-  return <ExerciseList exercises={exercises} />
+  return <List exercises={exercises} />
 }

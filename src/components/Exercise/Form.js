@@ -1,7 +1,7 @@
 import React from 'react'
-import * as S from './ExerciseForm.styles'
+import * as S from './Form.styles'
 
-export default function ExerciseText({ disabled = true, register, image }) {
+export default function Form({ disabled = true, register, image }) {
   return (
     <>
       <S.Textarea

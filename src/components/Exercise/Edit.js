@@ -35,14 +35,18 @@ export default function Edit({
       <S.ButtonWrapper>
         <ButtonBackToHome />
         {(!disabled && <ButtonSave formState={formState} form={'edit'} />) || (
-          <Button form="edit" primary mla onClick={() => handleChange}>
+          <Button form="edit" mla onClick={() => handleChange}>
             Edit
           </Button>
         )}
       </S.ButtonWrapper>
-      <S.Wrapper id="edit" onSubmit={handleSubmit(handleChange)}>
-        <Form register={register} image={image} disabled={disabled} />
-      </S.Wrapper>
+      <Form
+        id={'edit'}
+        onSubmit={handleSubmit(handleChange)}
+        register={register}
+        image={image}
+        disabled={disabled}
+      />
     </>
   )
 

@@ -24,9 +24,7 @@ export default function Details({ name, type, instructions, image }) {
         <ButtonBackToHome />
         <ButtonEdit />
       </S.ButtonWrapper>
-      <S.Wrapper>
-        <Form register={register} image={image} />
-      </S.Wrapper>
+      <Form register={register} image={image} />
     </>
   )
 }

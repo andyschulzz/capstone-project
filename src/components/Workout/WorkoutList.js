@@ -1,6 +1,6 @@
 import React from 'react'
 import * as S from './WorkoutList.styles'
-import ButtonNewWorkout from './ButtonNewWorkout'
+import ButtonNewWorkout from './ButtonNew'
 import List from './List'
 import PropTypes from 'prop-types'
 

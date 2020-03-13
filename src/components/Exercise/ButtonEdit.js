@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 
 export default function ButtonEdit() {
   return (
-    <Button primary="true" mla="true" as={Link} to={`/exercises/edit`}>
+    <Button mla="true" as={Link} to={`/exercises/edit`}>
       Edit
     </Button>
   )

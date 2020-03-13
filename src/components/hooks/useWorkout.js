@@ -9,18 +9,28 @@ export default function useWorkout() {
   function handleWorkoutAdd(id) {
     const newExercises = [...exercises]
     const selectedExercise = newExercises.filter(exercise => exercise.id === id)
-    if (selectedWorkouts.some(workout => selectedExercise.includes(workout))) {
-      return setSelectedWorkouts(
-        selectedWorkouts.filter(workout => workout.id !== id)
-      )
-    }
-    const newWorkout = [...selectedWorkouts, ...selectedExercise]
-    setSelectedWorkouts(newWorkout)
+    const isAlreadyAdded = selectedWorkouts.some(workout =>
+      selectedExercise.includes(workout)
+    )
+    const newWorkouts = isAlreadyAdded
+      ? selectedWorkouts.filter(workout => workout.id !== id)
+      : [...selectedWorkouts, ...selectedExercise]
+    setSelectedWorkouts(newWorkouts)
   }
 
-  function handleWorkoutSubmit(title) {
+  function handleWorkoutTitle(title) {
     const addTitle = selectedWorkouts.map(workout => ({ ...workout, title }))
-    const newWorkoutList = [...workouts, ...addTitle]
+    setSelectedWorkouts(addTitle)
+  }
+
+  function handleWorkoutSubmit(data) {
+    const addDetails = selectedWorkouts.map((workout, index) => ({
+      ...workout,
+      reps: data.reps[index],
+      sets: data.sets[index],
+      weight: data.weight[index],
+    }))
+    const newWorkoutList = [...workouts, ...addDetails]
     setWorkouts(newWorkoutList)
     setSelectedWorkouts([])
   }
@@ -30,6 +40,7 @@ export default function useWorkout() {
     exercises,
     selectedWorkouts,
     handleWorkoutAdd,
+    handleWorkoutTitle,
     handleWorkoutSubmit,
   }
 }

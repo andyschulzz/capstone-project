@@ -23,9 +23,12 @@ export default function Add({ handleExerciseAdd }) {
           <ButtonEdit />
         )}
       </S.ButtonWrapper>
-      <S.Wrapper id="add" onSubmit={handleSubmit(handleAdd)}>
-        <Form register={register} disabled={disabled} />
-      </S.Wrapper>
+      <Form
+        id={'add'}
+        onSubmit={handleSubmit(handleAdd)}
+        register={register}
+        disabled={disabled}
+      />
     </>
   )
   function handleAdd(data) {

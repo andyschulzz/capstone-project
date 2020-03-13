@@ -1,23 +1,30 @@
 import React from 'react'
 import * as S from './WorkoutList.styles'
-import ButtonNewWorkout from './ButtonNewWorkout'
+import ButtonNewWorkout from './ButtonNew'
 import List from './List'
+import PropTypes from 'prop-types'
+
+WorkoutList.propTypes = {
+  workouts: PropTypes.array.isRequired,
+}
 
 export default function WorkoutList({ workouts }) {
   return (
     <>
       <S.ButtonWrapper>
-        <p>Quickstart</p>
+        <h3>Quickstart</h3>
         <ButtonNewWorkout />
       </S.ButtonWrapper>
       <S.Wrapper>
-        <p>My Routines</p>
+        <h3>My Routines</h3>
         {workouts.length === 0 ? (
           <S.WorkoutWrapper isPlaceholder>
             Please create a new workout!
           </S.WorkoutWrapper>
         ) : (
-          <List workouts={workouts} />
+          <S.WorkoutWrapper>
+            <List workouts={workouts} />
+          </S.WorkoutWrapper>
         )}
       </S.Wrapper>
     </>

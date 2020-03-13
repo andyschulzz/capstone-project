@@ -20,7 +20,7 @@ export default function List({ exercises, handleExerciseSelect }) {
   const renderExercises = lettersAtoZ.reduce((acc, letter) => {
     const letterExercises = filterExercises(letter)
     if (letterExercises.length !== 0) {
-      acc.push(<S.Heading key={letter}>{letter}</S.Heading>)
+      acc.push(<S.Span key={letter}>{letter}</S.Span>)
       letterExercises.forEach(lc => acc.push(lc))
     }
     return acc
@@ -29,7 +29,7 @@ export default function List({ exercises, handleExerciseSelect }) {
   return (
     <>
       <S.ButtonWrapper>
-        <Button as={Link} to={`${url}/add`} primary="true">
+        <Button as={Link} to={`${url}/add`}>
           Add
         </Button>
       </S.ButtonWrapper>

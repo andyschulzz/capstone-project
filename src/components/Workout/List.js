@@ -1,5 +1,10 @@
 import React from 'react'
-import * as S from './WorkoutList.styles'
+import * as S from './List.styles'
+import PropTypes from 'prop-types'
+
+List.propTypes = {
+  workouts: PropTypes.array.isRequired,
+}
 
 export default function List({ workouts }) {
   const groupByTitle = workouts.reduce((acc, obj) => {
@@ -13,12 +18,24 @@ export default function List({ workouts }) {
 
   const renderWorkouts = Object.entries(groupByTitle).map(
     ([title, exercises]) => (
-      <S.WorkoutWrapper key={title}>
+      <React.Fragment key={title}>
         <h3>{title}</h3>
         {exercises.map((exercise, index) => {
-          return <div key={index}>{exercise.name}</div>
+          return (
+            <S.Wrapper key={index}>
+              {exercise.name}
+              <S.DetailsWrapper>
+                {exercise.reps}
+                <S.Span>&times;</S.Span>
+                {exercise.sets}
+                {exercise.weight && (
+                  <S.Span isWeight>({exercise.weight} kg)</S.Span>
+                )}
+              </S.DetailsWrapper>
+            </S.Wrapper>
+          )
         })}
-      </S.WorkoutWrapper>
+      </React.Fragment>
     )
   )
   return <>{renderWorkouts}</>

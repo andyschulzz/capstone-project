@@ -19,6 +19,7 @@ function App() {
     workouts,
     selectedWorkouts,
     handleWorkoutAdd,
+    handleWorkoutTitle,
     handleWorkoutSubmit,
   } = useWorkout()
 
@@ -40,6 +41,7 @@ function App() {
             exercises={exercises}
             workouts={workouts}
             handleWorkoutAdd={handleWorkoutAdd}
+            handleWorkoutTitle={handleWorkoutTitle}
             handleWorkoutSubmit={handleWorkoutSubmit}
             selectedWorkouts={selectedWorkouts}
           />

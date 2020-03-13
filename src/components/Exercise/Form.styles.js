@@ -1,6 +1,6 @@
 import styled from 'styled-components/macro'
 
-const Wrapper = styled.form`
+const Form = styled.form`
   display: grid;
   max-height: 100%;
   overflow-y: auto;
@@ -47,4 +47,4 @@ const ButtonWrapper = styled.div`
   padding: 30px;
 `
 
-export { Wrapper, Textarea, Image, ButtonWrapper, Label }
+export { Form, Textarea, Image, ButtonWrapper, Label }

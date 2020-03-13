@@ -1,6 +1,6 @@
 import React from 'react'
-import WorkoutExerciseList from './ExerciseList'
-import ButtonSubmit from './ButtonSubmit'
+import ExerciseList from './ExerciseList'
+import ButtonSave from './ButtonSave'
 import { useHistory } from 'react-router-dom'
 import * as S from './Add.styles'
 import PropTypes from 'prop-types'
@@ -9,23 +9,31 @@ import { useForm } from 'react-hook-form'
 Add.propTypes = {
   exercises: PropTypes.array.isRequired,
   handleWorkoutAdd: PropTypes.func.isRequired,
-  handleWorkoutSubmit: PropTypes.func.isRequired,
+  handleWorkoutTitle: PropTypes.func.isRequired,
   selectedWorkouts: PropTypes.array.isRequired,
 }
 
 export default function Add({
   exercises,
   handleWorkoutAdd,
-  handleWorkoutSubmit,
+  handleWorkoutTitle,
   selectedWorkouts,
 }) {
   const history = useHistory()
-  const { register, handleSubmit } = useForm({
+  const { register, handleSubmit, formState } = useForm({
     mode: 'onChange',
   })
 
   return (
     <>
+      <S.ButtonWrapper>
+        <h3>Build your Routine</h3>
+        {selectedWorkouts.length === 0 ? (
+          <ButtonSave form={'add'} formState={false} />
+        ) : (
+          <ButtonSave form={'add'} formState={formState} />
+        )}
+      </S.ButtonWrapper>
       <form id="add" onSubmit={handleSubmit(onSubmit)}>
         <S.Textarea
           ref={register({ required: true })}
@@ -37,20 +45,16 @@ export default function Add({
         />
       </form>
       <S.Wrapper>
-        <WorkoutExerciseList
+        <ExerciseList
           exercises={exercises}
           handleWorkoutAdd={handleWorkoutAdd}
         />
       </S.Wrapper>
-      <ButtonSubmit
-        handleWorkoutSubmit={handleWorkoutSubmit}
-        selectedWorkouts={selectedWorkouts}
-      />
     </>
   )
 
   function onSubmit(input) {
-    handleWorkoutSubmit(input.name)
-    history.push('/workouts')
+    handleWorkoutTitle(input.name)
+    history.push('/workouts/details')
   }
 }

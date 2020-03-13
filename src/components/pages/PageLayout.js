@@ -29,8 +29,7 @@ const Header = styled.header`
   img {
     width: 38px;
     height: 38px;
-    margin-right: auto;
-    margin-left: 30px;
+    margin: 5px auto 5px 30px;
   }
 `
 

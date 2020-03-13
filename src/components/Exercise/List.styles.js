@@ -15,11 +15,11 @@ const Wrapper = styled.section`
     margin-top: 5px;
   }
 `
-const Heading = styled.span`
+const Span = styled.span`
   font-size: 0.8rem;
   margin: 20px 0 0;
   color: #888;
   font-weight: 300;
 `
 
-export { ButtonWrapper, Wrapper, Heading }
+export { ButtonWrapper, Wrapper, Span }

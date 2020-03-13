@@ -23,4 +23,14 @@ const Textarea = styled.textarea`
   color: #333;
 `
 
-export { Wrapper, Textarea }
+const ButtonWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  padding: 30px 30px 0;
+
+  h3 {
+    margin: 0;
+  }
+`
+
+export { Wrapper, Textarea, ButtonWrapper }

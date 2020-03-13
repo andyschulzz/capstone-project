@@ -7,7 +7,6 @@ const NewButton = styled(Button)`
   align-items: center;
   text-transform: uppercase;
   letter-spacing: 0.1rem;
-  height: 48px;
 `
 
 export { NewButton }

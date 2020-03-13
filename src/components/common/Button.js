@@ -1,6 +1,8 @@
 import styled from 'styled-components/macro'
 
 export default styled.button`
+  display: flex;
+  align-items: center;
   background: none;
   border: none;
   outline: none;
@@ -8,6 +10,7 @@ export default styled.button`
   margin-left: ${props => (props.mla ? 'auto' : '')};
   padding: 5px 15px;
   font-size: 1rem;
+  height: 36px;
   cursor: pointer;
   color: white;
   text-decoration: none;

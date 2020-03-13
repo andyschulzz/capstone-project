@@ -9,9 +9,8 @@ const ButtonWrapper = styled.div`
     text-align: center;
   }
 
-  p {
-    margin: 0 0 10px;
-    font-size: 1.1rem;
+  h3:first-child {
+    margin-top: 0;
   }
 `
 
@@ -39,14 +38,8 @@ const WorkoutWrapper = styled.div`
 
   h3 {
     margin: 0;
+    font-size: 1.4rem;
   }
 `
 
-const Heading = styled.span`
-  font-size: 0.8rem;
-  margin: 20px 0 0;
-  color: #888;
-  font-weight: 300;
-`
-
-export { ButtonWrapper, Wrapper, Heading, WorkoutWrapper }
+export { ButtonWrapper, Wrapper, WorkoutWrapper }

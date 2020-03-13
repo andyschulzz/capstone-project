@@ -18,9 +18,19 @@ export default function useWorkout() {
     setSelectedWorkouts(newWorkout)
   }
 
-  function handleWorkoutSubmit(title) {
+  function handleWorkoutTitle(title) {
     const addTitle = selectedWorkouts.map(workout => ({ ...workout, title }))
-    const newWorkoutList = [...workouts, ...addTitle]
+    setSelectedWorkouts(addTitle)
+  }
+
+  function handleWorkoutSubmit(data) {
+    const addDetails = selectedWorkouts.map((workout, index) => ({
+      ...workout,
+      reps: data.reps[index],
+      sets: data.sets[index],
+      weight: data.weight[index],
+    }))
+    const newWorkoutList = [...workouts, ...addDetails]
     setWorkouts(newWorkoutList)
     setSelectedWorkouts([])
   }
@@ -30,6 +40,7 @@ export default function useWorkout() {
     exercises,
     selectedWorkouts,
     handleWorkoutAdd,
+    handleWorkoutTitle,
     handleWorkoutSubmit,
   }
 }

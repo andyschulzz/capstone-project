@@ -5,6 +5,15 @@ import Details from '../Exercise/Details'
 import Edit from '../Exercise/Edit'
 import { Switch, Route, useRouteMatch } from 'react-router-dom'
 import PageLayout from './PageLayout'
+import PropTypes from 'prop-types'
+
+Exercises.propTypes = {
+  exercises: PropTypes.array.isRequired,
+  handleExerciseSelect: PropTypes.func.isRequired,
+  handleExerciseAdd: PropTypes.func.isRequired,
+  handleExerciseChange: PropTypes.func.isRequired,
+  selectedExerciseId: PropTypes.string,
+}
 
 export default function Exercises({
   exercises,

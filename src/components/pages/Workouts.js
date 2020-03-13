@@ -4,6 +4,16 @@ import WorkoutList from '../Workout/WorkoutList'
 import Add from '../Workout/Add'
 import WorkoutDetails from '../Workout/WorkoutDetails'
 import { Switch, Route, useRouteMatch } from 'react-router-dom'
+import PropTypes from 'prop-types'
+
+Workouts.propTypes = {
+  exercises: PropTypes.array.isRequired,
+  handleWorkoutAdd: PropTypes.func.isRequired,
+  handleWorkoutSubmit: PropTypes.func.isRequired,
+  handleWorkoutTitle: PropTypes.func.isRequired,
+  selectedWorkouts: PropTypes.array.isRequired,
+  workouts: PropTypes.array.isRequired,
+}
 
 export default function Workouts({
   exercises,
@@ -13,7 +23,7 @@ export default function Workouts({
   selectedWorkouts,
   workouts,
 }) {
-  let { path } = useRouteMatch()
+  const { path } = useRouteMatch()
   return (
     <PageLayout title="Workouts">
       <Switch>

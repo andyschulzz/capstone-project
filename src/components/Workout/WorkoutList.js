@@ -2,6 +2,11 @@ import React from 'react'
 import * as S from './WorkoutList.styles'
 import ButtonNewWorkout from './ButtonNewWorkout'
 import List from './List'
+import PropTypes from 'prop-types'
+
+WorkoutList.propTypes = {
+  workouts: PropTypes.array.isRequired,
+}
 
 export default function WorkoutList({ workouts }) {
   return (

@@ -1,6 +1,12 @@
 import React from 'react'
 import Exercise from './Exercise'
 import * as S from './ExerciseList.styles'
+import PropTypes from 'prop-types'
+
+ExerciseList.propTypes = {
+  exercises: PropTypes.array.isRequired,
+  handleWorkoutAdd: PropTypes.func.isRequired,
+}
 
 export default function ExerciseList({ exercises, handleWorkoutAdd }) {
   const lettersAtoZ = [...Array(26)].map((_, i) =>

@@ -1,5 +1,12 @@
 import React from 'react'
 import * as S from './Details.styles'
+import PropTypes from 'prop-types'
+
+Detail.propTypes = {
+  register: PropTypes.func.isRequired,
+  name: PropTypes.string.isRequired,
+  index: PropTypes.number.isRequired,
+}
 
 export default function Detail({ register, name, index }) {
   return (

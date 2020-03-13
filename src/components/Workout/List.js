@@ -1,5 +1,10 @@
 import React from 'react'
 import * as S from './List.styles'
+import PropTypes from 'prop-types'
+
+List.propTypes = {
+  workouts: PropTypes.array.isRequired,
+}
 
 export default function List({ workouts }) {
   const groupByTitle = workouts.reduce((acc, obj) => {

@@ -4,6 +4,12 @@ import ButtonSave from './ButtonSave'
 import { useForm } from 'react-hook-form'
 import { useHistory } from 'react-router-dom'
 import * as S from './WorkoutDetails.styles'
+import PropTypes from 'prop-types'
+
+WorkoutDetails.propTypes = {
+  selectedWorkouts: PropTypes.array.isRequired,
+  handleWorkoutSubmit: PropTypes.func.isRequired,
+}
 
 export default function WorkoutDetails({
   selectedWorkouts,

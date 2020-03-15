@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import ButtonBackToHome from '../common/ButtonBackToHome'
 import ButtonSave from './ButtonSave'
-import Button from '../common/Button'
+import { Button } from '../common/Button'
 import * as S from './Form.styles'
 import Form from './Form'
 
@@ -35,7 +35,7 @@ export default function Edit({
       <S.ButtonWrapper>
         <ButtonBackToHome />
         {(!disabled && <ButtonSave formState={formState} form={'edit'} />) || (
-          <Button form="edit" mla onClick={() => handleChange}>
+          <Button form="edit" primary mla onClick={() => handleChange}>
             Edit
           </Button>
         )}

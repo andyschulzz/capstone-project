@@ -16,7 +16,7 @@ export default function ExerciseList({ exercises, handleWorkoutAdd }) {
   const renderExercises = lettersAtoZ.reduce((acc, letter) => {
     const letterExercises = filterExercises(letter)
     if (letterExercises.length !== 0) {
-      acc.push(<S.Group key={letter}>{letter}</S.Group>)
+      acc.push(<S.Wrapper key={letter}>{letter}</S.Wrapper>)
       letterExercises.forEach(lc => acc.push(lc))
     }
     return acc

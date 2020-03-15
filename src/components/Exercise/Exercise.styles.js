@@ -6,7 +6,6 @@ const Exercise = styled(Link)`
   align-items: center;
   margin-left: 16px;
   text-decoration: none;
-  color: #333;
 
   p:first-child {
     margin-top: 0;

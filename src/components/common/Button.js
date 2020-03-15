@@ -1,6 +1,6 @@
 import styled from 'styled-components/macro'
 
-export default styled.button`
+const Button = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -16,16 +16,28 @@ export default styled.button`
   color: white;
   text-decoration: none;
   background-color: ${props =>
-    props.danger ? 'hsl(0, 100%, 50%)' : 'hsl(200, 100%, 50%)'};
+    props.danger
+      ? 'hsl(0, 100%, 50%)'
+      : props.primary
+      ? 'hsl(200, 100%, 50%)'
+      : ''};
 
   &:hover {
     background-color: ${props =>
-      props.danger ? 'hsl(0, 100%, 50%)' : 'hsl(200, 100%, 50%)'};
+      props.danger
+        ? 'hsl(0, 100%, 50%)'
+        : props.primary
+        ? 'hsl(200, 100%, 50%)'
+        : ''};
   }
 
   &:disabled {
     background: ${props =>
-      props.danger ? 'hsla(0, 100%, 50%, 0.2)' : 'hsla(200, 100%, 50%, 0.2)'};
+      props.danger
+        ? 'hsla(0, 100%, 50%, 0.2)'
+        : props.primary
+        ? 'hsla(200, 100%, 50%, 0.2)'
+        : ''};
   }
 
   a {
@@ -33,3 +45,11 @@ export default styled.button`
     color: white;
   }
 `
+
+const ButtonEmpty = styled(Button)`
+  justify-content: end;
+  padding: 5px 2px;
+  background-color: '';
+  color: '';
+`
+export { Button, ButtonEmpty }

@@ -1,17 +1,27 @@
 import React from 'react'
 import Exercise from './Exercise'
-import Button from '../common/Button'
+import SearchBox from '../common/SearchBox'
+import { Button } from '../common/Button'
 import { useRouteMatch, Link } from 'react-router-dom'
+import { useForm } from 'react-hook-form'
 import * as S from './List.styles'
 import PropTypes from 'prop-types'
 
 List.propTypes = {
   exercises: PropTypes.array.isRequired,
   handleExerciseSelect: PropTypes.func.isRequired,
+  handleSearch: PropTypes.func.isRequired,
+  search: PropTypes.string,
 }
 
-export default function List({ exercises, handleExerciseSelect }) {
+export default function List({
+  exercises,
+  handleExerciseSelect,
+  handleSearch,
+  search,
+}) {
   const { url } = useRouteMatch()
+  const { register, handleSubmit, reset } = useForm({ mode: 'onChange' })
 
   const lettersAtoZ = [...Array(26)].map((_, i) =>
     String.fromCharCode('A'.charCodeAt(0) + i)
@@ -25,15 +35,27 @@ export default function List({ exercises, handleExerciseSelect }) {
     }
     return acc
   }, [])
-
+  console.log(exercises.length, 'length')
   return (
     <>
       <S.ButtonWrapper>
-        <Button as={Link} to={`${url}/add`}>
+        <Button primary="true" as={Link} to={`${url}/add`}>
           Add
         </Button>
+        <SearchBox
+          register={register}
+          onSubmit={handleSubmit(onSubmit)}
+          reset={reset}
+          search={search}
+        />
       </S.ButtonWrapper>
-      <S.Wrapper>{renderExercises}</S.Wrapper>
+      <S.Wrapper>
+        {exercises.length !== 0 ? (
+          renderExercises
+        ) : (
+          <S.Container>No exercise found!</S.Container>
+        )}
+      </S.Wrapper>
     </>
   )
 
@@ -51,5 +73,9 @@ export default function List({ exercises, handleExerciseSelect }) {
         )
       })
     return filter
+  }
+
+  function onSubmit(userInput) {
+    handleSearch(userInput)
   }
 }

@@ -49,5 +49,6 @@ export default createGlobalStyle`
   body {
     padding: 0;
     margin: 0;
+    color: #333;
   }
 `

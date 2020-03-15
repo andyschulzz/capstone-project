@@ -35,7 +35,6 @@ export default function List({
     }
     return acc
   }, [])
-  console.log(exercises.length, 'length')
   return (
     <>
       <S.ButtonWrapper>

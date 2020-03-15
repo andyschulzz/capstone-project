@@ -49,7 +49,5 @@ const Button = styled.button`
 const ButtonEmpty = styled(Button)`
   justify-content: end;
   padding: 5px 2px;
-  background-color: '';
-  color: '';
 `
 export { Button, ButtonEmpty }

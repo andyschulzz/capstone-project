@@ -1,6 +1,7 @@
 import React from 'react'
 import Exercises from './components/pages/Exercises'
 import Workouts from './components/pages/Workouts'
+import Navigation from './components/common/Navigation'
 import { Route, Switch, Redirect } from 'react-router-dom'
 import styled from 'styled-components/macro'
 import useExercise from './components/hooks/useExercise'
@@ -59,6 +60,7 @@ function App() {
           />
         </Route>
       </Switch>
+      <Navigation />
     </AppGrid>
   )
 }

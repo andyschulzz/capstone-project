@@ -13,6 +13,9 @@ List.propTypes = {
   handleSearch: PropTypes.func.isRequired,
   search: PropTypes.string,
 }
+const lettersAtoZ = [...Array(26)].map((_, i) =>
+  String.fromCharCode('A'.charCodeAt(0) + i)
+)
 
 export default function List({
   exercises,
@@ -23,11 +26,7 @@ export default function List({
   const { url } = useRouteMatch()
   const { register, handleSubmit, reset } = useForm({ mode: 'onChange' })
 
-  const lettersAtoZ = [...Array(26)].map((_, i) =>
-    String.fromCharCode('A'.charCodeAt(0) + i)
-  )
-
-  const renderExercises = lettersAtoZ.reduce((acc, letter) => {
+  const renderedExercises = lettersAtoZ.reduce((acc, letter) => {
     const letterExercises = filterExercises(letter)
     if (letterExercises.length !== 0) {
       acc.push(<S.Span key={letter}>{letter}</S.Span>)
@@ -49,8 +48,8 @@ export default function List({
         />
       </S.ButtonWrapper>
       <S.Wrapper>
-        {exercises.length !== 0 ? (
-          renderExercises
+        {exercises.length ? (
+          renderedExercises
         ) : (
           <S.Container>No exercise found!</S.Container>
         )}

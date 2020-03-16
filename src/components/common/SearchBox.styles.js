@@ -2,13 +2,13 @@ import styled from 'styled-components/macro'
 import { MdBackspace } from 'react-icons/md'
 
 const Input = styled.input`
-    font-size: inherit;
-    padding: 5px 10px;
-    outline: none;
-    width: 150px;
-    flex-grow: 2;
-    border: none;
-  }`
+  font-size: inherit;
+  padding: 5px 10px;
+  outline: none;
+  width: 150px;
+  flex-grow: 2;
+  border: none;
+`
 
 const Form = styled.form`
   display: flex;

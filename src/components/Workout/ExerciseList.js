@@ -8,11 +8,11 @@ ExerciseList.propTypes = {
   handleWorkoutAdd: PropTypes.func.isRequired,
 }
 
-export default function ExerciseList({ exercises, handleWorkoutAdd }) {
-  const lettersAtoZ = [...Array(26)].map((_, i) =>
-    String.fromCharCode('A'.charCodeAt(0) + i)
-  )
+const lettersAtoZ = [...Array(26)].map((_, i) =>
+  String.fromCharCode('A'.charCodeAt(0) + i)
+)
 
+export default function ExerciseList({ exercises, handleWorkoutAdd }) {
   const renderExercises = lettersAtoZ.reduce((acc, letter) => {
     const letterExercises = filterExercises(letter)
     if (letterExercises.length !== 0) {

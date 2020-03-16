@@ -12,7 +12,7 @@ ButtonReset.propTypes = {
 export default function ButtonReset({ reset, form, search }) {
   return (
     <>
-      {search.length !== 0 ? (
+      {search ? (
         <ButtonEmpty type="submit" form={form} onClick={reset}>
           <S.Back />
         </ButtonEmpty>

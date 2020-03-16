@@ -35,7 +35,7 @@ export default function Edit({
       <S.ButtonWrapper>
         <ButtonBackToHome />
         {(!disabled && <ButtonSave formState={formState} form={'edit'} />) || (
-          <Button form="edit" primary mla onClick={() => handleChange}>
+          <Button form="edit" primary mla onClick={handleChange}>
             Edit
           </Button>
         )}

@@ -1,6 +1,6 @@
 import React from 'react'
 import * as S from './WorkoutList.styles'
-import ButtonNewWorkout from './ButtonNew'
+import ButtonNew from './ButtonNew'
 import List from './List'
 import PropTypes from 'prop-types'
 
@@ -13,7 +13,7 @@ export default function WorkoutList({ workouts }) {
     <>
       <S.ButtonWrapper>
         <h3>Quickstart</h3>
-        <ButtonNewWorkout />
+        <ButtonNew />
       </S.ButtonWrapper>
       <S.Wrapper>
         <h3>My Routines</h3>

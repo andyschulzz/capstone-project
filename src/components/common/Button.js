@@ -1,6 +1,9 @@
 import styled from 'styled-components/macro'
 
-export default styled.button`
+const Button = styled.button`
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background: none;
   border: none;
   outline: none;
@@ -8,20 +11,33 @@ export default styled.button`
   margin-left: ${props => (props.mla ? 'auto' : '')};
   padding: 5px 15px;
   font-size: 1rem;
+  height: 36px;
   cursor: pointer;
   color: white;
   text-decoration: none;
-  background-color: ${props => props.danger && 'hsl(0, 100%, 50%)'}
-    ${props => props.primary && 'hsl(200, 100%, 50%)'};
+  background-color: ${props =>
+    props.danger
+      ? 'hsl(0, 100%, 50%)'
+      : props.primary
+      ? 'hsl(200, 100%, 50%)'
+      : ''};
 
   &:hover {
-    background-color: ${props => props.danger && 'hsl(0, 100%, 35%)'}
-      ${props => props.primary && 'hsl(200, 100%, 35%)'};
+    background-color: ${props =>
+      props.danger
+        ? 'hsl(0, 100%, 50%)'
+        : props.primary
+        ? 'hsl(200, 100%, 50%)'
+        : ''};
   }
 
   &:disabled {
-    background: ${props => props.danger && 'hsla(0, 100%, 50%, 0.2)'}
-      ${props => props.primary && 'hsla(200, 100%, 50%, 0.2)'};
+    background: ${props =>
+      props.danger
+        ? 'hsla(0, 100%, 50%, 0.2)'
+        : props.primary
+        ? 'hsla(200, 100%, 50%, 0.2)'
+        : ''};
   }
 
   a {
@@ -29,3 +45,9 @@ export default styled.button`
     color: white;
   }
 `
+
+const ButtonEmpty = styled(Button)`
+  justify-content: end;
+  padding: 5px 2px;
+`
+export { Button, ButtonEmpty }

@@ -1,65 +1,66 @@
-import React, { useState } from 'react'
+import React from 'react'
 import Exercises from './components/pages/Exercises'
-import { exerciseData } from './components/data/exercises'
+import Workouts from './components/pages/Workouts'
 import { Route, Switch, Redirect } from 'react-router-dom'
-import { v4 as uuidv4 } from 'uuid'
 import styled from 'styled-components/macro'
+import useExercise from './components/hooks/useExercise'
+import useWorkout from './components/hooks/useWorkout'
+import useSearch from './components/hooks/useSearch'
 
 function App() {
-  const [exercises, setExercises] = useState(exerciseData)
-  const [selectedExerciseId, setSelectedExerciseId] = useState()
+  const {
+    exercises,
+    selectedExerciseId,
+    handleExerciseSelect,
+    handleExerciseAdd,
+    handleExerciseChange,
+  } = useExercise()
 
-  const selectedExercise = exercises.find(
-    exercise => exercise.id === selectedExerciseId
+  const {
+    workouts,
+    selectedWorkouts,
+    handleWorkoutAdd,
+    handleWorkoutTitle,
+    handleWorkoutSubmit,
+  } = useWorkout()
+
+  const { handleSearch, search } = useSearch()
+
+  const searchedExercise = exercises.filter(exercise =>
+    exercise.name
+      .toLowerCase()
+      .trim()
+      .includes(search)
   )
+
   return (
     <AppGrid>
       <Switch>
         <Redirect exact from="/" to="exercises" />
         <Route path="/exercises">
           <Exercises
-            exercises={exercises}
+            exercises={searchedExercise}
+            search={search}
+            selectedExerciseId={selectedExerciseId}
             handleExerciseSelect={handleExerciseSelect}
-            selectedExercise={selectedExercise}
             handleExerciseAdd={handleExerciseAdd}
             handleExerciseChange={handleExerciseChange}
+            handleSearch={handleSearch}
+          />
+        </Route>
+        <Route path="/workouts">
+          <Workouts
+            exercises={searchedExercise}
+            workouts={workouts}
+            handleWorkoutAdd={handleWorkoutAdd}
+            handleWorkoutTitle={handleWorkoutTitle}
+            handleWorkoutSubmit={handleWorkoutSubmit}
+            selectedWorkouts={selectedWorkouts}
           />
         </Route>
       </Switch>
     </AppGrid>
   )
-
-  function handleExerciseSelect(id) {
-    setSelectedExerciseId(id)
-  }
-
-  function handleExerciseAdd(name, type, instructions) {
-    console.log(name, 'trigger?')
-    const newExercise = {
-      id: uuidv4(),
-      name,
-      type,
-      instructions,
-    }
-    const filteredExercises = exercises.filter(
-      exercise => exercise.name === name
-    )
-    console.log(filteredExercises, 'filter')
-    if (exercises.some(exercise => filteredExercises.includes(exercise))) {
-      return
-    }
-    const newExercises = [...exercises, newExercise]
-    setSelectedExerciseId(newExercise.id)
-    setExercises(newExercises)
-  }
-
-  function handleExerciseChange(id, exercise) {
-    console.log(exercise, 'exercise')
-    const newExercises = [...exercises]
-    const index = newExercises.findIndex(e => e.id === selectedExerciseId)
-    newExercises[index] = exercise
-    setExercises(newExercises)
-  }
 }
 
 export default App

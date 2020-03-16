@@ -1,39 +1,55 @@
 import React from 'react'
-import ExerciseList from '../Exercise/ExerciseList'
-import ExerciseAdd from '../Exercise/ExerciseAdd'
-import ExerciseDetails from '../Exercise/ExerciseDetails'
-import ExerciseEdit from '../Exercise/ExerciseEdit'
+import List from '../Exercise/List'
+import Add from '../Exercise/Add'
+import Details from '../Exercise/Details'
+import Edit from '../Exercise/Edit'
 import { Switch, Route, useRouteMatch } from 'react-router-dom'
 import PageLayout from './PageLayout'
+import PropTypes from 'prop-types'
+
+Exercises.propTypes = {
+  exercises: PropTypes.array.isRequired,
+  handleExerciseSelect: PropTypes.func.isRequired,
+  handleExerciseAdd: PropTypes.func.isRequired,
+  handleExerciseChange: PropTypes.func.isRequired,
+  selectedExerciseId: PropTypes.string,
+}
 
 export default function Exercises({
   exercises,
   handleExerciseSelect,
   handleExerciseAdd,
   handleExerciseChange,
-  selectedExercise,
+  selectedExerciseId,
+  search,
+  handleSearch,
 }) {
-  let { path } = useRouteMatch()
+  const selectedExercise = exercises.find(
+    exercise => exercise.id === selectedExerciseId
+  )
+  const { path } = useRouteMatch()
   return (
     <PageLayout title="Exercises">
       <Switch>
         <Route exact path={path}>
-          <ExerciseList
+          <List
             exercises={exercises}
             handleExerciseSelect={handleExerciseSelect}
+            handleSearch={handleSearch}
+            search={search}
           />
         </Route>
         <Route path={`${path}/details/:id`}>
-          <ExerciseDetails {...selectedExercise} />
+          <Details {...selectedExercise} />
         </Route>
         <Route path={`${path}/add`}>
-          <ExerciseAdd
+          <Add
             handleExerciseAdd={handleExerciseAdd}
             handleExerciseChange={handleExerciseChange}
           />
         </Route>
         <Route path={`${path}/edit`}>
-          <ExerciseEdit
+          <Edit
             {...selectedExercise}
             handleExerciseChange={handleExerciseChange}
           />

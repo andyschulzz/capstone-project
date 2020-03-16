@@ -1,8 +1,8 @@
 import React from 'react'
-import Button from '../common/Button'
+import { Button } from '../common/Button'
 import { Link } from 'react-router-dom'
 
-export default function ExerciseButtonEdit() {
+export default function ButtonEdit() {
   return (
     <Button primary="true" mla="true" as={Link} to={`/exercises/edit`}>
       Edit

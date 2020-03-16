@@ -2,17 +2,17 @@ import PropTypes from 'prop-types'
 import React, { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import ButtonBackToHome from '../common/ButtonBackToHome'
-import Button from '../common/Button'
-import * as S from './ExerciseForm.styles'
-import ExerciseButtonSave from './ExerciseButtonSave'
-import ExerciseText from './ExerciseText'
+import ButtonSave from './ButtonSave'
+import { Button } from '../common/Button'
+import * as S from './Form.styles'
+import Form from './Form'
 
-ExerciseEdit.propTypes = {
+Edit.propTypes = {
   handleExerciseChange: PropTypes.func.isRequired,
   selectedExercise: PropTypes.object,
 }
 
-export default function ExerciseEdit({
+export default function Edit({
   handleExerciseChange,
   id,
   name,
@@ -34,24 +34,26 @@ export default function ExerciseEdit({
     <>
       <S.ButtonWrapper>
         <ButtonBackToHome />
-        {(!disabled && (
-          <ExerciseButtonSave formState={formState} form={'edit'} />
-        )) || (
-          <Button form="edit" primary mla onClick={() => handleChange}>
+        {(!disabled && <ButtonSave formState={formState} form={'edit'} />) || (
+          <Button form="edit" primary mla onClick={handleChange}>
             Edit
           </Button>
         )}
       </S.ButtonWrapper>
-      <S.Wrapper id="edit" onSubmit={handleSubmit(handleChange)}>
-        <ExerciseText register={register} image={image} disabled={disabled} />
-      </S.Wrapper>
+      <Form
+        id={'edit'}
+        onSubmit={handleSubmit(handleChange)}
+        register={register}
+        image={image}
+        disabled={disabled}
+      />
     </>
   )
 
   function handleChange(data) {
     setDisabled(!disabled)
     if (!disabled) {
-      handleExerciseChange(id, { id, name, type, instructions, image, ...data })
+      handleExerciseChange({ id, name, type, instructions, image, ...data })
     }
   }
 }

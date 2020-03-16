@@ -1,9 +1,15 @@
 import React from 'react'
-import * as S from './ExerciseForm.styles'
+import * as S from './Form.styles'
 
-export default function ExerciseText({ disabled = true, register, image }) {
+export default function Form({
+  disabled = true,
+  register,
+  image,
+  id,
+  onSubmit,
+}) {
   return (
-    <>
+    <S.Form id={id} onSubmit={onSubmit}>
       <S.Textarea
         ref={register({ required: true, minLength: 4 })}
         autoFocus
@@ -38,6 +44,6 @@ export default function ExerciseText({ disabled = true, register, image }) {
         required
         disabled={disabled}
       />
-    </>
+    </S.Form>
   )
 }

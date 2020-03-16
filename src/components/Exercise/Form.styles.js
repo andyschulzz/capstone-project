@@ -1,6 +1,6 @@
 import styled from 'styled-components/macro'
 
-const Wrapper = styled.form`
+const Form = styled.form`
   display: grid;
   max-height: 100%;
   overflow-y: auto;
@@ -33,8 +33,8 @@ const Textarea = styled.textarea`
   font-size: ${props => (props.isExerciseName ? 1.7 : 1)}rem;
   font-weight: ${props => (props.isExerciseName ? 'bold' : 400)};
   background-color: #fff;
-  color: #333;
   overflow-y: ${props => (props.isTitle ? 'hidden' : 'auto')};
+  color: #333;
 `
 
 const Image = styled.img`
@@ -47,4 +47,4 @@ const ButtonWrapper = styled.div`
   padding: 30px;
 `
 
-export { Wrapper, Textarea, Image, ButtonWrapper, Label }
+export { Form, Textarea, Image, ButtonWrapper, Label }

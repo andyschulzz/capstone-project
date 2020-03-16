@@ -5,7 +5,8 @@ const ButtonWrapper = styled.div`
   padding: 30px;
 `
 const Wrapper = styled.section`
-  display: grid;
+  display: flex;
+  flex-direction: column;
   padding: 0 30px 30px;
   gap: 36px;
   overflow-y: auto;
@@ -15,11 +16,17 @@ const Wrapper = styled.section`
     margin-top: 5px;
   }
 `
-const Heading = styled.span`
+const Span = styled.span`
   font-size: 0.8rem;
   margin: 20px 0 0;
   color: #888;
   font-weight: 300;
 `
 
-export { ButtonWrapper, Wrapper, Heading }
+const Container = styled.div`
+  align-self: center;
+  margin-top: 50px;
+  text-transform: uppercase;
+`
+
+export { ButtonWrapper, Wrapper, Span, Container }

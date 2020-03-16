@@ -1,5 +1,5 @@
 import styled from 'styled-components/macro'
-import Button from '../common/Button'
+import { Button } from '../common/Button'
 
 const ButtonNew = styled(Button)`
   text-transform: uppercase;

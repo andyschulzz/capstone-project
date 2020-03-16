@@ -5,6 +5,7 @@ import { Route, Switch, Redirect } from 'react-router-dom'
 import styled from 'styled-components/macro'
 import useExercise from './components/hooks/useExercise'
 import useWorkout from './components/hooks/useWorkout'
+import useSearch from './components/hooks/useSearch'
 
 function App() {
   const {
@@ -23,22 +24,33 @@ function App() {
     handleWorkoutSubmit,
   } = useWorkout()
 
+  const { handleSearch, search } = useSearch()
+
+  const searchedExercise = exercises.filter(exercise =>
+    exercise.name
+      .toLowerCase()
+      .trim()
+      .includes(search)
+  )
+
   return (
     <AppGrid>
       <Switch>
         <Redirect exact from="/" to="exercises" />
         <Route path="/exercises">
           <Exercises
-            exercises={exercises}
+            exercises={searchedExercise}
+            search={search}
             selectedExerciseId={selectedExerciseId}
             handleExerciseSelect={handleExerciseSelect}
             handleExerciseAdd={handleExerciseAdd}
             handleExerciseChange={handleExerciseChange}
+            handleSearch={handleSearch}
           />
         </Route>
         <Route path="/workouts">
           <Workouts
-            exercises={exercises}
+            exercises={searchedExercise}
             workouts={workouts}
             handleWorkoutAdd={handleWorkoutAdd}
             handleWorkoutTitle={handleWorkoutTitle}

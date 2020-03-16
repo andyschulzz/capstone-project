@@ -5,7 +5,6 @@ const Exercise = styled.div`
   align-items: center;
   margin-left: 16px;
   text-decoration: none;
-  color: #333;
   cursor: pointer;
 
   p:first-child {
@@ -16,7 +15,6 @@ const Exercise = styled.div`
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
-  color: #333;
 
   p:first-child {
     margin-top: 0;

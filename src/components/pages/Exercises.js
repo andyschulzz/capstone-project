@@ -21,6 +21,8 @@ export default function Exercises({
   handleExerciseAdd,
   handleExerciseChange,
   selectedExerciseId,
+  search,
+  handleSearch,
 }) {
   const selectedExercise = exercises.find(
     exercise => exercise.id === selectedExerciseId
@@ -33,6 +35,8 @@ export default function Exercises({
           <List
             exercises={exercises}
             handleExerciseSelect={handleExerciseSelect}
+            handleSearch={handleSearch}
+            search={search}
           />
         </Route>
         <Route path={`${path}/details/:id`}>

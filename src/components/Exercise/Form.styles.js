@@ -33,8 +33,8 @@ const Textarea = styled.textarea`
   font-size: ${props => (props.isExerciseName ? 1.7 : 1)}rem;
   font-weight: ${props => (props.isExerciseName ? 'bold' : 400)};
   background-color: #fff;
-  color: #333;
   overflow-y: ${props => (props.isTitle ? 'hidden' : 'auto')};
+  color: #333;
 `
 
 const Image = styled.img`

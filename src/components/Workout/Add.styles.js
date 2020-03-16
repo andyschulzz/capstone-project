@@ -20,7 +20,6 @@ const Textarea = styled.textarea`
   resize: none;
   font-size: 1.5rem;
   background-color: #fff;
-  color: #333;
 `
 
 const ButtonWrapper = styled.div`

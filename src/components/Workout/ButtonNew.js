@@ -5,7 +5,7 @@ import * as S from './ButtonNew.styles'
 export default function ButtonNew() {
   const { url } = useRouteMatch()
   return (
-    <S.ButtonNew as={Link} to={`${url}/add`}>
+    <S.ButtonNew primary="true" as={Link} to={`${url}/add`}>
       New Workout
     </S.ButtonNew>
   )

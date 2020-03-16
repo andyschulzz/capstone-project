@@ -9,6 +9,7 @@ import useSearch from './components/hooks/useSearch'
 
 function App() {
   const {
+    exercises,
     selectedExerciseId,
     handleExerciseSelect,
     handleExerciseAdd,
@@ -23,7 +24,14 @@ function App() {
     handleWorkoutSubmit,
   } = useWorkout()
 
-  const { searchedExercise, handleSearch, search } = useSearch()
+  const { handleSearch, search } = useSearch()
+
+  const searchedExercise = exercises.filter(exercise =>
+    exercise.name
+      .toLowerCase()
+      .trim()
+      .includes(search)
+  )
 
   return (
     <AppGrid>

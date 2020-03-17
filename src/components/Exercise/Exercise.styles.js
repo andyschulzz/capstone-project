@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 const Exercise = styled(Link)`
   display: flex;
   align-items: center;
-  margin: 0 0 36px 16px;
+  margin: 0 0 36px 10px;
   text-decoration: none;
 
   p:first-child {
@@ -32,7 +32,7 @@ const Text = styled.p`
 const Image = styled.img`
   width: ${props => (props.isPlaceholder ? 32 : 46)}px;
   height: ${props => (props.isPlaceholder ? 32 : 46)}px;
-  margin-right: ${props => (props.isPlaceholder ? 44 : 30)}px;
+  margin-right: ${props => (props.isPlaceholder ? 44 : 36)}px;
 `
 
 export { Exercise, Text, Wrapper, Image }

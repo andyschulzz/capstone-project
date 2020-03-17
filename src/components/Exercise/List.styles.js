@@ -2,12 +2,15 @@ import styled from 'styled-components/macro'
 
 const ButtonWrapper = styled.div`
   display: flex;
-  padding: 30px;
+  padding: 40px 0 30px;
+  background: #fff;
+  position: sticky;
+  top: 0;
 `
 const Wrapper = styled.section`
   display: flex;
   flex-direction: column;
-  padding: 0 30px 30px;
+  padding: 0 40px 30px;
   overflow-y: auto;
   scroll-behavior: smooth;
 
@@ -15,9 +18,10 @@ const Wrapper = styled.section`
     margin-top: 5px;
   }
 `
+
 const Span = styled.span`
   font-size: 0.8rem;
-  margin: 20px 0 36px 0;
+  margin: 20px 0 20px 0;
   color: #888;
   font-weight: 300;
 `

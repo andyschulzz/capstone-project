@@ -6,7 +6,6 @@ const Wrapper = styled.section`
   flex-direction: column;
   overflow-y: auto;
   scroll-behavior: smooth;
-  padding: 10px 30px 30px 30px;
 
   & span:first-child {
     margin-top: 5px;
@@ -14,6 +13,7 @@ const Wrapper = styled.section`
 `
 const Form = styled.form`
   overflow-y: auto;
+  padding: 0 40px 30px;
 `
 
 const Textarea = styled.textarea`
@@ -38,7 +38,7 @@ const ButtonWrapper = styled.div`
   position: sticky;
   top: 0;
   background: #fff;
-  padding: 30px;
+  padding: 40px 0 30px;
 
   h3 {
     margin: 0;

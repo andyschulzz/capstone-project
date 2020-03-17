@@ -39,14 +39,14 @@ export default function Add({
       </S.ButtonWrapper>
       <S.Wrapper>
         <S.Textarea
-          ref={register({ required: true, minLength: 3, maxLength: 30 })}
+          ref={register({ required: true, minLength: 1, maxLength: 30 })}
           autoFocus
           type="text"
           name="name"
           id="name"
           placeholder="Name your workout"
           required
-          minLength="3"
+          minLength="1"
           maxLength="30"
         />
         {addMode ? (

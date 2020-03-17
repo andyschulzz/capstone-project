@@ -35,7 +35,7 @@ export default function List({
     return acc
   }, [])
   return (
-    <>
+    <S.Wrapper>
       <S.ButtonWrapper>
         <BlueButton as={Link} to={`${url}/add`}>
           Add
@@ -47,14 +47,12 @@ export default function List({
           search={search}
         />
       </S.ButtonWrapper>
-      <S.Wrapper>
-        {exercises.length ? (
-          renderedExercises
-        ) : (
-          <S.Container>No exercise found!</S.Container>
-        )}
-      </S.Wrapper>
-    </>
+      {exercises.length ? (
+        renderedExercises
+      ) : (
+        <S.Container>No exercise found!</S.Container>
+      )}
+    </S.Wrapper>
   )
 
   function filterExercises(letter) {

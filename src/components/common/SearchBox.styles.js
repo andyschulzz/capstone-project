@@ -5,7 +5,7 @@ const Input = styled.input`
   font-size: inherit;
   padding: 5px 10px;
   outline: none;
-  width: 150px;
+  width: 164px;
   flex-grow: 2;
   border: none;
   border-radius: 5px;
@@ -21,10 +21,5 @@ const Form = styled.form`
     outline: none;
   }
 `
-const Back = styled(MdBackspace)`
-  font-size: 36px;
-  margin-right: 5px;
-  color: hsla(200, 100%, 50%, 0.5);
-`
 
-export { Input, Form, Back }
+export { Input, Form }

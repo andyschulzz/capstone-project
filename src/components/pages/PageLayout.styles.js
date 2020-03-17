@@ -12,11 +12,17 @@ const Header = styled.header`
   align-items: center;
   background: #57595d;
   height: 48px;
-  img {
-    width: 38px;
-    height: 38px;
-  }
+  positon: relative;
 `
+
+const Image = styled.img`
+  position: absolute;
+  top: 10px;
+  width: 52px;
+  height: 52px;
+  z-index: 2;
+`
+
 const Anchor = styled(Link)`
   margin: 5px auto 5px 30px;
   display: flex;
@@ -24,11 +30,14 @@ const Anchor = styled(Link)`
 `
 
 const Wrapper = styled.div`
+  display: flex;
+  align-items: center;
   text-transform: uppercase;
   font-weight: 300;
   letter-spacing: 0.1em;
   color: #efefef;
   margin-right: 30px;
+  height: 48px;
 `
 
-export { Page, Header, Wrapper, Anchor }
+export { Page, Header, Wrapper, Anchor, Image }

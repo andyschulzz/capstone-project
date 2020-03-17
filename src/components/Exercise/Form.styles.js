@@ -11,7 +11,7 @@ const Wrapper = styled.div`
   display: grid;
   max-height: 100%;
   gap: 10px;
-  padding: 30px;
+  padding: 0 40px 30px;
   position: relative;
 
   img {
@@ -61,7 +61,7 @@ const Image = styled.img`
 
 const ButtonWrapper = styled.div`
   display: flex;
-  padding: 30px;
+  padding: 40px 40px 30px;
   position: sticky;
   top: 0;
   z-index: 1;

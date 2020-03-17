@@ -19,26 +19,24 @@ export default function WorkoutDetails({
   const history = useHistory()
 
   return (
-    <>
-      <S.Form id="details" onSubmit={handleSubmit(handleDetails)}>
-        <S.ButtonWrapper>
-          <h3>Workout Volume</h3>
-          <GreenButton inactive mla form="details">
-            Save
-          </GreenButton>
-        </S.ButtonWrapper>
-        {selectedWorkouts.map((workout, index) => {
-          return (
-            <Details
-              register={register}
-              key={workout.id}
-              {...workout}
-              index={index}
-            />
-          )
-        })}
-      </S.Form>
-    </>
+    <S.Form id="details" onSubmit={handleSubmit(handleDetails)}>
+      <S.ButtonWrapper>
+        <h3>Workout Volume</h3>
+        <GreenButton inactive mla form="details">
+          Save
+        </GreenButton>
+      </S.ButtonWrapper>
+      {selectedWorkouts.map((workout, index) => {
+        return (
+          <Details
+            register={register}
+            key={workout.id}
+            {...workout}
+            index={index}
+          />
+        )
+      })}
+    </S.Form>
   )
 
   function handleDetails(data) {

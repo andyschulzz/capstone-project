@@ -1,15 +1,19 @@
 import React from 'react'
 import * as S from './Navigation.styles'
 
-export default function Navigation() {
+export default function Navigation({ handleSelectedWorkoutsReset }) {
   return (
     <S.Navigation>
-      <S.Anchor to="/exercises">
+      <S.Anchor onClick={resetState} to="/exercises">
         <S.Fitness />
       </S.Anchor>
-      <S.Anchor to="/workouts">
+      <S.Anchor onClick={resetState} to="/workouts">
         <S.Workouts />
       </S.Anchor>
     </S.Navigation>
   )
+
+  function resetState() {
+    handleSelectedWorkoutsReset()
+  }
 }

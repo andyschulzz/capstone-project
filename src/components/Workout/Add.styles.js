@@ -1,4 +1,5 @@
 import styled from 'styled-components/macro'
+import { BlueButton } from '../common/Button'
 
 const Wrapper = styled.section`
   display: grid;
@@ -11,15 +12,22 @@ const Wrapper = styled.section`
     margin-top: 5px;
   }
 `
+const Form = styled.form`
+  display: grid;
+  padding: 30px;
+`
 
 const Textarea = styled.textarea`
-  margin: 30px 0 10px 30px;
+  margin-bottom: 10px;
+  padding: 0;
+  width: 100%;
   border: none;
   outline: none;
-  height: 48px;
+  height: 40px;
   resize: none;
   font-size: 1.5rem;
   background-color: #fff;
+  color: #333;
 `
 
 const ButtonWrapper = styled.div`
@@ -32,4 +40,9 @@ const ButtonWrapper = styled.div`
   }
 `
 
-export { Wrapper, Textarea, ButtonWrapper }
+const AddButton = styled(BlueButton)`
+  margin: 0 30px 10px 30px;
+  text-transform: uppercase;
+`
+
+export { Wrapper, Textarea, ButtonWrapper, AddButton, Form }

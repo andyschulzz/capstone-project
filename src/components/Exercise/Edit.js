@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import ButtonBackToHome from '../common/ButtonBackToHome'
 import ButtonSave from './ButtonSave'
-import { Button } from '../common/Button'
+import { BlueButton } from '../common/Button'
 import * as S from './Form.styles'
 import Form from './Form'
 
@@ -21,7 +21,7 @@ export default function Edit({
   image,
 }) {
   const [disabled, setDisabled] = useState(false)
-  const { register, handleSubmit, formState } = useForm({
+  const { register, handleSubmit, formState, errors } = useForm({
     mode: 'onChange',
     defaultValues: {
       name,
@@ -35,9 +35,9 @@ export default function Edit({
       <S.ButtonWrapper>
         <ButtonBackToHome />
         {(!disabled && <ButtonSave formState={formState} form={'edit'} />) || (
-          <Button form="edit" primary mla onClick={handleChange}>
+          <BlueButton form="edit" mla onClick={handleChange}>
             Edit
-          </Button>
+          </BlueButton>
         )}
       </S.ButtonWrapper>
       <Form
@@ -46,6 +46,7 @@ export default function Edit({
         register={register}
         image={image}
         disabled={disabled}
+        errors={errors}
       />
     </>
   )

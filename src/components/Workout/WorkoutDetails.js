@@ -1,6 +1,6 @@
 import React from 'react'
 import Details from './Details.js'
-import ButtonSave from './ButtonSave'
+import { GreenButton } from '../common/Button'
 import { useForm } from 'react-hook-form'
 import { useHistory } from 'react-router-dom'
 import * as S from './WorkoutDetails.styles'
@@ -24,7 +24,15 @@ export default function WorkoutDetails({
     <>
       <S.ButtonWrapper>
         <h3>Workout Volume</h3>
-        <ButtonSave form={'details'} formState={formState} />
+        {formState.isValid ? (
+          <GreenButton mla form="details">
+            Save
+          </GreenButton>
+        ) : (
+          <GreenButton inactive mla form="details">
+            Save
+          </GreenButton>
+        )}
       </S.ButtonWrapper>
       <S.Wrapper id="details" onSubmit={handleSubmit(handleDetails)}>
         {selectedWorkouts.map((workout, index) => {

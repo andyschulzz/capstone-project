@@ -15,30 +15,6 @@ const Button = styled.button`
   cursor: pointer;
   color: white;
   text-decoration: none;
-  background-color: ${props =>
-    props.danger
-      ? 'hsl(0, 100%, 50%)'
-      : props.primary
-      ? 'hsl(200, 100%, 50%)'
-      : ''};
-
-  &:hover {
-    background-color: ${props =>
-      props.danger
-        ? 'hsl(0, 100%, 50%)'
-        : props.primary
-        ? 'hsl(200, 100%, 50%)'
-        : ''};
-  }
-
-  &:disabled {
-    background: ${props =>
-      props.danger
-        ? 'hsla(0, 100%, 50%, 0.2)'
-        : props.primary
-        ? 'hsla(200, 100%, 50%, 0.2)'
-        : ''};
-  }
 
   a {
     text-decoration: none;
@@ -46,8 +22,19 @@ const Button = styled.button`
   }
 `
 
-const ButtonEmpty = styled(Button)`
-  justify-content: end;
-  padding: 5px 2px;
+const BlueButton = styled(Button)`
+  background-color: ${props =>
+    props.inactive ? 'hsla(200, 100%, 50%, 0.2)' : 'hsl(200, 100%, 50%)'};
 `
-export { Button, ButtonEmpty }
+
+const GreenButton = styled(Button)`
+  background-color: ${props =>
+    props.inactive ? 'hsla(120, 50%, 50%, 0.2)' : 'hsl(120, 50%, 50%)'};
+`
+
+const RedButton = styled(Button)`
+  background-color: ${props =>
+    props.inactive ? 'hsla(0, 100%, 50%, 0.2)' : 'hsl(0, 100%, 50%)'};
+`
+
+export { Button, BlueButton, GreenButton, RedButton }

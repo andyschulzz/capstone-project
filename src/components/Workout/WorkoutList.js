@@ -17,7 +17,7 @@ export default function WorkoutList({ workouts }) {
       </S.ButtonWrapper>
       <S.Wrapper>
         <h3>My Routines</h3>
-        {workouts.length === 0 ? (
+        {!workouts.length ? (
           <S.WorkoutWrapper isPlaceholder>
             Please create a new workout!
           </S.WorkoutWrapper>

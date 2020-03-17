@@ -7,25 +7,29 @@ export default function Form({
   image,
   id,
   onSubmit,
+  errors = {},
 }) {
   return (
     <S.Form id={id} onSubmit={onSubmit}>
       <S.Textarea
-        ref={register({ required: true, minLength: 4 })}
-        autoFocus
+        ref={register({
+          required: true,
+          minLength: 4,
+          maxLength: 20,
+        })}
         isTitle
         isExerciseName
         type="text"
         name="name"
         id="name"
-        placeholder="Name of the exercise?"
+        placeholder="Name of the exercise? "
         required
         disabled={disabled}
       />
       {image && <img alt="" src={image} />}
       <S.Label htmlFor="type">Type</S.Label>
       <S.Textarea
-        ref={register({ required: true, minLength: 4 })}
+        ref={register({ required: true, minLength: 4, maxLength: 20 })}
         isTitle
         type="text"
         name="type"

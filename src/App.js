@@ -23,6 +23,7 @@ function App() {
     handleWorkoutAdd,
     handleWorkoutTitle,
     handleWorkoutSubmit,
+    handleSelectedWorkoutsReset,
   } = useWorkout()
 
   const { handleSearch, search } = useSearch()
@@ -60,7 +61,7 @@ function App() {
           />
         </Route>
       </Switch>
-      <Navigation />
+      <Navigation handleSelectedWorkoutsReset={handleSelectedWorkoutsReset} />
     </AppGrid>
   )
 }

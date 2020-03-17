@@ -15,6 +15,12 @@ const Form = styled.form`
     right: 48px;
     top: 64px;
   }
+
+  p {
+    margin: 0;
+    font-size: 10px;
+    color: #ccc;
+  }
 `
 
 const Label = styled.label`

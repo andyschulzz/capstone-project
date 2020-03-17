@@ -13,7 +13,9 @@ Add.propTypes = {
 
 export default function Add({ handleExerciseAdd }) {
   const [disabled, setDisabled] = useState(false)
-  const { register, handleSubmit, formState } = useForm({ mode: 'onChange' })
+  const { register, handleSubmit, formState, errors } = useForm({
+    mode: 'onChange',
+  })
 
   return (
     <>
@@ -28,6 +30,7 @@ export default function Add({ handleExerciseAdd }) {
         onSubmit={handleSubmit(handleAdd)}
         register={register}
         disabled={disabled}
+        errors={errors}
       />
     </>
   )

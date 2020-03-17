@@ -1,25 +1,23 @@
 import React from 'react'
 import * as S from './ButtonReset.styles'
-import { ButtonEmpty } from './Button'
 import PropTypes from 'prop-types'
 
 ButtonReset.propTypes = {
   reset: PropTypes.func.isRequired,
-  form: PropTypes.string.isRequired,
   search: PropTypes.string.isRequired,
 }
 
-export default function ButtonReset({ reset, form, search }) {
+export default function ButtonReset({ reset, search }) {
   return (
     <>
       {search ? (
-        <ButtonEmpty type="submit" form={form} onClick={reset}>
+        <S.ButtonReset type="submit" onClick={reset}>
           <S.Back />
-        </ButtonEmpty>
+        </S.ButtonReset>
       ) : (
-        <ButtonEmpty disabled>
+        <S.ButtonReset disabled>
           <S.Search />
-        </ButtonEmpty>
+        </S.ButtonReset>
       )}
     </>
   )

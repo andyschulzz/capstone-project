@@ -35,6 +35,10 @@ export default function useWorkout() {
     setSelectedWorkouts([])
   }
 
+  function handleSelectedWorkoutsReset() {
+    setSelectedWorkouts([])
+  }
+
   return {
     workouts,
     exercises,
@@ -42,5 +46,6 @@ export default function useWorkout() {
     handleWorkoutAdd,
     handleWorkoutTitle,
     handleWorkoutSubmit,
+    handleSelectedWorkoutsReset,
   }
 }

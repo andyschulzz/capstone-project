@@ -8,6 +8,7 @@ const Input = styled.input`
   width: 150px;
   flex-grow: 2;
   border: none;
+  border-radius: 5px;
 `
 
 const Form = styled.form`

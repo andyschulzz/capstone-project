@@ -8,7 +8,6 @@ const Wrapper = styled.section`
   display: flex;
   flex-direction: column;
   padding: 0 30px 30px;
-  gap: 36px;
   overflow-y: auto;
   scroll-behavior: smooth;
 
@@ -18,7 +17,7 @@ const Wrapper = styled.section`
 `
 const Span = styled.span`
   font-size: 0.8rem;
-  margin: 20px 0 0;
+  margin: 20px 0 36px 0;
   color: #888;
   font-weight: 300;
 `

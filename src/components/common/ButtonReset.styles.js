@@ -1,5 +1,6 @@
 import styled from 'styled-components/macro'
 import { MdBackspace, MdSearch } from 'react-icons/md'
+import { Button } from './Button'
 
 const Back = styled(MdBackspace)`
   font-size: 36px;
@@ -13,5 +14,9 @@ const Search = styled(MdSearch)`
   color: hsla(200, 100%, 50%, 0.7);
   cursor: default;
 `
+const ButtonReset = styled(Button)`
+  justify-content: end;
+  padding: 5px 2px;
+`
 
-export { Back, Search }
+export { Back, Search, ButtonReset }

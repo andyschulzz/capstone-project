@@ -1,18 +1,18 @@
 import React from 'react'
-import { Button } from '../common/Button'
+import { GreenButton } from '../common/Button'
 
 export default function ButtonSave({ formState, form }) {
   return (
     <>
-      <Button
-        danger
-        mla
-        disabled={!formState.isValid}
-        type="submit"
-        form={form}
-      >
-        Save
-      </Button>
+      {formState.isValid ? (
+        <GreenButton mla type="submit" form={form}>
+          Save
+        </GreenButton>
+      ) : (
+        <GreenButton inactive mla type="submit" form={form}>
+          Save
+        </GreenButton>
+      )}
     </>
   )
 }

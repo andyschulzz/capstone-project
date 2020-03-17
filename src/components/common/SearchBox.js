@@ -19,7 +19,7 @@ export default function SearchBox({ register, onSubmit, reset, search }) {
         type="search"
         placeholder="search"
       />
-      <ButtonReset reset={reset} form={'search'} search={search} />
+      <ButtonReset reset={reset} search={search} />
     </S.Form>
   )
 }

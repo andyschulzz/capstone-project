@@ -20,6 +20,7 @@ export default function Detail({ register, name, index }) {
             type="number"
             name={`sets[${index}]`}
             required
+            min="1"
           />
         </S.Wrapper>
         <span>&times;</span>
@@ -30,6 +31,7 @@ export default function Detail({ register, name, index }) {
             type="number"
             name={`reps[${index}]`}
             required
+            min="1"
           />
         </S.Wrapper>
         <span>&times;</span>

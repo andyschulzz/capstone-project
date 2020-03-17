@@ -15,26 +15,18 @@ export default function WorkoutDetails({
   selectedWorkouts,
   handleWorkoutSubmit,
 }) {
-  const { register, handleSubmit, formState } = useForm({
-    mode: 'onChange',
-  })
+  const { register, handleSubmit } = useForm()
   const history = useHistory()
 
   return (
     <>
-      <S.ButtonWrapper>
-        <h3>Workout Volume</h3>
-        {formState.isValid ? (
-          <GreenButton mla form="details">
-            Save
-          </GreenButton>
-        ) : (
+      <S.Form id="details" onSubmit={handleSubmit(handleDetails)}>
+        <S.ButtonWrapper>
+          <h3>Workout Volume</h3>
           <GreenButton inactive mla form="details">
             Save
           </GreenButton>
-        )}
-      </S.ButtonWrapper>
-      <S.Wrapper id="details" onSubmit={handleSubmit(handleDetails)}>
+        </S.ButtonWrapper>
         {selectedWorkouts.map((workout, index) => {
           return (
             <Details
@@ -45,7 +37,7 @@ export default function WorkoutDetails({
             />
           )
         })}
-      </S.Wrapper>
+      </S.Form>
     </>
   )
 

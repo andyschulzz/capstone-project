@@ -26,20 +26,18 @@ export default function Add({
   const [addMode, setAddMode] = useState(true)
 
   return (
-    <>
+    <S.Form id="add" onSubmit={handleSubmit(onSubmit)}>
       <S.ButtonWrapper>
-        <h3>Build your Routine</h3>
+        <h3>Build Your Routine</h3>
         {selectedWorkouts.length && formState.isValid ? (
-          <BlueButton mla type="submit" form="add">
-            Next
-          </BlueButton>
+          <BlueButton mla>Next</BlueButton>
         ) : (
           <BlueButton inactive mla type="submit" form="add">
             Next
           </BlueButton>
         )}
       </S.ButtonWrapper>
-      <S.Form id="add" onSubmit={handleSubmit(onSubmit)}>
+      <S.Wrapper>
         <S.Textarea
           ref={register({ required: true, minLength: 3, maxLength: 30 })}
           autoFocus
@@ -48,21 +46,21 @@ export default function Add({
           id="name"
           placeholder="Name your workout"
           required
+          minLength="3"
+          maxLength="30"
         />
-      </S.Form>
-      {addMode ? (
-        <S.AddButton primary onClick={() => setAddMode(!addMode)}>
-          Add Exercises
-        </S.AddButton>
-      ) : (
-        <S.Wrapper>
+        {addMode ? (
+          <S.AddButton primary onClick={() => setAddMode(!addMode)}>
+            Add Exercises
+          </S.AddButton>
+        ) : (
           <ExerciseList
             exercises={exercises}
             handleWorkoutAdd={handleWorkoutAdd}
           />
-        </S.Wrapper>
-      )}
-    </>
+        )}
+      </S.Wrapper>
+    </S.Form>
   )
 
   function onSubmit(input) {

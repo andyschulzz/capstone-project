@@ -1,9 +1,15 @@
 import styled from 'styled-components/macro'
 
 const Form = styled.form`
+  overflow-y: auto;
+  &:valid button[class*='Green'] {
+    background: hsl(120, 50%, 50%);
+  }
+`
+
+const Wrapper = styled.div`
   display: grid;
   max-height: 100%;
-  overflow-y: auto;
   gap: 10px;
   padding: 30px;
   position: relative;
@@ -29,6 +35,7 @@ const Label = styled.label`
 `
 
 const Textarea = styled.textarea`
+  display: flex;
   border: none;
   outline: none;
   padding: ${props => (props.isExerciseName ? 0 : 10)}px;
@@ -41,6 +48,10 @@ const Textarea = styled.textarea`
   background-color: #fff;
   overflow-y: ${props => (props.isTitle ? 'hidden' : 'auto')};
   color: #333;
+
+  ::placeholder {
+    font-weight: 300;
+  }
 `
 
 const Image = styled.img`
@@ -51,6 +62,10 @@ const Image = styled.img`
 const ButtonWrapper = styled.div`
   display: flex;
   padding: 30px;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background: #fff;
 `
 
-export { Form, Textarea, Image, ButtonWrapper, Label }
+export { Wrapper, Textarea, Image, ButtonWrapper, Label, Form }

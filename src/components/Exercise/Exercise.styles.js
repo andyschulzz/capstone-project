@@ -24,9 +24,7 @@ const Wrapper = styled.div`
 
 const Text = styled.p`
   font-size: ${props => (props.isName ? 1.1 : 0.8)}rem;
-  margin-bottom: ${props => (props.isName ? '5px' : '')};
-  margin-top: ${props => (props.isName ? '10px' : '')};
-  margin: ${props => (props.isName ? '10 0 5 0px' : 0)};
+  margin: ${props => (props.isName ? '10px 0 0 0' : 0)};
   font-weight: ${props => props.isType && 300};
   color: ${props => props.isType && '#999'};
 `

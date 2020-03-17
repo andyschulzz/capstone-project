@@ -3,7 +3,7 @@ import { useForm } from 'react-hook-form'
 import Form from './Form'
 import ButtonBackToHome from '../common/ButtonBackToHome'
 import ButtonEdit from './ButtonEdit'
-import ButtonSave from './ButtonSave'
+import { GreenButton } from '../common/Button'
 import * as S from './Form.styles'
 import PropTypes from 'prop-types'
 
@@ -13,26 +13,22 @@ Add.propTypes = {
 
 export default function Add({ handleExerciseAdd }) {
   const [disabled, setDisabled] = useState(false)
-  const { register, handleSubmit, formState, errors } = useForm({
-    mode: 'onChange',
-  })
+  const { register, handleSubmit } = useForm()
 
   return (
-    <>
+    <S.Form id="add" onSubmit={handleSubmit(handleAdd)}>
       <S.ButtonWrapper>
         <ButtonBackToHome />
-        {(!disabled && <ButtonSave formState={formState} form={'add'} />) || (
-          <ButtonEdit />
-        )}
+        {(!disabled && (
+          <GreenButton mla inactive>
+            Save
+          </GreenButton>
+        )) || <ButtonEdit />}
       </S.ButtonWrapper>
-      <Form
-        id={'add'}
-        onSubmit={handleSubmit(handleAdd)}
-        register={register}
-        disabled={disabled}
-        errors={errors}
-      />
-    </>
+      <S.Wrapper>
+        <Form register={register} disabled={disabled} />
+      </S.Wrapper>
+    </S.Form>
   )
   function handleAdd(data) {
     Object.keys(data).map(key => (data[key] = data[key].trim()))

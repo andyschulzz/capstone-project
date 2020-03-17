@@ -1,6 +1,6 @@
 import styled from 'styled-components/macro'
 
-const Wrapper = styled.form`
+const Form = styled.form`
   padding: 30px;
   overflow-y: auto;
   scroll-behavior: smooth;
@@ -12,16 +12,19 @@ const Wrapper = styled.form`
   h3:first-child {
     margin-top: 0;
   }
+
+  &:valid button {
+    background: hsl(120, 50%, 50%);
+  }
 `
 
 const ButtonWrapper = styled.div`
   display: flex;
   align-items: center;
-  padding: 30px 30px 0;
 
   h3 {
     margin: 0;
   }
 `
 
-export { Wrapper, ButtonWrapper }
+export { Form, ButtonWrapper }

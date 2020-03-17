@@ -2,7 +2,7 @@ import PropTypes from 'prop-types'
 import React, { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import ButtonBackToHome from '../common/ButtonBackToHome'
-import ButtonSave from './ButtonSave'
+import { GreenButton } from '../common/Button'
 import { BlueButton } from '../common/Button'
 import * as S from './Form.styles'
 import Form from './Form'
@@ -21,8 +21,7 @@ export default function Edit({
   image,
 }) {
   const [disabled, setDisabled] = useState(false)
-  const { register, handleSubmit, formState, errors } = useForm({
-    mode: 'onChange',
+  const { register, handleSubmit } = useForm({
     defaultValues: {
       name,
       type,
@@ -31,24 +30,23 @@ export default function Edit({
   })
 
   return (
-    <>
+    <S.Form id="edit" onSubmit={handleSubmit(handleChange)}>
       <S.ButtonWrapper>
         <ButtonBackToHome />
-        {(!disabled && <ButtonSave formState={formState} form={'edit'} />) || (
-          <BlueButton form="edit" mla onClick={handleChange}>
+        {(!disabled && (
+          <GreenButton mla inactive>
+            Save
+          </GreenButton>
+        )) || (
+          <BlueButton mla onClick={handleChange}>
             Edit
           </BlueButton>
         )}
       </S.ButtonWrapper>
-      <Form
-        id={'edit'}
-        onSubmit={handleSubmit(handleChange)}
-        register={register}
-        image={image}
-        disabled={disabled}
-        errors={errors}
-      />
-    </>
+      <S.Wrapper>
+        <Form register={register} image={image} disabled={disabled} />
+      </S.Wrapper>
+    </S.Form>
   )
 
   function handleChange(data) {

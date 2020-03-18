@@ -23,7 +23,11 @@ export default function Exercise({
   const { on, toggle } = useToggle(false)
   return (
     <S.Exercise onClick={() => handleWorkoutSelect()}>
-      {on ? <S.Image src={checked} alt="" /> : <S.Image src={image} alt="" />}
+      {on ? (
+        <S.Image isChecked src={checked} alt="" />
+      ) : (
+        <S.Image src={image} alt="" />
+      )}
       <S.Wrapper>
         <S.Text isName>{name}</S.Text>
         <S.Text isType>{type}</S.Text>

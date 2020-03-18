@@ -3,7 +3,7 @@ import styled from 'styled-components/macro'
 const ButtonWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  padding: 30px;
+  padding: 40px 0 30px;
 
   a {
     text-align: center;
@@ -16,7 +16,7 @@ const ButtonWrapper = styled.div`
 
 const Wrapper = styled.section`
   display: grid;
-  padding: 0 30px 30px;
+  padding: 0 40px 30px;
   gap: 10px;
   overflow-y: auto;
   scroll-behavior: smooth;

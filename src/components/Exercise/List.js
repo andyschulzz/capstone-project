@@ -1,7 +1,6 @@
 import React from 'react'
 import Exercise from './Exercise'
 import SearchBox from '../common/SearchBox'
-import { Button } from '../common/Button'
 import { useRouteMatch, Link } from 'react-router-dom'
 import { useForm } from 'react-hook-form'
 import * as S from './List.styles'
@@ -35,11 +34,11 @@ export default function List({
     return acc
   }, [])
   return (
-    <>
+    <S.Wrapper>
       <S.ButtonWrapper>
-        <Button primary="true" as={Link} to={`${url}/add`}>
+        <S.ButtonAdd as={Link} to={`${url}/add`}>
           Add
-        </Button>
+        </S.ButtonAdd>
         <SearchBox
           register={register}
           onSubmit={handleSubmit(onSubmit)}
@@ -47,14 +46,12 @@ export default function List({
           search={search}
         />
       </S.ButtonWrapper>
-      <S.Wrapper>
-        {exercises.length ? (
-          renderedExercises
-        ) : (
-          <S.Container>No exercise found!</S.Container>
-        )}
-      </S.Wrapper>
-    </>
+      {exercises.length ? (
+        renderedExercises
+      ) : (
+        <S.Container>No exercise found!</S.Container>
+      )}
+    </S.Wrapper>
   )
 
   function filterExercises(letter) {

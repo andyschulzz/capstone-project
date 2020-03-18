@@ -19,12 +19,14 @@ export default function Details({ name, type, instructions, image }) {
     },
   })
   return (
-    <>
+    <S.Form id="details">
       <S.ButtonWrapper>
         <ButtonBackToHome />
         <ButtonEdit />
       </S.ButtonWrapper>
-      <Form register={register} image={image} />
-    </>
+      <S.Wrapper>
+        <Form register={register} image={image} />
+      </S.Wrapper>
+    </S.Form>
   )
 }

@@ -14,12 +14,13 @@ export default function SearchBox({ register, onSubmit, reset, search }) {
   return (
     <S.Form onChange={onSubmit} onSubmit={onSubmit} id="search">
       <S.Input
-        ref={register()}
+        ref={register({ maxLength: 50 })}
         name="search"
         type="search"
         placeholder="search"
+        maxLength="50"
       />
-      <ButtonReset reset={reset} form={'search'} search={search} />
+      <ButtonReset reset={reset} search={search} />
     </S.Form>
   )
 }

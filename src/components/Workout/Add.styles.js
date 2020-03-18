@@ -1,9 +1,9 @@
 import styled from 'styled-components/macro'
+import { BlueButton } from '../common/Button'
 
 const Wrapper = styled.section`
-  display: grid;
-  padding: 0 30px 30px;
-  gap: 36px;
+  display: flex;
+  flex-direction: column;
   overflow-y: auto;
   scroll-behavior: smooth;
 
@@ -11,25 +11,44 @@ const Wrapper = styled.section`
     margin-top: 5px;
   }
 `
+const Form = styled.form`
+  overflow-y: auto;
+  padding: 0 40px 30px;
+`
 
 const Textarea = styled.textarea`
-  margin: 30px 0 10px 30px;
+  margin-top: 20px;
+  width: 100%;
   border: none;
   outline: none;
-  height: 48px;
+  height: 40px;
   resize: none;
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   background-color: #fff;
+  color: #333;
+
+  ::placeholder {
+    font-weight: 300;
+  }
 `
 
 const ButtonWrapper = styled.div`
   display: flex;
   align-items: center;
-  padding: 30px 30px 0;
+  position: sticky;
+  top: 0;
+  background: #fff;
+  padding: 40px 0 30px;
 
   h3 {
     margin: 0;
+    font-weight: bold;
   }
 `
 
-export { Wrapper, Textarea, ButtonWrapper }
+const AddButton = styled(BlueButton)`
+  margin: 30px;
+  text-transform: uppercase;
+`
+
+export { Wrapper, Textarea, ButtonWrapper, AddButton, Form }

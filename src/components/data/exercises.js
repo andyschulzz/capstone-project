@@ -1,4 +1,37 @@
 import { v4 as uuidv4 } from 'uuid'
+import sidelateral from '../images/sidelateral.png'
+import arnoldpress from '../images/arnoldpress.png'
+import abwheel from '../images/Abwheel.png'
+import benchpress from '../images/benchpress.png'
+import bentoverrow from '../images/bentoverrow.png'
+import bicepcurl from '../images/bicepcurl.png'
+import calfraise from '../images/calfraise.png'
+import chestfly from '../images/chestfly.png'
+import declinebench from '../images/declinebench.png'
+import dips from '../images/dips.png'
+import hacksquat from '../images/hacksquat.png'
+import hammercurl from '../images/hammercurl.png'
+import hangingkneeraise from '../images/hangingkneeraise.png'
+import hyperextension from '../images/hyperextension.png'
+import latpulldown from '../images/latpulldown.png'
+import legcurls from '../images/legcurls.png'
+import legextension from '../images/legextension.png'
+import lunges from '../images/lunges.png'
+import pullovers from '../images/pullovers.png'
+import pullup from '../images/pullup.png'
+import reversefly from '../images/reversefly.png'
+import row from '../images/row.png'
+import shoulderpress from '../images/shoulderpress.png'
+import shrugs from '../images/shrugs.png'
+import situp from '../images/situp.png'
+import squat from '../images/squat.png'
+import tbarrow from '../images/tbarrow.png'
+import triceppushdown from '../images/triceppushdown.png'
+import uprightrow from '../images/uprightrow.png'
+import deadlift from '../images/deadlift.png'
+import inclinebench from '../images/inclinebench.png'
+import legpress from '../images/legpress.png'
+import preacher from '../images/preacher.png'
 
 export const exerciseData = [
   {
@@ -7,7 +40,15 @@ export const exerciseData = [
     type: 'Shoulder',
     instructions:
       '1. Sit upright on a bench and hold a dumbell in each hand, at chest level. Keep your palms facing your body as if you are performing a dumbbell curl.\n \n2. Raise the dumbbells upwards while simultaneously rotating your palms until they face forwards, until your arms are fully extended straight above you.\n \n3. After pausing briefly, lower the dumbbells while rotating your palms towards you back to the starting position.',
-    image: 'https://wger.de/media/exercise-images/228/Arnold-press-2.png',
+    image: arnoldpress,
+  },
+  {
+    id: uuidv4(),
+    name: 'Hyper Extension',
+    type: 'Back',
+    instructions:
+      '1. Position your thighs on the padding and lock your heels under the padded brace.\n \n2. Hold the weight by your chest or behind the neck, whichever feels more comfortable.\n \n3. Lower your body by bending at the waist while keeping your back straight at all times. Rise back up until torso is parallel to your legs.',
+    image: hyperextension,
   },
   {
     id: uuidv4(),
@@ -15,7 +56,7 @@ export const exerciseData = [
     type: 'Chest',
     instructions:
       '1. Lie flat on the bench holding the barbell with a shoulder width pronated grip.\n \n2. Retract scapula and have elbows between 45 to 90 degree angle. An advanced tip is to tuck the shoulders down into the sockets and driven back.\n \n3. Lift bar from the rack and hold above the chest with arms extended.\n \n4. Breathe in and lower bar to the middle chest.\n \n5. After pausing at the bottom, push the bar towards the starting position squeezing the chest.',
-    image: 'https://wger.de/media/exercise-images/192/Bench-press-2.png',
+    image: benchpress,
   },
   {
     id: uuidv4(),
@@ -23,8 +64,7 @@ export const exerciseData = [
     type: 'Back',
     instructions:
       '1. Holding the barbell with a pronated grip, bend the legs and tilt the torso wit a straight back.\n \n2.Flexing the core, keep head in neutral position, pull the barbell towards your stomach.\n \n3. Squeeze your back as you breath out at the top position.\n \n4. Inhale and lower the barbell to the starting position.\n \n',
-    image:
-      'https://wger.de/media/exercise-images/70/Reverse-grip-bent-over-rows-2.png',
+    image: bentoverrow,
   },
   {
     id: uuidv4(),
@@ -32,7 +72,7 @@ export const exerciseData = [
     type: 'Chest',
     instructions:
       '1. Sitting with the pad againt the back, grip the handles of the machine.\n \n2. Slightly bend the elbows and squeeze the chest to bring the handles together in front of the chest.\n \n3. Return to the starting position while inhaling.',
-    image: 'https://wger.de/media/exercise-images/30/Butterfly-machine-2.png',
+    image: chestfly,
   },
   {
     id: uuidv4(),
@@ -40,7 +80,7 @@ export const exerciseData = [
     type: 'Arms',
     instructions:
       '1. Stand while holding the bar at shoulder width with an underhand grip and elbows touching the side of the torso.\n \n2. Holding the upper arm stationary, curl barbell u with palm facing foward. Lift the bar towrards the shoulder until the bicep is fully contracted. Hold this position for a second and squeeze the bicep.\n \n3. Lower the bar to the starting position.',
-    image: 'https://wger.de/media/exercise-images/3/Standing-biceps-curl-2.png',
+    image: bicepcurl,
   },
   {
     id: uuidv4(),
@@ -48,7 +88,7 @@ export const exerciseData = [
     type: 'Back',
     instructions:
       '1. Approach the bar so it is positioned across the center of the foot.\n \n2. Place the feet shoulder width apart and grip the bar at shoulder width apart.\n \n3. Lower hips and bend knees to bring shins into the bar. Lift the chest and take a deep breath to brace the core(should be braced the entrie movement). Retract shoulder blades to take the slack out of the bar.\n \n4. Pull bar upward extending hips and straightening the torso.\n \n5. Return weight to the floor in a controlled motion by breaking at the hips and bending the legs.',
-    image: 'https://wger.de/media/exercise-images/9/Dead-lifts-2.png',
+    image: deadlift,
   },
   {
     id: uuidv4(),
@@ -56,32 +96,31 @@ export const exerciseData = [
     type: 'Chest',
     instructions:
       '1. Lie on a decline bench, securing legs on the end of the bench.\n \n2. Lift the bar off the rack above the chest with arms straight.\n \n3. Retract scapula and have elbows between 45 to 90 degree angle. An advanced tip is to tuck the shoulders down into the sockets and driven back.\n \n4. Breathe in and lower bar to the middle chest.\n \n5. After pausing at the bottom, push the bar towards the starting position squeezing the chest.',
-    image: 'https://wger.de/media/exercise-images/17/Decline-bench-press-2.png',
+    image: declinebench,
   },
   {
     id: uuidv4(),
-    name: 'Flat Leg Raise',
+    name: 'Hanging Knee Raise',
     type: 'Core',
     instructions:
-      '1. Lie on a mat with legs extended in front, place hands under your glutes.\n \n2. Exhale, keepign the core tight as you lift legs until they are perpendicular with the floor.\n \n3. Lower legs back to the mat without touching the floor, keeping the core braced.',
-    image: 'https://wger.de/media/exercise-images/34/Leg-raises-1.png',
+      '1. Hang fro a bar with arms extended and legs straight down.\n \n2. Contract abs and bring your knees up to your chest.\n \n3. Hold position while keeping core tight.',
+    image: hangingkneeraise,
   },
   {
     id: uuidv4(),
-    name: 'Front Squat',
+    name: 'Ab Wheel',
+    type: 'Core',
+    instructions:
+      '1. Hold the ab wheel with both hands and kneel on the floor.\n \n2. Place the ab roller on the floor in fornt of your knees. This is your starting position.\n \n3. Slowly roll the wheel forward in a controlled manner, stretching out the torso as far as you can without touching the floor with your body.\n \n4. Stop when fully stretched and pause for a moment.\n \n5. Pull yoursef back to the starting position by contracting the abs.',
+    image: abwheel,
+  },
+  {
+    id: uuidv4(),
+    name: 'Standing Calf Raise',
     type: 'Legs',
     instructions:
-      '1. Set the barbell at slightly below shoulder level.\n \n2. With a braced core, chest up, create a shelf with the front of the delt with the bbar touching the clavicle and neck. The fingers should rest under the bar with elbows pointed foward and up. Unrack the bar and step back to a position with feet shoulder with apart.\n \n3. Keeping core braced, chest up and head neutral, break at the hips keeping pressur on the midfoot and descend into a squat. Continue lowering the body until the thights are at or past parallel with the ground.\n \n4. Exhaling, drive through the heels and midfoot, pushing knees outward until back to starting position.',
-    image:
-      'https://wger.de/media/exercise-images/191/Front-squat-2-857x1024.png',
-  },
-  {
-    id: uuidv4(),
-    name: 'Good Morning',
-    type: 'Back',
-    instructions:
-      '1. Pace the bar across the back with knees slightly bent.\n \n2. Keeping core tight and back straight, break at the hips and bend down until near parallel.\n \n3. Reverse motion by extending through the hips and bringing the chest back up.',
-    image: 'https://wger.de/media/exercise-images/50/Good-mornings-1.png',
+      '1. Adjust padding to slightly below the starting position where the balls of the feet are placed on the elevated platform and the heels are fully extended.\n \n2. Stand upright with the torso erect knees slightly bent.\n \n3. Raise heels as you breathe out, contracting calves at the top.\n \n4. Lower slowly back to the starting position.',
+    image: calfraise,
   },
   {
     id: uuidv4(),
@@ -89,7 +128,7 @@ export const exerciseData = [
     type: 'Arms',
     instructions:
       '1. Stand with a dumbell in each hand and with elbows touching the side of the torso\n \n2. Using biceps, pull forearms and hands upward until fully contracted.\n \n3. Squeeze biceps and slowly lower back to the starting position.',
-    image: 'https://wger.de/media/exercise-images/46/Bicep-hammer-curl-2.png',
+    image: hammercurl,
   },
   {
     id: uuidv4(),
@@ -97,8 +136,7 @@ export const exerciseData = [
     type: 'Legs',
     instructions:
       '1. With the back and houlders against the pads of the machine, place feet shoulder width apart and slightly in front of the torso.\n \n2. Bracing core and keeping chest up, push with the feet until the weight is supported by the shoulders. Unlock the hack squat by disengaging the safety bars.\n \n3. Slowly lower the squat by bracking at the hips until the thighs and calves make a 90 degree angle.\n \n4. When at the bottom of the squat, push through the heels and midfoot while exhaling to return to the starting position.',
-    image:
-      'https://wger.de/media/exercise-images/130/Narrow-stance-hack-squats-2-1024x721.png',
+    image: hacksquat,
   },
   {
     id: uuidv4(),
@@ -106,7 +144,7 @@ export const exerciseData = [
     type: 'Back',
     instructions:
       '1. Lie on the incline bench holding the dumbbells with a shoulder width pronated grip.\n \n2. Retract scapula and have elbows between 45 to 90 degree angle. An advanced tip is to tuck the shoulders down into the sockets and driven back.\n \n3. Breathe in and lower dumbbells to the middle chest.\n \n4. After pausing at the bottom, push dumbbells towards the starting position squeezing the chest.',
-    image: 'https://wger.de/media/exercise-images/16/Incline-press-1.png',
+    image: inclinebench,
   },
   {
     id: uuidv4(),
@@ -114,8 +152,7 @@ export const exerciseData = [
     type: 'Back',
     instructions:
       '1. Sit on the pull down machine with knee pads adjusted to provide support, preventing your body from being pulled out of position.\n \n2. Grip the pull down bar with a pronated grip slightly outside of shouler width.\n \n3. As you exhale, pull the bar down until it touches the upper chest.\n \n4. Pause and squeeze the back muscles.\n \n5. Slowly bring the bar back to the starting position with the lats fully stretched.',
-    image:
-      'https://wger.de/media/exercise-images/244/Close-grip-front-lat-pull-down-2.png',
+    image: latpulldown,
   },
   {
     id: uuidv4(),
@@ -123,8 +160,7 @@ export const exerciseData = [
     type: 'Shoulder',
     instructions:
       '1. Start with the dumbbells resting on the side of the tigh. The arm should be slighty bent.\n \n2. Using your shoulder, lift the arm in a semi-circular motion until slightly above parallel.\n \n3. Return to the starting position slowly while maintaining a tight core.',
-    image:
-      'https://wger.de/media/exercise-images/148/lateral-dumbbell-raises-large-1.png',
+    image: sidelateral,
   },
   {
     id: uuidv4(),
@@ -132,7 +168,7 @@ export const exerciseData = [
     type: 'Legs',
     instructions:
       '1. Place feet shoulder width apart in a position where the knees would not pass the feet at the bottom of the leg press movement.\n \n2.Push through the heel and midfoot and lower the safety bars, making sure to brace the core and keeping knees pointed slightly outward.\n \n3. Lower the weight platform until the legs create a 90 degree angle.\n \n4. Push using the quads to the starting position, making sure knees are not locked.',
-    image: 'https://wger.de/media/exercise-images/6/Leg-press-1-1024x670.png',
+    image: legpress,
   },
   {
     id: uuidv4(),
@@ -140,8 +176,7 @@ export const exerciseData = [
     type: 'Shoulder',
     instructions:
       '1. Start with barbell at slightly below chest level.\n \n2. With arms at shoulder width, unrack the bar and step backward.\n \n3. Flexing the glutes and keeping the core tight, push the barbell upwards over the head as you exhale.\n \n4. Lower the bar towards the starting position as you inhale.',
-    image:
-      'https://wger.de/media/exercise-images/119/seated-barbell-shoulder-press-large-1.png',
+    image: shoulderpress,
   },
   {
     id: uuidv4(),
@@ -149,7 +184,7 @@ export const exerciseData = [
     type: 'Arms',
     instructions:
       '1. Adjust the preacher bench to the appropriate height and hold a barbell with upper arm placed against the pad.\n \n2. Breathing out, contract the bicep and pull the barbell towards the upper chest.\n \n3. Hold at the upper position while contracting the bicep and then slowly return to the starting position.',
-    image: 'https://wger.de/media/exercise-images/193/Preacher-curl-3-2.png',
+    image: preacher,
   },
   {
     id: uuidv4(),
@@ -157,17 +192,15 @@ export const exerciseData = [
     type: 'Shoulder',
     instructions:
       '1. Adjust the pulleys so that the handles are at chest height.\n \n2. Reach across your body and grab the left handle with your right hand and grab the right handle with your left hand.\n \n3. Position your arms straight ahead while holding onto each handle. This is your starting position.\n \n4. Pull on the handles by movin your hands out to the side and back and focusing on pulling the weight using your rear delts.\n \n5. Once fully extended to the side, hold the position for a brief moment and slowly return to the starting position.',
-    image:
-      'https://wger.de/media/exercise-images/47/Lying-rear-lateral-raise-1.png',
+    image: reversefly,
   },
   {
     id: uuidv4(),
-    name: 'Shoulder Press',
-    type: 'Shoulder',
+    name: 'Pullover',
+    type: 'Chest',
     instructions:
-      '1. Adjust seat so that th handles are around shoulder height.\n \n2. Grab the handles with an overhand grip.\n \n3. Inhale and press the weight upwards until arms are fully extended.\n \n4. Lower into starting position.',
-    image:
-      'https://wger.de/media/exercise-images/152/seated-shoulder-press-machine-large-1.png',
+      '1. Placing the upper back against the bench with a dumbbell placed on the chest.\n \n2. Grasp the dumbbell with both hands pressing against one end and hold straight over the chest.\n \n3. Lower the dumbbell in an arc above the head until you feel a stretch in the chest muscles.\n \n4. Return to the starting position while breating out.',
+    image: pullovers,
   },
   {
     id: uuidv4(),
@@ -175,7 +208,7 @@ export const exerciseData = [
     type: 'Back',
     instructions:
       '1. With feet shoulder with and hands at shoulder width position pick up the bar with an overhand grip.\n \n2. Raise your shoulders up, squeezing your upper back and traps together.\n \n3. Hold at the retracted position while keeping the head and neck in a neutral position.',
-    image: 'https://wger.de/media/exercise-images/137/Barbell-shrugs-2.png',
+    image: shrugs,
   },
   {
     id: uuidv4(),
@@ -183,7 +216,7 @@ export const exerciseData = [
     type: 'Legs',
     instructions:
       '1. Place the bar between the traps and the upper back with the hands shoulder width apart.\n \n2. Place the feet shoulder width apart and descend by breaking at the hips and sitting backwards.\n \n3. Keep the head in a neutral position, back and spine in a straight and neutral position, the core flexed and knees pushed slighty outwards.\n \n4. Descend to the bottom where thighs are parallel to the floor.\n \n.5. Push through the heel and middle foot to bring yourself back to starting position.',
-    image: 'https://wger.de/media/exercise-images/111/Wide-stance-squat-1.gif',
+    image: squat,
   },
   {
     id: uuidv4(),
@@ -191,7 +224,7 @@ export const exerciseData = [
     type: 'Back',
     instructions:
       '1. Put weight on one end of a barbell and secure the other end in a non stationary spot.\n \n2. Grab bar with both hands below the weight.\n \n3. Break at the hips and bend fowards until the torso is parallel with the barbell.\n \n4. Pull bar upward toward the chest while squeezing the back and holding at the top.\n \n5. Lower bar slowly towards the starting position.',
-    image: 'https://wger.de/media/exercise-images/76/T-bar-row-2.png',
+    image: tbarrow,
   },
   {
     id: uuidv4(),
@@ -199,8 +232,7 @@ export const exerciseData = [
     type: 'Arms',
     instructions:
       '1. Grip the handle attachment with a supinated grip, securing the elbow to the side of the body.\n \n2. Extend forearm to fully extend arm while flexing the tricep and exhaling.\n \n3. Return to the starting position while inhaling.',
-    image:
-      'https://wger.de/media/exercise-images/45/Seated-triceps-press-2.png',
+    image: triceppushdown,
   },
   {
     id: uuidv4(),
@@ -208,8 +240,7 @@ export const exerciseData = [
     type: 'Shoulder',
     instructions:
       '1. Hold barbell with arms shoulder width and grip with a pronated grip.\n \n2. Use shoulders to lift the barbell as you exhale.\n \n3. Elbows should lead movement and the bar should be close to the body as it is elevated.\n \n4. Continue to lift until bar is chin level. Hold at this position as you contrat the shoulder muscles.\n \n5. Lower to starting position.',
-    image:
-      'https://wger.de/media/exercise-images/62/Barbell-upright-rows-1.png',
+    image: uprightrow,
   },
   {
     id: uuidv4(),
@@ -217,6 +248,54 @@ export const exerciseData = [
     type: 'Arms',
     instructions:
       '1. Place hands on the bar with palms facing yourself and a grip slightly within shoulder width.\n \n2. Retract the shoulders and tuck them down and keep the core tight and back slightly arched.\n \n3. Breating out, pull the torso upward until the head is above the bar keeping elbows against the side of the body.\n \n4. Lower back to the starting position while breathing in.',
-    image: 'https://wger.de/media/exercise-images/36/Chin-ups-1.png',
+    image: pullup,
+  },
+  {
+    id: uuidv4(),
+    name: 'Lunge',
+    type: 'Legs',
+    instructions:
+      '1. With feet shoulder width apart in an upright position and holding a barbell on the back, take a medium stride forward.\n \n2. Descend by bending the forward leg to a comfortable position where the rear knee is just above the floor.\n \n3. Knee should be roughly 90 degrees. Avoid knee extending far beyond the foot to prevent uneeded stress on joint.\n \n2. Push upward with your foward foot, coming back to the starting position.',
+    image: lunges,
+  },
+  {
+    id: uuidv4(),
+    name: 'Sit Up',
+    type: 'Core',
+    instructions:
+      '1. Secure feet under some weight with knees bent. Place hands at the side of the head with the back on the floor.\n \n2. Contracting the abs, raise the torso until it makes a V with the thighs.\n \n3. Return to the starting position while inhaling.',
+    image: situp,
+  },
+  {
+    id: uuidv4(),
+    name: 'Chest Dip',
+    type: 'Chest',
+    instructions:
+      '1. Holding body from arms extended above the chest dip bars. This is your starting position.\n \n2. Slowly lower your body with the torso leaning forward and elbows slightly flared out until you feel a stretch in the chest.\n \n3. From this position squeeze the chest and bring the body back to the starting position as you breath out.',
+    image: dips,
+  },
+  {
+    id: uuidv4(),
+    name: 'Leg Extension',
+    type: 'Legs',
+    instructions:
+      '1. Sit on the machine with pads and back rest is appropriately adjusted with the legs under the pad.\n \n2. Using the quads, extend the legs as you exhale.\n \n3. Pause at the top and squeeze the quads and lower slowly to the starting position.',
+    image: legextension,
+  },
+  {
+    id: uuidv4(),
+    name: 'Leg Curl',
+    type: 'Legs',
+    instructions:
+      '1. Adjust the machine lever to fit your height.\n \n2. While keeping your torso flat on the bench, grab the machine handles and ensure that your legs are fully stretched. This is your starting position.\n \n3. Without lifting the upper legs from the pad, curl your legs up as high as you possibly can by bringing your foot as close as possible to your glutes.\n \n2. Hold this position for a brief moment, then bring your legs back down to the initial position.',
+    image: legcurls,
+  },
+  {
+    id: uuidv4(),
+    name: 'Iso-Lateral Row',
+    type: 'Back',
+    instructions:
+      '1. Grip the machine handles with both hands and sit with chest upright against the pad and back straight.\n \n2. With shoulders retracted, pull the handle towards the mid torso.\n \n3. Squeeze the back muscles as the handle approaches the torso and hold before returning to the starting position.',
+    image: row,
   },
 ]

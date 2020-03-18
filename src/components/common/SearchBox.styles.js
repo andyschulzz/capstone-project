@@ -3,7 +3,7 @@ import { MdBackspace } from 'react-icons/md'
 
 const Input = styled.input`
   font-size: inherit;
-  padding: 5px 10px;
+  padding: 5px 0 5px 10px;
   outline: none;
   flex-grow: 2;
   border: none;

@@ -5,7 +5,6 @@ const Input = styled.input`
   font-size: inherit;
   padding: 5px 10px;
   outline: none;
-  width: 164px;
   flex-grow: 2;
   border: none;
   border-radius: 5px;

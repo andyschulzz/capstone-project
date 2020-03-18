@@ -1,4 +1,6 @@
 import styled from 'styled-components/macro'
+import { BlueButton } from '../common/Button'
+import { MdAddCircleOutline } from 'react-icons/md'
 
 const ButtonWrapper = styled.div`
   display: flex;
@@ -32,4 +34,12 @@ const Container = styled.div`
   text-transform: uppercase;
 `
 
-export { ButtonWrapper, Wrapper, Span, Container }
+const ButtonAdd = styled(BlueButton)`
+  margin-right: 36px;
+`
+
+const AddIcon = styled(MdAddCircleOutline)`
+  font-size: 28px;
+`
+
+export { ButtonWrapper, Wrapper, Span, Container, ButtonAdd, AddIcon }

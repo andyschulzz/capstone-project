@@ -1,6 +1,6 @@
 import styled from 'styled-components/macro'
 import { NavLink } from 'react-router-dom'
-import { MdPlaylistAdd, MdFitnessCenter } from 'react-icons/md'
+import { MdPlaylistAdd } from 'react-icons/md'
 import { IoIosFitness } from 'react-icons/io'
 
 const Anchor = styled(NavLink)`

@@ -5,7 +5,11 @@ const Form = styled.form`
   overflow-y: auto;
   scroll-behavior: smooth;
 
-  h3 {
+  h3:first-child {
+    margin: 0;
+  }
+
+  h3 h3 {
     margin-top: 0;
   }
 
@@ -21,10 +25,6 @@ const ButtonWrapper = styled.div`
   background: #fff;
   align-items: center;
   padding: 40px 0 30px;
-
-  h3 {
-    margin: 0;
-  }
 `
 
 export { Form, ButtonWrapper }

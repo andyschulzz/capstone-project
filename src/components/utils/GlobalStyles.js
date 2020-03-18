@@ -50,6 +50,6 @@ export default createGlobalStyle`
     padding: 0;
     margin: 0;
     color: #333;
-    max-width: 100%;
+    overflow: hidden;
   }
 `

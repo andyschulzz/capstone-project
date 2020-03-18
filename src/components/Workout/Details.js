@@ -11,7 +11,7 @@ Detail.propTypes = {
 export default function Detail({ register, name, index }) {
   return (
     <>
-      <S.Name>{name}</S.Name>
+      <S.H3>{name}</S.H3>
       <S.DetailWrapper>
         <S.Wrapper>
           <p>sets</p>

@@ -34,8 +34,8 @@ const DetailWrapper = styled.div`
   }
 `
 
-const Name = styled.h3`
+const H3 = styled.h3`
   font-weight: 400;
 `
 
-export { Wrapper, DetailWrapper, Name }
+export { Wrapper, DetailWrapper, H3 }

@@ -1,7 +1,6 @@
 import React from 'react'
 import Exercise from './Exercise'
 import SearchBox from '../common/SearchBox'
-import { BlueButton } from '../common/Button'
 import { useRouteMatch, Link } from 'react-router-dom'
 import { useForm } from 'react-hook-form'
 import * as S from './List.styles'
@@ -37,9 +36,9 @@ export default function List({
   return (
     <S.Wrapper>
       <S.ButtonWrapper>
-        <BlueButton as={Link} to={`${url}/add`}>
+        <S.ButtonAdd as={Link} to={`${url}/add`}>
           Add
-        </BlueButton>
+        </S.ButtonAdd>
         <SearchBox
           register={register}
           onSubmit={handleSubmit(onSubmit)}

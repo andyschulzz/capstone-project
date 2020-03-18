@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 const Exercise = styled(Link)`
   display: flex;
   align-items: center;
-  margin: 0 0 36px 10px;
+  margin: 0 0 18px 10px;
   text-decoration: none;
 
   p:first-child {

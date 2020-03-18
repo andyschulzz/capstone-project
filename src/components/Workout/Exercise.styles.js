@@ -3,7 +3,7 @@ import styled from 'styled-components/macro'
 const Exercise = styled.div`
   display: flex;
   align-items: center;
-  margin: 0 0 36px 10px;
+  margin: 0 0 18px 10px;
   text-decoration: none;
   cursor: pointer;
 

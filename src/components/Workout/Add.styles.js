@@ -17,13 +17,13 @@ const Form = styled.form`
 `
 
 const Textarea = styled.textarea`
-  margin-bottom: 20px;
+  margin-top: 20px;
   width: 100%;
   border: none;
   outline: none;
   height: 40px;
   resize: none;
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   background-color: #fff;
   color: #333;
 

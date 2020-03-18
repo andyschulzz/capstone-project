@@ -8,7 +8,7 @@ export default function Form({ disabled = true, register, image }) {
         ref={register({
           required: true,
           minLength: 4,
-          maxLength: 20,
+          maxLength: 50,
         })}
         isTitle
         isExerciseName
@@ -18,12 +18,13 @@ export default function Form({ disabled = true, register, image }) {
         placeholder="Name of the exercise? "
         required
         minLength="4"
+        maxLength="50"
         disabled={disabled}
       />
       {image && <img alt="" src={image} />}
       <S.Label htmlFor="type">Type</S.Label>
       <S.Textarea
-        ref={register({ required: true, minLength: 4, maxLength: 20 })}
+        ref={register({ required: true, minLength: 4, maxLength: 30 })}
         isTitle
         type="text"
         name="type"
@@ -31,6 +32,7 @@ export default function Form({ disabled = true, register, image }) {
         placeholder="Type of the exercise?"
         required
         minLength="4"
+        maxLength="30"
         disabled={disabled}
       />
       <S.Label htmlFor="instructions">Instructions</S.Label>

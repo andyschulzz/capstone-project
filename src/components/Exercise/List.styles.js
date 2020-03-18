@@ -34,7 +34,6 @@ const Container = styled.div`
 `
 
 const ButtonAdd = styled(BlueButton)`
-  display: flex;
   margin-right: 36px;
 `
 

@@ -28,7 +28,7 @@ export default function WorkoutMenu({
         <S.DeleteIcon />
         Delete
       </p>
-      <OnOutsiceClick container={ref} onOutsideClick={click} />
+      <OnOutsiceClick container={ref} onOutsideClick={() => click} />
     </S.Wrapper>
   )
 

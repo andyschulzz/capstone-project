@@ -1,8 +1,8 @@
-import React, { useState } from 'react'
+import React, { useState, useRef } from 'react'
 import * as S from './List.styles'
 import PropTypes from 'prop-types'
 import WorkoutMenu from './WorkoutMenu'
-import { useToggle } from 'react-hooks-lib'
+import useOnclickOutside from 'react-cool-onclickoutside'
 
 List.propTypes = {
   workouts: PropTypes.array.isRequired,
@@ -15,8 +15,15 @@ export default function List({
   handleWorkoutDelete,
   handleWorkoutEdit,
 }) {
-  const { on, toggle } = useToggle(false)
   const [selectedWorkout, setSelectedWorkout] = useState()
+  const [openMenu, setOpenMenu] = useState(false)
+
+  const refOne = useRef()
+  const refTwo = useRef()
+
+  useOnclickOutside([refOne, refTwo], () => {
+    setOpenMenu(false)
+  })
 
   const groupByTitle = workouts.reduce((acc, obj) => {
     const key = obj['title']
@@ -26,18 +33,19 @@ export default function List({
     acc[key].push(obj)
     return acc
   }, {})
+
   const renderWorkouts = Object.entries(groupByTitle).map(
     ([title, exercises], index) => (
       <S.WorkoutWrapper key={title}>
-        {selectedWorkout === index && on && (
+        {selectedWorkout === index && openMenu && (
           <WorkoutMenu
             title={title}
             handleWorkoutDelete={handleWorkoutDelete}
             handleWorkoutEdit={handleWorkoutEdit}
-            toggle={toggle}
+            ref={refTwo}
           />
         )}
-        <S.TitleWrapper>
+        <S.TitleWrapper ref={refOne}>
           <h3>{title}</h3>
           <S.MenuIcon onClick={() => handleToggle(index)} />
         </S.TitleWrapper>
@@ -61,7 +69,7 @@ export default function List({
   )
   function handleToggle(selectedWorkout) {
     setSelectedWorkout(selectedWorkout)
-    toggle()
+    setOpenMenu(!openMenu)
   }
 
   return <>{renderWorkouts}</>

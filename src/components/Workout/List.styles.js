@@ -27,6 +27,7 @@ const MenuIcon = styled(MdMoreHoriz)`
   margin-left: auto;
   margin-top: -10px;
   color: hsl(200, 100%, 50%);
+  cursor: pointer;
 `
 
 const TitleWrapper = styled.div`

@@ -26,7 +26,6 @@ export default function List({
     acc[key].push(obj)
     return acc
   }, {})
-  console.log(on, 'toggle')
   const renderWorkouts = Object.entries(groupByTitle).map(
     ([title, exercises], index) => (
       <S.WorkoutWrapper key={title}>

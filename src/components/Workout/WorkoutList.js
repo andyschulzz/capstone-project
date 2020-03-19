@@ -6,9 +6,15 @@ import PropTypes from 'prop-types'
 
 WorkoutList.propTypes = {
   workouts: PropTypes.array.isRequired,
+  handleWorkoutDelete: PropTypes.func.isRequired,
+  handleWorkoutEdit: PropTypes.func.isRequired,
 }
 
-export default function WorkoutList({ workouts }) {
+export default function WorkoutList({
+  workouts,
+  handleWorkoutDelete,
+  handleWorkoutEdit,
+}) {
   return (
     <S.Wrapper>
       <S.ButtonWrapper>
@@ -21,9 +27,11 @@ export default function WorkoutList({ workouts }) {
           Please create a new workout!
         </S.WorkoutWrapper>
       ) : (
-        <S.WorkoutWrapper>
-          <List workouts={workouts} />
-        </S.WorkoutWrapper>
+        <List
+          workouts={workouts}
+          handleWorkoutDelete={handleWorkoutDelete}
+          handleWorkoutEdit={handleWorkoutEdit}
+        />
       )}
     </S.Wrapper>
   )

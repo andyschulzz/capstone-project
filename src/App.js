@@ -24,6 +24,9 @@ function App() {
     handleWorkoutTitle,
     handleWorkoutSubmit,
     handleSelectedWorkoutsReset,
+    handleWorkoutDelete,
+    handleWorkoutEdit,
+    handleWorkoutChange,
   } = useWorkout()
 
   const { handleSearch, search } = useSearch()
@@ -58,6 +61,9 @@ function App() {
             handleWorkoutTitle={handleWorkoutTitle}
             handleWorkoutSubmit={handleWorkoutSubmit}
             selectedWorkouts={selectedWorkouts}
+            handleWorkoutDelete={handleWorkoutDelete}
+            handleWorkoutEdit={handleWorkoutEdit}
+            handleWorkoutChange={handleWorkoutChange}
           />
         </Route>
       </Switch>

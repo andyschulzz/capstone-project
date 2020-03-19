@@ -2,6 +2,7 @@ import React from 'react'
 import PageLayout from './PageLayout'
 import WorkoutList from '../Workout/WorkoutList'
 import Add from '../Workout/Add'
+import Edit from '../Workout/Edit'
 import WorkoutDetails from '../Workout/WorkoutDetails'
 import { Switch, Route, useRouteMatch } from 'react-router-dom'
 import PropTypes from 'prop-types'
@@ -20,6 +21,9 @@ export default function Workouts({
   handleWorkoutAdd,
   handleWorkoutSubmit,
   handleWorkoutTitle,
+  handleWorkoutDelete,
+  handleWorkoutEdit,
+  handleWorkoutChange,
   selectedWorkouts,
   workouts,
 }) {
@@ -28,7 +32,11 @@ export default function Workouts({
     <PageLayout title="Workouts">
       <Switch>
         <Route exact path={path}>
-          <WorkoutList workouts={workouts} />
+          <WorkoutList
+            workouts={workouts}
+            handleWorkoutDelete={handleWorkoutDelete}
+            handleWorkoutEdit={handleWorkoutEdit}
+          />
         </Route>
         <Route path={`${path}/add`}>
           <Add
@@ -42,6 +50,12 @@ export default function Workouts({
           <WorkoutDetails
             selectedWorkouts={selectedWorkouts}
             handleWorkoutSubmit={handleWorkoutSubmit}
+          />
+        </Route>
+        <Route path={`${path}/edit`}>
+          <Edit
+            selectedWorkouts={selectedWorkouts}
+            handleWorkoutChange={handleWorkoutChange}
           />
         </Route>
       </Switch>

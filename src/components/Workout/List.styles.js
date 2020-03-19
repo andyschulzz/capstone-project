@@ -1,11 +1,11 @@
 import styled from 'styled-components/macro'
+import { MdMoreHoriz } from 'react-icons/md'
 
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   font-size: 1.1rem;
   margin: 5px 0;
-}
 `
 
 const Span = styled.span`
@@ -21,4 +21,32 @@ const DetailsWrapper = styled.div`
   color: #999;
 `
 
-export { Wrapper, DetailsWrapper, Span }
+const MenuIcon = styled(MdMoreHoriz)`
+  font-size: 28px;
+  align-self: center;
+  margin-left: auto;
+  margin-top: -10px;
+  color: hsl(200, 100%, 50%);
+`
+
+const TitleWrapper = styled.div`
+  display: flex;
+`
+
+const WorkoutWrapper = styled.div`
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  position: relative;
+
+  h3 {
+    margin: 0;
+    font-size: 1.4rem;
+  }
+
+  span {
+    align-self: center;
+  }
+`
+
+export { Wrapper, DetailsWrapper, Span, MenuIcon, TitleWrapper, WorkoutWrapper }

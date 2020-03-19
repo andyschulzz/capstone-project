@@ -18,28 +18,16 @@ const Wrapper = styled.section`
   display: grid;
   padding: 0 40px 30px;
   gap: 10px;
-  overflow-y: auto;
-  scroll-behavior: smooth;
   max-height: 100%;
-
-  p {
-    padding-top: 20px;
-    margin: 0;
-    font-size: 1.1rem;
-  }
 `
 
 const WorkoutWrapper = styled.div`
-  padding: ${props => props.isPlaceholder && '40px'} 20px;
+  padding: 40px 20px;
   border: 1px solid #ccc;
   border-radius: 5px;
-  text-align: ${props => props.isPlaceholder && 'center'};
-  font-size: ${props => props.isPlaceholder && 1.1}rem;
-
-  h3 {
-    margin: 0;
-    font-size: 1.4rem;
-  }
+  text-align: center;
+  font-size: 1.1rem;
+  position: relative;
 `
 
 export { ButtonWrapper, Wrapper, WorkoutWrapper }

@@ -18,9 +18,37 @@ export default function useWorkout() {
     setSelectedWorkouts(newWorkouts)
   }
 
+  function handleWorkoutDelete(title) {
+    const newWorkouts = [...workouts]
+    const removeWorkout = newWorkouts.filter(workout => workout.title !== title)
+    setWorkouts(removeWorkout)
+  }
+
+  function handleWorkoutEdit(title) {
+    const newWorkouts = [...workouts]
+    const selectedWorkout = newWorkouts.filter(
+      workout => workout.title === title
+    )
+    setSelectedWorkouts(selectedWorkout)
+  }
+
   function handleWorkoutTitle(title) {
     const addTitle = selectedWorkouts.map(workout => ({ ...workout, title }))
     setSelectedWorkouts(addTitle)
+  }
+
+  function handleWorkoutChange(data) {
+    const editWorkout = selectedWorkouts.map((workout, index) => ({
+      ...workout,
+      title: data.name,
+      reps: data.reps[index],
+      sets: data.sets[index],
+      weight: data.weight[index],
+    }))
+    const newWorkouts = editWorkout.map(
+      (workout, index) => (workouts[index] = workout)
+    )
+    setWorkouts(newWorkouts)
   }
 
   function handleWorkoutSubmit(data) {
@@ -47,5 +75,8 @@ export default function useWorkout() {
     handleWorkoutTitle,
     handleWorkoutSubmit,
     handleSelectedWorkoutsReset,
+    handleWorkoutDelete,
+    handleWorkoutEdit,
+    handleWorkoutChange,
   }
 }

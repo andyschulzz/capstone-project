@@ -8,7 +8,7 @@ Detail.propTypes = {
   index: PropTypes.number.isRequired,
 }
 
-export default function Detail({ register, name, index }) {
+export default function Detail({ register, name, index, sets, reps, weight }) {
   return (
     <>
       <S.H3>{name}</S.H3>
@@ -21,6 +21,7 @@ export default function Detail({ register, name, index }) {
             name={`sets[${index}]`}
             required
             min="1"
+            placeholder={sets}
           />
         </S.Wrapper>
         <span>&times;</span>
@@ -32,12 +33,18 @@ export default function Detail({ register, name, index }) {
             name={`reps[${index}]`}
             required
             min="1"
+            placeholder={reps}
           />
         </S.Wrapper>
         <span>&times;</span>
         <S.Wrapper>
           <p>weight</p>
-          <input ref={register()} type="number" name={`weight[${index}]`} />
+          <input
+            ref={register()}
+            type="number"
+            name={`weight[${index}]`}
+            placeholder={weight}
+          />
         </S.Wrapper>
       </S.DetailWrapper>
     </>

@@ -27,7 +27,7 @@ export default function ExerciseList({ exercises, handleWorkoutAdd }) {
   function filterExercises(letter) {
     const filter = exercises
       .filter(exercise => String(exercise.name).startsWith(letter))
-      .map((exercise, index) => {
+      .map(exercise => {
         return (
           <Exercise
             key={exercise.id}

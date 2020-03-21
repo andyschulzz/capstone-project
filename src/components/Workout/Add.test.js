@@ -55,4 +55,19 @@ describe('<Add />', () => {
     const inputNode = getByTestId('exercise')
     expect(inputNode).toBeVisible()
   })
+
+  it('Form should not be valid if input is missing', () => {
+    const { getByTestId } = render(
+      <Router>
+        <Add
+          exercises={exercisesMock}
+          handleWorkoutAdd={handleWorkoutAddMock}
+          handleWorkoutTitle={handleWorkoutTitleMock}
+          selectedWorkouts={[]}
+        />
+      </Router>
+    )
+    const inputNode = getByTestId('add-form')
+    expect(inputNode).not.toBeValid()
+  })
 })

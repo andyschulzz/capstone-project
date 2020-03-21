@@ -70,4 +70,20 @@ describe('<Add />', () => {
     const inputNode = getByTestId('add-form')
     expect(inputNode).not.toBeValid()
   })
+
+  it('Should show checkmark when exercise is clicked', () => {
+    const { getByTestId } = render(
+      <Router>
+        <Add
+          exercises={exercisesMock}
+          handleWorkoutAdd={handleWorkoutAddMock}
+          handleWorkoutTitle={handleWorkoutTitleMock}
+          selectedWorkouts={[]}
+        />
+      </Router>
+    )
+    fireEvent.click(getByTestId('add-button'))
+    fireEvent.click(getByTestId('exercise'))
+    expect(getByTestId('checked')).toBeVisible()
+  })
 })

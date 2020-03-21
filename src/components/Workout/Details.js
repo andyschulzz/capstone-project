@@ -6,6 +6,9 @@ Detail.propTypes = {
   register: PropTypes.func.isRequired,
   name: PropTypes.string.isRequired,
   index: PropTypes.number.isRequired,
+  sets: PropTypes.string,
+  reps: PropTypes.string,
+  weight: PropTypes.string,
 }
 
 export default function Detail({ register, name, index, sets, reps, weight }) {
@@ -17,9 +20,10 @@ export default function Detail({ register, name, index, sets, reps, weight }) {
           <p>sets</p>
           <input
             ref={register({ required: true, min: 1 })}
-            type="number"
+            type="text"
             name={`sets[${index}]`}
             required
+            pattern="[0-9]*"
             min="1"
             placeholder={sets}
           />
@@ -29,9 +33,10 @@ export default function Detail({ register, name, index, sets, reps, weight }) {
           <p>reps</p>
           <input
             ref={register({ required: true, min: 1 })}
-            type="number"
+            type="text"
             name={`reps[${index}]`}
             required
+            pattern="[0-9]*"
             min="1"
             placeholder={reps}
           />
@@ -41,7 +46,8 @@ export default function Detail({ register, name, index, sets, reps, weight }) {
           <p>weight</p>
           <input
             ref={register()}
-            type="number"
+            type="text"
+            pattern="[0-9]*"
             name={`weight[${index}]`}
             placeholder={weight}
           />

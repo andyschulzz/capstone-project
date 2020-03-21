@@ -7,7 +7,7 @@ const WorkoutMenu = React.forwardRef(
   ({ title, handleWorkoutDelete, handleWorkoutEdit }, ref) => {
     const history = useHistory()
     return (
-      <S.Wrapper ref={ref}>
+      <S.Wrapper data-testid="workout-menu" ref={ref}>
         <p onClick={handleEdit}>
           <S.EditIcon />
           Edit

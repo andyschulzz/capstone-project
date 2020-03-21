@@ -1,7 +1,19 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Exercise /> should render correctly 1`] = `
+exports[`<ExerciseList /> should render correctly 1`] = `
 <DocumentFragment>
+  .c0 {
+  font-size: 0.8rem;
+  margin: 20px 0 20px 0;
+  color: #888;
+  font-weight: 300;
+}
+
+<span
+    class="c0"
+  >
+    T
+  </span>
   .c0 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -14,6 +26,7 @@ exports[`<Exercise /> should render correctly 1`] = `
   margin: 0 0 18px 10px;
   -webkit-text-decoration: none;
   text-decoration: none;
+  cursor: pointer;
 }
 
 .c0 p:first-child {
@@ -28,7 +41,6 @@ exports[`<Exercise /> should render correctly 1`] = `
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
   flex-direction: column;
-  color: #333;
 }
 
 .c2 p:first-child {
@@ -50,12 +62,12 @@ exports[`<Exercise /> should render correctly 1`] = `
 .c1 {
   width: 46px;
   height: 46px;
-  margin-right: 36px;
+  margin: 0 36px 0 0;
 }
 
-<a
+<div
     class="c0"
-    href="//details/NaN"
+    data-testid="exercise"
   >
     <img
       alt=""
@@ -68,14 +80,14 @@ exports[`<Exercise /> should render correctly 1`] = `
       <p
         class="c3"
       >
-        Arnold Press
+        Test
       </p>
       <p
         class="c4"
       >
-        Shoulder
+        Test
       </p>
     </div>
-  </a>
+  </div>
 </DocumentFragment>
 `;

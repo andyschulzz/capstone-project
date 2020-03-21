@@ -12,7 +12,12 @@ SearchBox.propTypes = {
 
 export default function SearchBox({ register, onSubmit, reset, search }) {
   return (
-    <S.Form onChange={onSubmit} onSubmit={onSubmit} id="search">
+    <S.Form
+      data-testid="searchbar"
+      onChange={onSubmit}
+      onSubmit={onSubmit}
+      id="search"
+    >
       <S.Input
         ref={register({ maxLength: 50 })}
         name="search"

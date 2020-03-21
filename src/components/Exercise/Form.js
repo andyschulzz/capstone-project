@@ -15,7 +15,7 @@ export default function Form({ disabled = true, register, image }) {
         type="text"
         name="name"
         id="name"
-        placeholder="Name of the exercise? "
+        placeholder="Name of the exercise?"
         required
         minLength="4"
         maxLength="50"

@@ -19,7 +19,7 @@ export default function Details({ name, type, instructions, image }) {
     },
   })
   return (
-    <S.Form id="details">
+    <S.Form data-testid="details" id="details">
       <S.ButtonWrapper>
         <ButtonBackToHome />
         <ButtonEdit />

@@ -26,13 +26,13 @@ export default function Add({
   const [addMode, setAddMode] = useState(true)
 
   return (
-    <S.Form id="add" onSubmit={handleSubmit(onSubmit)}>
+    <S.Form data-testid="add-form" id="add" onSubmit={handleSubmit(onSubmit)}>
       <S.ButtonWrapper>
         <h3>Build Your Routine</h3>
         {selectedWorkouts.length && formState.isValid ? (
           <BlueButton mla>Next</BlueButton>
         ) : (
-          <BlueButton inactive mla type="submit" form="add">
+          <BlueButton inactive mla>
             Next
           </BlueButton>
         )}
@@ -50,7 +50,11 @@ export default function Add({
           maxLength="30"
         />
         {addMode ? (
-          <S.AddButton primary onClick={() => setAddMode(!addMode)}>
+          <S.AddButton
+            data-testid="add-button"
+            primary
+            onClick={() => setAddMode(!addMode)}
+          >
             Add Exercises
           </S.AddButton>
         ) : (

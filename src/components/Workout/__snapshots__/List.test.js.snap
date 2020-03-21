@@ -1,0 +1,560 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<List /> should render correctly 1`] = `
+<DocumentFragment>
+  .c3 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  font-size: 1.1rem;
+  margin: 5px 0;
+}
+
+.c5 {
+  font-size: 1.1rem;
+  margin: 0 5px;
+}
+
+.c4 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  font-size: 0.9rem;
+  color: #999;
+}
+
+.c2 {
+  font-size: 28px;
+  -webkit-align-self: center;
+  -ms-flex-item-align: center;
+  align-self: center;
+  margin-left: auto;
+  margin-top: -10px;
+  color: hsl(200,100%,50%);
+  cursor: pointer;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.c0 {
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  position: relative;
+}
+
+.c0 h3 {
+  margin: 0;
+  font-size: 1.4rem;
+}
+
+.c0 span {
+  -webkit-align-self: center;
+  -ms-flex-item-align: center;
+  align-self: center;
+}
+
+<div
+    class="c0"
+  >
+    <div
+      class="c1"
+    >
+      <h3>
+        undefined
+      </h3>
+      <svg
+        class="c2"
+        data-testid="menu-icon"
+        fill="currentColor"
+        height="1em"
+        stroke="currentColor"
+        stroke-width="0"
+        viewBox="0 0 24 24"
+        width="1em"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M6 10c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm12 0c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm-6 0c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"
+        />
+      </svg>
+    </div>
+    <div
+      class="c3"
+    >
+      Arnold Press
+      <div
+        class="c4"
+      >
+        <span
+          class="c5"
+        >
+          ×
+        </span>
+      </div>
+    </div>
+    <div
+      class="c3"
+    >
+      Hyper Extension
+      <div
+        class="c4"
+      >
+        <span
+          class="c5"
+        >
+          ×
+        </span>
+      </div>
+    </div>
+    <div
+      class="c3"
+    >
+      Bench Press
+      <div
+        class="c4"
+      >
+        <span
+          class="c5"
+        >
+          ×
+        </span>
+      </div>
+    </div>
+    <div
+      class="c3"
+    >
+      Bent Over Row
+      <div
+        class="c4"
+      >
+        <span
+          class="c5"
+        >
+          ×
+        </span>
+      </div>
+    </div>
+    <div
+      class="c3"
+    >
+      Chest Fly
+      <div
+        class="c4"
+      >
+        <span
+          class="c5"
+        >
+          ×
+        </span>
+      </div>
+    </div>
+    <div
+      class="c3"
+    >
+      Bicep Curl
+      <div
+        class="c4"
+      >
+        <span
+          class="c5"
+        >
+          ×
+        </span>
+      </div>
+    </div>
+    <div
+      class="c3"
+    >
+      Deadlift
+      <div
+        class="c4"
+      >
+        <span
+          class="c5"
+        >
+          ×
+        </span>
+      </div>
+    </div>
+    <div
+      class="c3"
+    >
+      Decline Bench Press
+      <div
+        class="c4"
+      >
+        <span
+          class="c5"
+        >
+          ×
+        </span>
+      </div>
+    </div>
+    <div
+      class="c3"
+    >
+      Hanging Knee Raise
+      <div
+        class="c4"
+      >
+        <span
+          class="c5"
+        >
+          ×
+        </span>
+      </div>
+    </div>
+    <div
+      class="c3"
+    >
+      Ab Wheel
+      <div
+        class="c4"
+      >
+        <span
+          class="c5"
+        >
+          ×
+        </span>
+      </div>
+    </div>
+    <div
+      class="c3"
+    >
+      Standing Calf Raise
+      <div
+        class="c4"
+      >
+        <span
+          class="c5"
+        >
+          ×
+        </span>
+      </div>
+    </div>
+    <div
+      class="c3"
+    >
+      Hammer Curl
+      <div
+        class="c4"
+      >
+        <span
+          class="c5"
+        >
+          ×
+        </span>
+      </div>
+    </div>
+    <div
+      class="c3"
+    >
+      Hack Squat
+      <div
+        class="c4"
+      >
+        <span
+          class="c5"
+        >
+          ×
+        </span>
+      </div>
+    </div>
+    <div
+      class="c3"
+    >
+      Incline Bench Press
+      <div
+        class="c4"
+      >
+        <span
+          class="c5"
+        >
+          ×
+        </span>
+      </div>
+    </div>
+    <div
+      class="c3"
+    >
+      Lat Pulldow
+      <div
+        class="c4"
+      >
+        <span
+          class="c5"
+        >
+          ×
+        </span>
+      </div>
+    </div>
+    <div
+      class="c3"
+    >
+      Lateral Raise
+      <div
+        class="c4"
+      >
+        <span
+          class="c5"
+        >
+          ×
+        </span>
+      </div>
+    </div>
+    <div
+      class="c3"
+    >
+      Leg Press
+      <div
+        class="c4"
+      >
+        <span
+          class="c5"
+        >
+          ×
+        </span>
+      </div>
+    </div>
+    <div
+      class="c3"
+    >
+      Overhead Press
+      <div
+        class="c4"
+      >
+        <span
+          class="c5"
+        >
+          ×
+        </span>
+      </div>
+    </div>
+    <div
+      class="c3"
+    >
+      Preacher Curl
+      <div
+        class="c4"
+      >
+        <span
+          class="c5"
+        >
+          ×
+        </span>
+      </div>
+    </div>
+    <div
+      class="c3"
+    >
+      Reverse Fly
+      <div
+        class="c4"
+      >
+        <span
+          class="c5"
+        >
+          ×
+        </span>
+      </div>
+    </div>
+    <div
+      class="c3"
+    >
+      Pullover
+      <div
+        class="c4"
+      >
+        <span
+          class="c5"
+        >
+          ×
+        </span>
+      </div>
+    </div>
+    <div
+      class="c3"
+    >
+      Shrug
+      <div
+        class="c4"
+      >
+        <span
+          class="c5"
+        >
+          ×
+        </span>
+      </div>
+    </div>
+    <div
+      class="c3"
+    >
+      Squat
+      <div
+        class="c4"
+      >
+        <span
+          class="c5"
+        >
+          ×
+        </span>
+      </div>
+    </div>
+    <div
+      class="c3"
+    >
+      T-Bar Row
+      <div
+        class="c4"
+      >
+        <span
+          class="c5"
+        >
+          ×
+        </span>
+      </div>
+    </div>
+    <div
+      class="c3"
+    >
+      Triceps Extension
+      <div
+        class="c4"
+      >
+        <span
+          class="c5"
+        >
+          ×
+        </span>
+      </div>
+    </div>
+    <div
+      class="c3"
+    >
+      Upright Row
+      <div
+        class="c4"
+      >
+        <span
+          class="c5"
+        >
+          ×
+        </span>
+      </div>
+    </div>
+    <div
+      class="c3"
+    >
+      Chin Up
+      <div
+        class="c4"
+      >
+        <span
+          class="c5"
+        >
+          ×
+        </span>
+      </div>
+    </div>
+    <div
+      class="c3"
+    >
+      Lunge
+      <div
+        class="c4"
+      >
+        <span
+          class="c5"
+        >
+          ×
+        </span>
+      </div>
+    </div>
+    <div
+      class="c3"
+    >
+      Sit Up
+      <div
+        class="c4"
+      >
+        <span
+          class="c5"
+        >
+          ×
+        </span>
+      </div>
+    </div>
+    <div
+      class="c3"
+    >
+      Chest Dip
+      <div
+        class="c4"
+      >
+        <span
+          class="c5"
+        >
+          ×
+        </span>
+      </div>
+    </div>
+    <div
+      class="c3"
+    >
+      Leg Extension
+      <div
+        class="c4"
+      >
+        <span
+          class="c5"
+        >
+          ×
+        </span>
+      </div>
+    </div>
+    <div
+      class="c3"
+    >
+      Leg Curl
+      <div
+        class="c4"
+      >
+        <span
+          class="c5"
+        >
+          ×
+        </span>
+      </div>
+    </div>
+    <div
+      class="c3"
+    >
+      Iso-Lateral Row
+      <div
+        class="c4"
+      >
+        <span
+          class="c5"
+        >
+          ×
+        </span>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;

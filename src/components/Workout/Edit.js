@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Details from './Details.js'
 import { GreenButton } from '../common/Button'
 import { useForm } from 'react-hook-form'
@@ -15,15 +15,25 @@ export default function WorkoutDetails({
   selectedWorkouts,
   handleWorkoutChange,
 }) {
-  const { register, handleSubmit } = useForm({
-    defaultValues: {
-      name: selectedWorkouts[0].title,
-    },
-  })
+  const { register, handleSubmit, setValue } = useForm()
+
+  useEffect(() => {
+    selectedWorkouts.forEach((workout, index) => {
+      setValue('name', workout.title)
+      setValue(`weight[${index}]`, workout.weight)
+      setValue(`reps[${index}]`, workout.reps)
+      setValue(`sets[${index}]`, workout.sets)
+    })
+  }, [selectedWorkouts, setValue])
+
   const history = useHistory()
 
   return (
-    <S.Form id="details" onSubmit={handleSubmit(handleEdit)}>
+    <S.Form
+      data-testid="edit-form"
+      id="details"
+      onSubmit={handleSubmit(handleEdit)}
+    >
       <S.ButtonWrapper>
         <h3>Edit Your Workout</h3>
         <GreenButton inactive mla>

@@ -16,7 +16,7 @@ export default function Add({ handleExerciseAdd }) {
   const { register, handleSubmit } = useForm()
 
   return (
-    <S.Form id="add" onSubmit={handleSubmit(handleAdd)}>
+    <S.Form data-testid="add-form" id="add" onSubmit={handleSubmit(handleAdd)}>
       <S.ButtonWrapper>
         <ButtonBackToHome />
         {(!disabled && (

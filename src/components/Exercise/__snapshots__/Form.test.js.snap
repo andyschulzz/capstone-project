@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Exercise /> should render correctly 1`] = `
+exports[`<Form /> should render correctly 1`] = `
 <DocumentFragment>
   .c0 {
   display: -webkit-box;
@@ -67,14 +67,10 @@ exports[`<Exercise /> should render correctly 1`] = `
     >
       <p
         class="c3"
-      >
-        Arnold Press
-      </p>
+      />
       <p
         class="c4"
-      >
-        Shoulder
-      </p>
+      />
     </div>
   </a>
 </DocumentFragment>

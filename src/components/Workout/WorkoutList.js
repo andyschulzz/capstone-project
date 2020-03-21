@@ -23,7 +23,7 @@ export default function WorkoutList({
       </S.ButtonWrapper>
       <h3>My Routines</h3>
       {!workouts.length ? (
-        <S.WorkoutWrapper isPlaceholder>
+        <S.WorkoutWrapper data-testid="placeholder" isPlaceholder>
           Please create a new workout!
         </S.WorkoutWrapper>
       ) : (

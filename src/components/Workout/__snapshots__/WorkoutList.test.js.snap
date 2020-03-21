@@ -1,0 +1,196 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<WorkoutList /> should render correctly 1`] = `
+<DocumentFragment>
+  .c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  padding: 40px 0 30px;
+}
+
+.c1 a {
+  text-align: center;
+}
+
+.c1 h3:first-child {
+  margin-top: 0;
+}
+
+.c0 {
+  display: grid;
+  padding: 0 40px 30px;
+  gap: 10px;
+  max-height: 100%;
+}
+
+.c2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  padding: 5px 15px;
+  font-size: 1rem;
+  height: 36px;
+  cursor: pointer;
+  color: white;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  background-color: hsl(200,100%,50%);
+  text-transform: uppercase;
+  -webkit-letter-spacing: 0.1rem;
+  -moz-letter-spacing: 0.1rem;
+  -ms-letter-spacing: 0.1rem;
+  letter-spacing: 0.1rem;
+}
+
+.c2 a {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  color: white;
+}
+
+.c6 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  font-size: 1.1rem;
+  margin: 5px 0;
+}
+
+.c8 {
+  font-size: 1.1rem;
+  margin: 0 5px;
+}
+
+.c7 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  font-size: 0.9rem;
+  color: #999;
+}
+
+.c5 {
+  font-size: 28px;
+  -webkit-align-self: center;
+  -ms-flex-item-align: center;
+  align-self: center;
+  margin-left: auto;
+  margin-top: -10px;
+  color: hsl(200,100%,50%);
+  cursor: pointer;
+}
+
+.c4 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.c3 {
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  position: relative;
+}
+
+.c3 h3 {
+  margin: 0;
+  font-size: 1.4rem;
+}
+
+.c3 span {
+  -webkit-align-self: center;
+  -ms-flex-item-align: center;
+  align-self: center;
+}
+
+<section
+    class="c0"
+  >
+    <div
+      class="c1"
+    >
+      <h3>
+        Quickstart
+      </h3>
+      <a
+        class="Button-sc-18sujpt-0 Button__BlueButton-sc-18sujpt-1 c2"
+        href="//add"
+      >
+        New Workout
+      </a>
+    </div>
+    <h3>
+      My Routines
+    </h3>
+    <div
+      class="c3"
+    >
+      <div
+        class="c4"
+      >
+        <h3>
+          Test
+        </h3>
+        <svg
+          class="c5"
+          data-testid="menu-icon"
+          fill="currentColor"
+          height="1em"
+          stroke="currentColor"
+          stroke-width="0"
+          viewBox="0 0 24 24"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M6 10c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm12 0c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm-6 0c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"
+          />
+        </svg>
+      </div>
+      <div
+        class="c6"
+      >
+        Test
+        <div
+          class="c7"
+        >
+          <span
+            class="c8"
+          >
+            ×
+          </span>
+        </div>
+      </div>
+    </div>
+  </section>
+</DocumentFragment>
+`;

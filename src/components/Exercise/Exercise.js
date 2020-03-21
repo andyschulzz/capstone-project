@@ -5,8 +5,8 @@ import PropTypes from 'prop-types'
 import placeholder from '../icons/placeholder.png'
 
 Exercise.propTypes = {
-  name: PropTypes.string.isRequired,
-  type: PropTypes.string.isRequired,
+  name: PropTypes.string,
+  type: PropTypes.string,
   handleExerciseSelect: PropTypes.func,
   id: PropTypes.string,
   index: PropTypes.number,

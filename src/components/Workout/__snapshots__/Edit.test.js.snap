@@ -1,0 +1,240 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Edit /> should render correctly 1`] = `
+<DocumentFragment>
+  .c6 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+.c6 input {
+  width: 48px;
+  margin-top: 5px;
+  padding-top: 3px;
+  text-align: center;
+  font-size: 1.2rem;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  outline: none;
+}
+
+.c5 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+  -webkit-justify-content: space-evenly;
+  -ms-flex-pack: space-evenly;
+  justify-content: space-evenly;
+}
+
+.c5 p {
+  margin: 0;
+  text-align: center;
+  font-weight: 300;
+  color: #888;
+  text-transform: uppercase;
+}
+
+.c5 span {
+  margin: 0 10px;
+}
+
+.c4 {
+  font-weight: 400;
+}
+
+.c2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  margin-left: auto;
+  padding: 5px 15px;
+  font-size: 1rem;
+  height: 36px;
+  cursor: pointer;
+  color: white;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  background-color: hsla(120,50%,50%,0.2);
+}
+
+.c2 a {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  color: white;
+}
+
+.c0 {
+  padding: 0 40px 30px;
+  overflow-y: auto;
+  -webkit-scroll-behavior: smooth;
+  -moz-scroll-behavior: smooth;
+  -ms-scroll-behavior: smooth;
+  scroll-behavior: smooth;
+}
+
+.c0 h3:first-child {
+  margin: 0;
+}
+
+.c0 h3 h3 {
+  margin-top: 0;
+}
+
+.c0:valid button {
+  background: hsl(120,50%,50%);
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  background: #fff;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  padding: 40px 0 30px;
+}
+
+.c3 {
+  margin-top: 20px;
+  width: 100%;
+  border: none;
+  outline: none;
+  height: 40px;
+  resize: none;
+  font-size: 1.4rem;
+  background-color: #fff;
+  color: #333;
+}
+
+.c3::-webkit-input-placeholder {
+  font-weight: 300;
+}
+
+.c3::-moz-placeholder {
+  font-weight: 300;
+}
+
+.c3:-ms-input-placeholder {
+  font-weight: 300;
+}
+
+.c3::placeholder {
+  font-weight: 300;
+}
+
+<form
+    class="c0"
+    data-testid="edit-form"
+    id="details"
+  >
+    <div
+      class="c1"
+    >
+      <h3>
+        Edit Your Workout
+      </h3>
+      <button
+        class="Button-sc-18sujpt-0 c2"
+      >
+        Save
+      </button>
+    </div>
+    <textarea
+      class="c3"
+      id="name"
+      maxlength="30"
+      minlength="1"
+      name="name"
+      placeholder="Name your workout"
+      required=""
+      type="text"
+    />
+    <h3
+      class="c4"
+    >
+      Test
+    </h3>
+    <div
+      class="c5"
+    >
+      <div
+        class="c6"
+      >
+        <p>
+          sets
+        </p>
+        <input
+          min="1"
+          name="sets[0]"
+          pattern="[0-9]*"
+          required=""
+          type="text"
+        />
+      </div>
+      <span>
+        ×
+      </span>
+      <div
+        class="c6"
+      >
+        <p>
+          reps
+        </p>
+        <input
+          min="1"
+          name="reps[0]"
+          pattern="[0-9]*"
+          required=""
+          type="text"
+        />
+      </div>
+      <span>
+        ×
+      </span>
+      <div
+        class="c6"
+      >
+        <p>
+          weight
+        </p>
+        <input
+          name="weight[0]"
+          pattern="[0-9]*"
+          type="text"
+        />
+      </div>
+    </div>
+  </form>
+</DocumentFragment>
+`;

@@ -1,0 +1,272 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Details /> should render correctly 1`] = `
+<DocumentFragment>
+  .c2 {
+  width: 25px;
+  height: 25px;
+}
+
+.c3 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  margin-left: auto;
+  padding: 5px 15px;
+  font-size: 1rem;
+  height: 36px;
+  cursor: pointer;
+  color: white;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  background-color: hsl(200,100%,50%);
+}
+
+.c3 a {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  color: white;
+}
+
+.c0 {
+  overflow-y: auto;
+}
+
+.c0:valid button[class*='Green'] {
+  background: hsl(120,50%,50%);
+}
+
+.c4 {
+  display: grid;
+  max-height: 100%;
+  gap: 10px;
+  padding: 0 40px 30px;
+  position: relative;
+}
+
+.c4 img {
+  width: 130px;
+  height: 130px;
+  position: absolute;
+  right: 48px;
+  top: 64px;
+}
+
+.c4 p {
+  margin: 0;
+  font-size: 10px;
+  color: #ccc;
+}
+
+.c6 {
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+.c5 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  border: none;
+  outline: none;
+  padding: 0px;
+  margin-bottom: 10px;
+  width: 100%;
+  height: 40px;
+  resize: none;
+  font-size: 1.7rem;
+  font-weight: bold;
+  background-color: #fff;
+  overflow-y: hidden;
+  color: #333;
+}
+
+.c5::-webkit-input-placeholder {
+  font-weight: 300;
+}
+
+.c5::-moz-placeholder {
+  font-weight: 300;
+}
+
+.c5:-ms-input-placeholder {
+  font-weight: 300;
+}
+
+.c5::placeholder {
+  font-weight: 300;
+}
+
+.c7 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  border: none;
+  outline: none;
+  padding: 10px;
+  margin-bottom: 10px;
+  width: 100%;
+  height: 40px;
+  resize: none;
+  font-size: 1rem;
+  font-weight: 400;
+  background-color: #fff;
+  overflow-y: hidden;
+  color: #333;
+}
+
+.c7::-webkit-input-placeholder {
+  font-weight: 300;
+}
+
+.c7::-moz-placeholder {
+  font-weight: 300;
+}
+
+.c7:-ms-input-placeholder {
+  font-weight: 300;
+}
+
+.c7::placeholder {
+  font-weight: 300;
+}
+
+.c8 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  border: none;
+  outline: none;
+  padding: 10px;
+  margin-bottom: 10px;
+  width: 100%;
+  height: 400px;
+  resize: none;
+  font-size: 1rem;
+  font-weight: 400;
+  background-color: #fff;
+  overflow-y: auto;
+  color: #333;
+}
+
+.c8::-webkit-input-placeholder {
+  font-weight: 300;
+}
+
+.c8::-moz-placeholder {
+  font-weight: 300;
+}
+
+.c8:-ms-input-placeholder {
+  font-weight: 300;
+}
+
+.c8::placeholder {
+  font-weight: 300;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 40px 40px 30px;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background: #fff;
+}
+
+<form
+    class="c0"
+    data-testid="details"
+    id="details"
+  >
+    <div
+      class="c1"
+    >
+      <a
+        href="/"
+      >
+        <img
+          alt=""
+          class="c2"
+          src="back.png"
+        />
+      </a>
+      <a
+        class="Button-sc-18sujpt-0 c3"
+        href="/exercises/edit"
+        mla="true"
+      >
+        Edit
+      </a>
+    </div>
+    <div
+      class="c4"
+    >
+      <textarea
+        class="c5"
+        disabled=""
+        id="name"
+        maxlength="50"
+        minlength="4"
+        name="name"
+        placeholder="Name of the exercise?"
+        required=""
+        type="text"
+      />
+      <label
+        class="c6"
+        for="type"
+      >
+        Type
+      </label>
+      <textarea
+        class="c7"
+        disabled=""
+        id="type"
+        maxlength="30"
+        minlength="4"
+        name="type"
+        placeholder="Type of the exercise?"
+        required=""
+        type="text"
+      />
+      <label
+        class="c6"
+        for="instructions"
+      >
+        Instructions
+      </label>
+      <textarea
+        class="c8"
+        disabled=""
+        id="instructions"
+        minlength="4"
+        name="instructions"
+        placeholder="Please explain the exercise!"
+        required=""
+        type="text"
+      />
+    </div>
+  </form>
+</DocumentFragment>
+`;

@@ -1,0 +1,94 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<WorkoutMenu /> should render correctly 1`] = `
+<DocumentFragment>
+  .c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  box-shadow: 0 3px 5px #333;
+  border-radius: 5px;
+  padding: 20px;
+  background: #57595d;
+  color: white;
+  position: absolute;
+  top: 50px;
+  right: 0;
+  z-index: 1;
+}
+
+.c0 p {
+  margin: 0;
+  cursor: pointer;
+}
+
+.c0 p:first-child {
+  margin: 0 0 20px;
+  padding: 0;
+}
+
+.c1 {
+  font-size: 20px;
+  margin-right: 5px;
+  position: relative;
+  top: 3px;
+  color: hsl(200,100%,50%);
+}
+
+.c2 {
+  font-size: 20px;
+  margin-right: 5px;
+  position: relative;
+  top: 4px;
+  color: hsl(0,100%,50%);
+}
+
+<div
+    class="c0"
+    data-testid="workout-menu"
+  >
+    <p>
+      <svg
+        class="c1"
+        fill="currentColor"
+        height="1em"
+        stroke="currentColor"
+        stroke-width="0"
+        viewBox="0 0 24 24"
+        width="1em"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"
+        />
+      </svg>
+      Edit
+    </p>
+    <p>
+      <svg
+        class="c2"
+        fill="currentColor"
+        height="1em"
+        stroke="currentColor"
+        stroke-width="0"
+        viewBox="0 0 24 24"
+        width="1em"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"
+        />
+      </svg>
+      Delete
+    </p>
+  </div>
+</DocumentFragment>
+`;

@@ -1,0 +1,116 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Details /> should render correctly 1`] = `
+<DocumentFragment>
+  .c0 {
+  font-weight: 400;
+}
+
+<h3
+    class="c0"
+  >
+    Arnold Press
+  </h3>
+  .c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+.c1 input {
+  width: 48px;
+  margin-top: 5px;
+  padding-top: 3px;
+  text-align: center;
+  font-size: 1.2rem;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  outline: none;
+}
+
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+  -webkit-justify-content: space-evenly;
+  -ms-flex-pack: space-evenly;
+  justify-content: space-evenly;
+}
+
+.c0 p {
+  margin: 0;
+  text-align: center;
+  font-weight: 300;
+  color: #888;
+  text-transform: uppercase;
+}
+
+.c0 span {
+  margin: 0 10px;
+}
+
+<div
+    class="c0"
+  >
+    <div
+      class="c1"
+    >
+      <p>
+        sets
+      </p>
+      <input
+        min="1"
+        name="sets[1]"
+        pattern="[0-9]*"
+        placeholder="5"
+        required=""
+        type="text"
+      />
+    </div>
+    <span>
+      ×
+    </span>
+    <div
+      class="c1"
+    >
+      <p>
+        reps
+      </p>
+      <input
+        min="1"
+        name="reps[1]"
+        pattern="[0-9]*"
+        placeholder="5"
+        required=""
+        type="text"
+      />
+    </div>
+    <span>
+      ×
+    </span>
+    <div
+      class="c1"
+    >
+      <p>
+        weight
+      </p>
+      <input
+        name="weight[1]"
+        pattern="[0-9]*"
+        placeholder="10"
+        type="text"
+      />
+    </div>
+  </div>
+</DocumentFragment>
+`;

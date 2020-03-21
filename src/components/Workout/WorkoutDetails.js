@@ -19,7 +19,11 @@ export default function WorkoutDetails({
   const history = useHistory()
 
   return (
-    <S.Form id="details" onSubmit={handleSubmit(handleDetails)}>
+    <S.Form
+      data-testid="details-form"
+      id="details"
+      onSubmit={handleSubmit(handleDetails)}
+    >
       <S.ButtonWrapper>
         <h3>Workout Volume</h3>
         <GreenButton inactive mla>

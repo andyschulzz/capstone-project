@@ -47,7 +47,10 @@ export default function List({
         )}
         <S.TitleWrapper ref={refOne}>
           <h3>{title}</h3>
-          <S.MenuIcon onClick={() => handleToggle(index)} />
+          <S.MenuIcon
+            data-testid="menu-icon"
+            onClick={() => handleToggle(index)}
+          />
         </S.TitleWrapper>
         {exercises.map((exercise, index) => {
           return (

@@ -4,4 +4,11 @@
 // learn more: https://github.com/testing-library/jest-dom
 import '@testing-library/jest-dom/extend-expect'
 import '@testing-library/jest-dom'
+import '@testing-library/react-hooks'
 import 'jest-styled-components'
+import 'mutationobserver-shim'
+global.MutationObserver = window.MutationObserver
+
+module.exports = {
+  automock: true,
+}

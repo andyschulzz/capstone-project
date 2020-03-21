@@ -14,6 +14,7 @@ exports[`<Exercise /> should render correctly 1`] = `
   margin: 0 0 18px 10px;
   -webkit-text-decoration: none;
   text-decoration: none;
+  cursor: pointer;
 }
 
 .c0 p:first-child {
@@ -28,7 +29,6 @@ exports[`<Exercise /> should render correctly 1`] = `
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
   flex-direction: column;
-  color: #333;
 }
 
 .c2 p:first-child {
@@ -50,12 +50,12 @@ exports[`<Exercise /> should render correctly 1`] = `
 .c1 {
   width: 46px;
   height: 46px;
-  margin-right: 36px;
+  margin: 0 36px 0 0;
 }
 
-<a
+<div
     class="c0"
-    href="//details/NaN"
+    data-testid="exercise"
   >
     <img
       alt=""
@@ -76,6 +76,6 @@ exports[`<Exercise /> should render correctly 1`] = `
         Shoulder
       </p>
     </div>
-  </a>
+  </div>
 </DocumentFragment>
 `;

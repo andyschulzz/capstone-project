@@ -9,16 +9,20 @@ import Form from './Form'
 
 Edit.propTypes = {
   handleExerciseChange: PropTypes.func.isRequired,
-  selectedExercise: PropTypes.object,
+  exercises: PropTypes.array.isRequired,
+  name: PropTypes.string,
+  type: PropTypes.string,
+  instructions: PropTypes.string,
+  image: PropTypes.string,
 }
 
 export default function Edit({
   handleExerciseChange,
-  id,
   name,
+  image,
   type,
   instructions,
-  image,
+  id,
 }) {
   const [disabled, setDisabled] = useState(false)
   const { register, handleSubmit } = useForm({
@@ -52,6 +56,18 @@ export default function Edit({
   function handleChange(data) {
     setDisabled(!disabled)
     if (!disabled) {
+      // const selectedExercise = Object.assign(
+      //   {},
+      //   exercises.filter(exercise => exercise.name === name).map(e => e.id)
+      // )
+      // handleExerciseChange({
+      //   id: selectedExercise[0],
+      //   name,
+      //   type,
+      //   instructions,
+      //   image,
+      //   ...data,
+      // })
       handleExerciseChange({ id, name, type, instructions, image, ...data })
     }
   }

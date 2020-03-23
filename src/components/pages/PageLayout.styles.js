@@ -12,7 +12,7 @@ const Header = styled.header`
   align-items: center;
   background: #57595d;
   height: 48px;
-  positon: relative;
+  position: relative;
 `
 
 const Image = styled.img`

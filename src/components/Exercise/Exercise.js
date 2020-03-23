@@ -2,7 +2,6 @@ import React from 'react'
 import * as S from './Exercise.styles'
 import { useRouteMatch } from 'react-router-dom'
 import PropTypes from 'prop-types'
-import placeholder from '../icons/placeholder.png'
 
 Exercise.propTypes = {
   name: PropTypes.string,
@@ -18,7 +17,7 @@ export default function Exercise({
   handleExerciseSelect,
   id,
   index,
-  image = placeholder,
+  image,
 }) {
   const { url } = useRouteMatch()
   return (

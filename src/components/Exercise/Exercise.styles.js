@@ -27,6 +27,7 @@ const Text = styled.p`
   margin: ${props => (props.isName ? '10px 0 0 0' : 0)};
   font-weight: ${props => props.isType && 300};
   color: ${props => props.isType && '#999'};
+  text-transform: capitalize;
 `
 
 const Image = styled.img`

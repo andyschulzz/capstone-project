@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { useForm } from 'react-hook-form'
+import { useHistory } from 'react-router-dom'
 import Form from './Form'
 import ButtonBackToHome from '../common/ButtonBackToHome'
 import ButtonEdit from './ButtonEdit'
@@ -14,6 +15,7 @@ Add.propTypes = {
 export default function Add({ handleExerciseAdd }) {
   const [disabled, setDisabled] = useState(false)
   const { register, handleSubmit } = useForm()
+  const history = useHistory()
 
   return (
     <S.Form data-testid="add-form" id="add" onSubmit={handleSubmit(handleAdd)}>
@@ -36,5 +38,6 @@ export default function Add({ handleExerciseAdd }) {
     if (!disabled) {
       handleExerciseAdd(data)
     }
+    history.push('/exercises')
   }
 }

@@ -11,7 +11,8 @@ import useSearch from './components/hooks/useSearch'
 function App() {
   const {
     exercises,
-    selectedExerciseId,
+    selectedExercise,
+    currentExercise,
     handleExerciseSelect,
     handleExerciseAdd,
     handleExerciseChange,
@@ -46,7 +47,8 @@ function App() {
           <Exercises
             exercises={searchedExercise}
             search={search}
-            selectedExerciseId={selectedExerciseId}
+            selectedExercise={selectedExercise}
+            currentExercise={currentExercise}
             handleExerciseSelect={handleExerciseSelect}
             handleExerciseAdd={handleExerciseAdd}
             handleExerciseChange={handleExerciseChange}

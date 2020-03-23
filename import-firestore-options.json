@@ -1,0 +1,6 @@
+{
+  "collectionKey": "exercises",
+  "importDataPath": "./src/components/data/exercises.json",
+  "serviceAccountFilePath": "./serviceAccountKey.json",
+  "databaseURL": "https://capstone-project-fitness.firebaseio.com"
+}

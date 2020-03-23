@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import List from '../Exercise/List'
 import Add from '../Exercise/Add'
 import Details from '../Exercise/Details'
@@ -17,16 +17,14 @@ Exercises.propTypes = {
 
 export default function Exercises({
   exercises,
+  currentExercise,
   handleExerciseSelect,
   handleExerciseAdd,
   handleExerciseChange,
-  selectedExerciseId,
+  selectedExercise,
   search,
   handleSearch,
 }) {
-  const selectedExercise = exercises.find(
-    exercise => exercise.id === selectedExerciseId
-  )
   const { path } = useRouteMatch()
   return (
     <PageLayout title="Exercises">
@@ -52,6 +50,7 @@ export default function Exercises({
           <Edit
             {...selectedExercise}
             handleExerciseChange={handleExerciseChange}
+            exercises={exercises}
           />
         </Route>
       </Switch>

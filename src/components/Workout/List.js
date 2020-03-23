@@ -25,54 +25,47 @@ export default function List({
     setOpenMenu(false)
   })
 
-  const groupByTitle = workouts.reduce((acc, obj) => {
-    const key = obj['title']
-    if (!acc[key]) {
-      acc[key] = []
-    }
-    acc[key].push(obj)
-    return acc
-  }, {})
-
-  const renderWorkouts = Object.entries(groupByTitle).map(
-    ([title, exercises], index) => (
-      <S.WorkoutWrapper key={title}>
-        {selectedWorkout === index && openMenu && (
-          <WorkoutMenu
-            title={title}
-            handleWorkoutDelete={handleWorkoutDelete}
-            handleWorkoutEdit={handleWorkoutEdit}
-            ref={refTwo}
-          />
-        )}
-        <S.TitleWrapper ref={refOne}>
-          <h3>{title}</h3>
-          <S.MenuIcon
-            data-testid="menu-icon"
-            onClick={() => handleToggle(index)}
-          />
-        </S.TitleWrapper>
-        {exercises.map((exercise, index) => {
-          return (
-            <S.Wrapper key={index}>
-              {exercise.name}
-              <S.DetailsWrapper>
-                {exercise.reps}
-                <S.Span>&times;</S.Span>
-                {exercise.sets}
-                {exercise.weight && (
-                  <S.Span isWeight>{`(${exercise.weight} kg)`}</S.Span>
-                )}
-              </S.DetailsWrapper>
-            </S.Wrapper>
-          )
-        })}
-      </S.WorkoutWrapper>
-    )
+  const title = workouts.map((workout, index) =>
+    Object.entries(workout).map(([id, item], index) => item.title)
   )
+
+  console.log(openMenu)
+
+  const renderWorkouts = workouts.map((workout, index) => (
+    <S.WorkoutWrapper key={index}>
+      {selectedWorkout === index && openMenu && (
+        <WorkoutMenu
+          title={title[index][0]}
+          handleWorkoutDelete={handleWorkoutDelete}
+          handleWorkoutEdit={handleWorkoutEdit}
+          ref={refTwo}
+        />
+      )}
+      <S.TitleWrapper ref={refOne}>
+        <h3>{title[index][0]}</h3>
+        <S.MenuIcon
+          data-testid="menu-icon"
+          onClick={() => handleToggle(index)}
+        />
+      </S.TitleWrapper>
+      {Object.entries(workout).map(([id, item], index) => (
+        <S.Wrapper key={index}>
+          {item.name}
+          <S.DetailsWrapper>
+            {item.reps}
+            <S.Span>&times;</S.Span>
+            {item.sets}
+            {item.weight && <S.Span isWeight>{`(${item.weight} kg)`}</S.Span>}
+          </S.DetailsWrapper>
+        </S.Wrapper>
+      ))}
+    </S.WorkoutWrapper>
+  ))
+
   function handleToggle(selectedWorkout) {
     setSelectedWorkout(selectedWorkout)
     setOpenMenu(!openMenu)
+    console.log('test')
   }
 
   return <>{renderWorkouts}</>

@@ -1,10 +1,19 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import { workoutsRef } from '../../firebase'
 import useExercise from './useExercise'
+import useServices from './useServices'
 
 export default function useWorkout() {
   const [workouts, setWorkouts] = useState([])
   const [selectedWorkouts, setSelectedWorkouts] = useState([])
   const { exercises } = useExercise()
+  const { getData, patchData, postWorkout } = useServices()
+
+  useEffect(() => {
+    getData(workoutsRef).then(setWorkouts)
+    console.log(workouts, 'workouts')
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
 
   function handleWorkoutAdd(id) {
     const newExercises = [...exercises]
@@ -52,14 +61,22 @@ export default function useWorkout() {
   }
 
   function handleWorkoutSubmit(data) {
+    const convertArrayToObject = (array, key) =>
+      array.reduce((obj, item) => ((obj[[item[key]]] = item), obj), {})
+
     const addDetails = selectedWorkouts.map((workout, index) => ({
       ...workout,
       reps: data.reps[index],
       sets: data.sets[index],
       weight: data.weight[index],
     }))
-    const newWorkoutList = [...workouts, ...addDetails]
-    setWorkouts(newWorkoutList)
+
+    const workout = convertArrayToObject(addDetails, 'id')
+    console.log(workout, 'obj')
+    const newWorkoutList = [...workouts, workout]
+    console.log(newWorkoutList)
+
+    postWorkout(workoutsRef, workout).then(setWorkouts(newWorkoutList))
     setSelectedWorkouts([])
   }
 

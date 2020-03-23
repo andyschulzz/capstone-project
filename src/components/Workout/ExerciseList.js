@@ -26,7 +26,11 @@ export default function ExerciseList({ exercises, handleWorkoutAdd }) {
 
   function filterExercises(letter) {
     const filter = exercises
-      .filter(exercise => String(exercise.name).startsWith(letter))
+      .filter(exercise =>
+        String(exercise.name)
+          .toUpperCase()
+          .startsWith(letter)
+      )
       .map(exercise => {
         return (
           <Exercise

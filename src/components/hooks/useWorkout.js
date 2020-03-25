@@ -22,8 +22,6 @@ export default function useWorkout() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [update])
 
-  console.log(exercises, 'exercisesOnLoad')
-
   function handleWorkoutExercises(id) {
     const newExercises = [...exercises]
     const selectedExercise = newExercises.filter(

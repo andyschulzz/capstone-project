@@ -157,9 +157,7 @@ exports[`<WorkoutList /> should render correctly 1`] = `
       <div
         class="c4"
       >
-        <h3>
-          Test
-        </h3>
+        <h3 />
         <svg
           class="c5"
           data-testid="menu-icon"
@@ -179,7 +177,58 @@ exports[`<WorkoutList /> should render correctly 1`] = `
       <div
         class="c6"
       >
-        Test
+        <div
+          class="c7"
+        >
+          <span
+            class="c8"
+          >
+            ×
+          </span>
+        </div>
+      </div>
+      <div
+        class="c6"
+      >
+        <div
+          class="c7"
+        >
+          <span
+            class="c8"
+          >
+            ×
+          </span>
+        </div>
+      </div>
+      <div
+        class="c6"
+      >
+        <div
+          class="c7"
+        >
+          <span
+            class="c8"
+          >
+            ×
+          </span>
+        </div>
+      </div>
+      <div
+        class="c6"
+      >
+        <div
+          class="c7"
+        >
+          <span
+            class="c8"
+          >
+            ×
+          </span>
+        </div>
+      </div>
+      <div
+        class="c6"
+      >
         <div
           class="c7"
         >

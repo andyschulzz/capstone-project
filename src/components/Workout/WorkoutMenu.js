@@ -33,7 +33,7 @@ const WorkoutMenu = React.forwardRef(
 WorkoutMenu.propTypes = {
   handleWorkoutDelete: PropTypes.func.isRequired,
   handleWorkoutEdit: PropTypes.func.isRequired,
-  selectedWorkouts: PropTypes.number,
+  index: PropTypes.number,
 }
 
 export default WorkoutMenu

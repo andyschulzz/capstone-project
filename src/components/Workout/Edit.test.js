@@ -5,15 +5,14 @@ import { MemoryRouter as Router } from 'react-router-dom'
 
 afterEach(cleanup)
 const handleWorkoutChangeMock = jest.fn()
-const selectedWorkoutsMock = [
-  {
-    id: 1,
-    name: 'Test',
-    type: 'Test',
-    instructions: 'Test',
-    title: 'Test',
-  },
-]
+const selectedWorkoutsMock = {
+  id: 1,
+  name: 'Test Name',
+  type: 'Test Type',
+  instructions: 'Test Instructions',
+  title: 'Test Title',
+}
+
 describe('<Edit />', () => {
   it('should render correctly', () => {
     const { asFragment } = render(
@@ -31,7 +30,7 @@ describe('<Edit />', () => {
       <Router>
         <Edit
           handleWorkoutChange={handleWorkoutChangeMock}
-          selectedWorkouts={[]}
+          selectedWorkouts={selectedWorkoutsMock}
         />
       </Router>
     )

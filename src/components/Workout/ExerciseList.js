@@ -5,7 +5,7 @@ import PropTypes from 'prop-types'
 
 ExerciseList.propTypes = {
   exercises: PropTypes.array.isRequired,
-  handleWorkoutExercises: PropTypes.func.isRequired,
+  handleWorkoutExercises: PropTypes.func,
 }
 
 const lettersAtoZ = [...Array(26)].map((_, i) =>

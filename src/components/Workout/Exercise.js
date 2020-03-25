@@ -6,9 +6,9 @@ import { useToggle } from 'react-hooks-lib'
 Exercise.propTypes = {
   name: PropTypes.string.isRequired,
   type: PropTypes.string.isRequired,
-  handleWorkoutExercises: PropTypes.func.isRequired,
-  id: PropTypes.string,
-  index: PropTypes.number,
+  handleWorkoutExercises: PropTypes.func,
+  id: PropTypes.string.isRequired,
+  image: PropTypes.string.isRequired,
 }
 
 export default function Exercise({

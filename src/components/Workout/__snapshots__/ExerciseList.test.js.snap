@@ -72,7 +72,6 @@ exports[`<ExerciseList /> should render correctly 1`] = `
     <img
       alt=""
       class="c1"
-      src="placeholder.png"
     />
     <div
       class="c2"

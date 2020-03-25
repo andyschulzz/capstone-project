@@ -9,7 +9,7 @@ import Form from './Form'
 
 Edit.propTypes = {
   handleExerciseChange: PropTypes.func.isRequired,
-  exercises: PropTypes.array.isRequired,
+  exercises: PropTypes.array,
   name: PropTypes.string,
   type: PropTypes.string,
   instructions: PropTypes.string,

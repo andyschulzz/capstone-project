@@ -2,18 +2,26 @@ import React from 'react'
 import { render, cleanup, fireEvent } from '@testing-library/react'
 import List from './List.js'
 import { MemoryRouter as Router } from 'react-router-dom'
-import { exerciseData } from '../data/exercises'
 
 afterEach(cleanup)
 const handleWorkoutDeleteMock = jest.fn()
 const handleWorkoutEditMock = jest.fn()
+const workoutsMock = [
+  {
+    id: 1,
+    name: 'Test',
+    type: 'Test',
+    instructions: 'Test',
+    title: 'Test',
+  },
+]
 
 describe('<List />', () => {
   it('should render correctly', () => {
     const { asFragment } = render(
       <Router>
         <List
-          workouts={exerciseData}
+          workouts={workoutsMock}
           handleWorkoutDelete={handleWorkoutDeleteMock}
           handleWorkoutEdit={handleWorkoutEditMock}
         />
@@ -26,7 +34,7 @@ describe('<List />', () => {
     const { getByTestId } = render(
       <Router>
         <List
-          workouts={exerciseData}
+          workouts={workoutsMock}
           handleWorkoutDelete={handleWorkoutDeleteMock}
           handleWorkoutEdit={handleWorkoutEditMock}
         />

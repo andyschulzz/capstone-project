@@ -4,7 +4,7 @@ import ExerciseList from './ExerciseList.js'
 import { MemoryRouter as Router } from 'react-router-dom'
 
 afterEach(cleanup)
-const handleWorkoutAddMock = jest.fn()
+const handleWorkoutExercisesMock = jest.fn()
 const exercisesMock = [
   {
     id: '1',
@@ -20,7 +20,7 @@ describe('<ExerciseList />', () => {
       <Router>
         <ExerciseList
           exercises={exercisesMock}
-          handleWorkoutAdd={handleWorkoutAddMock}
+          handleWorkoutExercises={handleWorkoutExercisesMock}
         />
       </Router>
     )

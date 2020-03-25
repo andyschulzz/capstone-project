@@ -6,12 +6,18 @@ import { useToggle } from 'react-hooks-lib'
 Exercise.propTypes = {
   name: PropTypes.string.isRequired,
   type: PropTypes.string.isRequired,
-  handleExerciseSelect: PropTypes.func,
+  handleWorkoutExercises: PropTypes.func.isRequired,
   id: PropTypes.string,
   index: PropTypes.number,
 }
 
-export default function Exercise({ name, type, handleWorkoutAdd, id, image }) {
+export default function Exercise({
+  name,
+  type,
+  handleWorkoutExercises,
+  id,
+  image,
+}) {
   const { on, toggle } = useToggle(false)
   return (
     <S.Exercise data-testid="exercise" onClick={() => handleWorkoutSelect()}>
@@ -32,7 +38,7 @@ export default function Exercise({ name, type, handleWorkoutAdd, id, image }) {
     </S.Exercise>
   )
   function handleWorkoutSelect() {
-    handleWorkoutAdd(id)
+    handleWorkoutExercises(id)
     toggle()
   }
 }

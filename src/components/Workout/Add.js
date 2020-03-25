@@ -8,16 +8,16 @@ import { useForm } from 'react-hook-form'
 
 Add.propTypes = {
   exercises: PropTypes.array.isRequired,
-  handleWorkoutAdd: PropTypes.func.isRequired,
+  handleWorkoutExercises: PropTypes.func.isRequired,
   handleWorkoutTitle: PropTypes.func.isRequired,
-  selectedWorkouts: PropTypes.object.isRequired,
+  workoutExercises: PropTypes.array,
 }
 
 export default function Add({
   exercises,
-  handleWorkoutAdd,
+  handleWorkoutExercises,
   handleWorkoutTitle,
-  selectedWorkouts,
+  workoutExercises,
 }) {
   const history = useHistory()
   const { register, handleSubmit, formState } = useForm({
@@ -29,7 +29,7 @@ export default function Add({
     <S.Form data-testid="add-form" id="add" onSubmit={handleSubmit(onSubmit)}>
       <S.ButtonWrapper>
         <h3>Build Your Routine</h3>
-        {selectedWorkouts.length && formState.isValid ? (
+        {workoutExercises.length && formState.isValid ? (
           <BlueButton mla>Next</BlueButton>
         ) : (
           <BlueButton inactive mla>
@@ -60,7 +60,7 @@ export default function Add({
         ) : (
           <ExerciseList
             exercises={exercises}
-            handleWorkoutAdd={handleWorkoutAdd}
+            handleWorkoutExercises={handleWorkoutExercises}
           />
         )}
       </S.Wrapper>

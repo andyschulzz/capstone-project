@@ -7,14 +7,11 @@ import * as S from './WorkoutDetails.styles'
 import PropTypes from 'prop-types'
 
 WorkoutDetails.propTypes = {
-  selectedWorkouts: PropTypes.object.isRequired,
-  handleWorkoutSubmit: PropTypes.func.isRequired,
+  workoutExercises: PropTypes.array.isRequired,
+  handleWorkoutAdd: PropTypes.func.isRequired,
 }
 
-export default function WorkoutDetails({
-  selectedWorkouts,
-  handleWorkoutSubmit,
-}) {
+export default function WorkoutDetails({ handleWorkoutAdd, workoutExercises }) {
   const { register, handleSubmit } = useForm()
   const history = useHistory()
 
@@ -30,7 +27,7 @@ export default function WorkoutDetails({
           Save
         </GreenButton>
       </S.ButtonWrapper>
-      {Object.entries(selectedWorkouts).map(([id, workout], index) => {
+      {workoutExercises.map((workout, index) => {
         return (
           <Details
             register={register}
@@ -44,7 +41,7 @@ export default function WorkoutDetails({
   )
 
   function handleDetails(data) {
-    handleWorkoutSubmit(data)
+    handleWorkoutAdd(data)
     history.push('/workouts')
   }
 }

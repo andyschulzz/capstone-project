@@ -13,7 +13,7 @@ export default function useExercise() {
   }, [])
 
   function handleExerciseSelect(id) {
-    const selectedExercise = exercises.find(exercise => exercise.id === id)
+    const selectedExercise = exercises.find((exercise) => exercise.id === id)
     setSelectedExercise(selectedExercise)
   }
 
@@ -23,22 +23,23 @@ export default function useExercise() {
       image: '/images/placeholder2.png',
     }
     const filteredExercises = exercises.filter(
-      exercise => exercise.name === data.name
+      (exercise) => exercise.name === data.name
     )
-    if (exercises.some(exercise => filteredExercises.includes(exercise))) {
+    if (exercises.some((exercise) => filteredExercises.includes(exercise))) {
       return
     }
-    postData(exercisesRef, newExercise).then(newExercise => {
+    postData(exercisesRef, newExercise).then((newExercise) => {
       const newExercises = [...exercises, newExercise]
       setExercises(newExercises)
     })
     setSelectedExercise(newExercise)
-    console.log(newExercise, 'newExercise')
   }
 
   function handleExerciseChange(exercise) {
     const newExercises = [...exercises]
-    const index = newExercises.findIndex(e => e.name === selectedExercise.name)
+    const index = newExercises.findIndex(
+      (e) => e.name === selectedExercise.name
+    )
     newExercises[index] = exercise
     patchData(exercisesRef, exercise.id, exercise).then(
       setExercises(newExercises)

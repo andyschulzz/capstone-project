@@ -29,13 +29,11 @@ export default function List({
     Object.entries(workout).map(([id, item], index) => item.title)
   )
 
-  console.log(openMenu)
-
   const renderWorkouts = workouts.map((workout, index) => (
     <S.WorkoutWrapper key={index}>
       {selectedWorkout === index && openMenu && (
         <WorkoutMenu
-          title={title[index][0]}
+          index={index}
           handleWorkoutDelete={handleWorkoutDelete}
           handleWorkoutEdit={handleWorkoutEdit}
           ref={refTwo}
@@ -65,7 +63,6 @@ export default function List({
   function handleToggle(selectedWorkout) {
     setSelectedWorkout(selectedWorkout)
     setOpenMenu(!openMenu)
-    console.log('test')
   }
 
   return <>{renderWorkouts}</>

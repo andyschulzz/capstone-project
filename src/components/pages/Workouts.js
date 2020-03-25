@@ -12,7 +12,7 @@ Workouts.propTypes = {
   handleWorkoutAdd: PropTypes.func.isRequired,
   handleWorkoutSubmit: PropTypes.func.isRequired,
   handleWorkoutTitle: PropTypes.func.isRequired,
-  selectedWorkouts: PropTypes.array.isRequired,
+  selectedWorkouts: PropTypes.object.isRequired,
   workouts: PropTypes.array.isRequired,
 }
 

@@ -56,18 +56,6 @@ export default function Edit({
   function handleChange(data) {
     setDisabled(!disabled)
     if (!disabled) {
-      // const selectedExercise = Object.assign(
-      //   {},
-      //   exercises.filter(exercise => exercise.name === name).map(e => e.id)
-      // )
-      // handleExerciseChange({
-      //   id: selectedExercise[0],
-      //   name,
-      //   type,
-      //   instructions,
-      //   image,
-      //   ...data,
-      // })
       handleExerciseChange({ id, name, type, instructions, image, ...data })
     }
   }

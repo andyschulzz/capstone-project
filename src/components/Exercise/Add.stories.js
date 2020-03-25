@@ -5,7 +5,7 @@ export default {
   title: 'Exercise/Add',
   component: Add,
   decorators: [
-    renderComponent => (
+    (renderComponent) => (
       <div style={{ padding: 20, width: 400 }}>{renderComponent()}</div>
     ),
   ],

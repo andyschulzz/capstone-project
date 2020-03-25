@@ -10,7 +10,7 @@ Add.propTypes = {
   exercises: PropTypes.array.isRequired,
   handleWorkoutAdd: PropTypes.func.isRequired,
   handleWorkoutTitle: PropTypes.func.isRequired,
-  selectedWorkouts: PropTypes.array.isRequired,
+  selectedWorkouts: PropTypes.object.isRequired,
 }
 
 export default function Add({

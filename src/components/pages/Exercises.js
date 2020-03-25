@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import List from '../Exercise/List'
 import Add from '../Exercise/Add'
 import Details from '../Exercise/Details'
@@ -17,7 +17,6 @@ Exercises.propTypes = {
 
 export default function Exercises({
   exercises,
-  currentExercise,
   handleExerciseSelect,
   handleExerciseAdd,
   handleExerciseChange,

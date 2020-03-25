@@ -32,11 +32,8 @@ function App() {
 
   const { handleSearch, search } = useSearch()
 
-  const searchedExercise = exercises.filter(exercise =>
-    exercise.name
-      .toLowerCase()
-      .trim()
-      .includes(search)
+  const searchedExercise = exercises.filter((exercise) =>
+    exercise.name.toLowerCase().trim().includes(search)
   )
 
   return (

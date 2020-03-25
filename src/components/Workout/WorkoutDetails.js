@@ -7,7 +7,7 @@ import * as S from './WorkoutDetails.styles'
 import PropTypes from 'prop-types'
 
 WorkoutDetails.propTypes = {
-  selectedWorkouts: PropTypes.array.isRequired,
+  selectedWorkouts: PropTypes.object.isRequired,
   handleWorkoutSubmit: PropTypes.func.isRequired,
 }
 
@@ -30,7 +30,7 @@ export default function WorkoutDetails({
           Save
         </GreenButton>
       </S.ButtonWrapper>
-      {selectedWorkouts.map((workout, index) => {
+      {Object.entries(selectedWorkouts).map(([id, workout], index) => {
         return (
           <Details
             register={register}

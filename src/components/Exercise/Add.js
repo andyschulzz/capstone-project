@@ -33,7 +33,7 @@ export default function Add({ handleExerciseAdd }) {
     </S.Form>
   )
   function handleAdd(data) {
-    Object.keys(data).map(key => (data[key] = data[key].trim()))
+    Object.keys(data).map((key) => (data[key] = data[key].trim()))
     setDisabled(!disabled)
     if (!disabled) {
       handleExerciseAdd(data)

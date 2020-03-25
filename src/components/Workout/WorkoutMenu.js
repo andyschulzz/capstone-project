@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import { useHistory } from 'react-router-dom'
 
 const WorkoutMenu = React.forwardRef(
-  ({ title, handleWorkoutDelete, handleWorkoutEdit }, ref) => {
+  ({ index, handleWorkoutDelete, handleWorkoutEdit }, ref) => {
     const history = useHistory()
     return (
       <S.Wrapper data-testid="workout-menu" ref={ref}>
@@ -20,11 +20,11 @@ const WorkoutMenu = React.forwardRef(
     )
 
     function handleDelete() {
-      handleWorkoutDelete(title)
+      handleWorkoutDelete(index)
     }
 
     function handleEdit() {
-      handleWorkoutEdit(title)
+      handleWorkoutEdit(index)
       history.push('/workouts/edit')
     }
   }
@@ -33,7 +33,7 @@ const WorkoutMenu = React.forwardRef(
 WorkoutMenu.propTypes = {
   handleWorkoutDelete: PropTypes.func.isRequired,
   handleWorkoutEdit: PropTypes.func.isRequired,
-  selectedWorkouts: PropTypes.number,
+  index: PropTypes.number,
 }
 
 export default WorkoutMenu

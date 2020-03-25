@@ -38,6 +38,7 @@ exports[`<List /> should render correctly 1`] = `
 .c3 {
   font-size: 1rem;
   margin: 10px 0 0 0;
+  text-transform: capitalize;
 }
 
 .c4 {
@@ -45,6 +46,7 @@ exports[`<List /> should render correctly 1`] = `
   margin: 0;
   font-weight: 300;
   color: #999;
+  text-transform: capitalize;
 }
 
 .c1 {
@@ -60,7 +62,6 @@ exports[`<List /> should render correctly 1`] = `
     <img
       alt=""
       class="c1"
-      src="placeholder.png"
     />
     <div
       class="c2"

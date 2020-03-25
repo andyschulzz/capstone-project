@@ -27,7 +27,7 @@ export default function List({
 
   const renderedExercises = lettersAtoZ.reduce((acc, letter) => {
     const letterExercises = filterExercises(letter)
-    if (letterExercises.length !== 0) {
+    if (letterExercises.length) {
       acc.push(<S.Span key={letter}>{letter}</S.Span>)
       letterExercises.forEach(lc => acc.push(lc))
     }
@@ -56,7 +56,11 @@ export default function List({
 
   function filterExercises(letter) {
     const filter = exercises
-      .filter(exercise => String(exercise.name).startsWith(letter))
+      .filter(exercise =>
+        String(exercise.name)
+          .toUpperCase()
+          .startsWith(letter)
+      )
       .map((exercise, index) => {
         return (
           <Exercise

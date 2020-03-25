@@ -11,7 +11,7 @@ jest.mock('react-router-dom', () => ({
   }),
 }))
 
-const handleWorkoutAddMock = jest.fn()
+const handleWorkoutExercisesMock = jest.fn()
 const handleWorkoutTitleMock = jest.fn()
 const exercisesMock = [
   {
@@ -31,9 +31,9 @@ describe('<Add />', () => {
       <Router>
         <Add
           exercises={exercisesMock}
-          handleWorkoutAdd={handleWorkoutAddMock}
+          handleWorkoutExercises={handleWorkoutExercisesMock}
           handleWorkoutTitle={handleWorkoutTitleMock}
-          selectedWorkouts={[]}
+          workoutExercises={[]}
         />
       </Router>
     )
@@ -45,9 +45,9 @@ describe('<Add />', () => {
       <Router>
         <Add
           exercises={exercisesMock}
-          handleWorkoutAdd={handleWorkoutAddMock}
+          handleWorkoutExercises={handleWorkoutExercisesMock}
           handleWorkoutTitle={handleWorkoutTitleMock}
-          selectedWorkouts={[]}
+          workoutExercises={[]}
         />
       </Router>
     )
@@ -61,9 +61,9 @@ describe('<Add />', () => {
       <Router>
         <Add
           exercises={exercisesMock}
-          handleWorkoutAdd={handleWorkoutAddMock}
+          handleWorkoutExercises={handleWorkoutExercisesMock}
           handleWorkoutTitle={handleWorkoutTitleMock}
-          selectedWorkouts={[]}
+          workoutExercises={[]}
         />
       </Router>
     )
@@ -76,9 +76,9 @@ describe('<Add />', () => {
       <Router>
         <Add
           exercises={exercisesMock}
-          handleWorkoutAdd={handleWorkoutAddMock}
+          handleWorkoutExercises={handleWorkoutExercisesMock}
           handleWorkoutTitle={handleWorkoutTitleMock}
-          selectedWorkouts={[]}
+          workoutExercises={[]}
         />
       </Router>
     )

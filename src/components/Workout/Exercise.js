@@ -1,30 +1,33 @@
 import React from 'react'
 import * as S from './Exercise.styles'
 import PropTypes from 'prop-types'
-import placeholder from '../icons/placeholder.png'
-import checked from '../icons/checked.png'
 import { useToggle } from 'react-hooks-lib'
 
 Exercise.propTypes = {
   name: PropTypes.string.isRequired,
   type: PropTypes.string.isRequired,
-  handleExerciseSelect: PropTypes.func,
-  id: PropTypes.string,
-  index: PropTypes.number,
+  handleWorkoutExercises: PropTypes.func,
+  id: PropTypes.string.isRequired,
+  image: PropTypes.string.isRequired,
 }
 
 export default function Exercise({
   name,
   type,
-  handleWorkoutAdd,
+  handleWorkoutExercises,
   id,
-  image = placeholder,
+  image,
 }) {
   const { on, toggle } = useToggle(false)
   return (
     <S.Exercise data-testid="exercise" onClick={() => handleWorkoutSelect()}>
       {on ? (
-        <S.Image data-testid="checked" isChecked src={checked} alt="" />
+        <S.Image
+          data-testid="checked"
+          isChecked
+          src="/icons/checked.png"
+          alt=""
+        />
       ) : (
         <S.Image src={image} alt="" />
       )}
@@ -35,7 +38,7 @@ export default function Exercise({
     </S.Exercise>
   )
   function handleWorkoutSelect() {
-    handleWorkoutAdd(id)
+    handleWorkoutExercises(id)
     toggle()
   }
 }

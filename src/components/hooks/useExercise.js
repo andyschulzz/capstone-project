@@ -1,41 +1,54 @@
-import { useState } from 'react'
-import { exerciseData } from '../data/exercises'
-import { v4 as uuidv4 } from 'uuid'
+import { useState, useEffect } from 'react'
+import { exercisesRef } from '../../firebase'
+import useServices from './useServices'
 
 export default function useExercise() {
-  const [exercises, setExercises] = useState(exerciseData)
-  const [selectedExerciseId, setSelectedExerciseId] = useState()
+  const { getData, patchData, postData } = useServices()
+  const [exercises, setExercises] = useState([])
+  const [selectedExercise, setSelectedExercise] = useState([])
+
+  useEffect(() => {
+    getData(exercisesRef).then(setExercises)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
 
   function handleExerciseSelect(id) {
-    setSelectedExerciseId(id)
+    const selectedExercise = exercises.find((exercise) => exercise.id === id)
+    setSelectedExercise(selectedExercise)
   }
 
   function handleExerciseAdd(data) {
     const newExercise = {
-      id: uuidv4(),
       ...data,
+      image: '/images/placeholder2.png',
     }
     const filteredExercises = exercises.filter(
-      exercise => exercise.name === data.name
+      (exercise) => exercise.name === data.name
     )
-    if (exercises.some(exercise => filteredExercises.includes(exercise))) {
+    if (exercises.some((exercise) => filteredExercises.includes(exercise))) {
       return
     }
-    const newExercises = [...exercises, newExercise]
-    setSelectedExerciseId(newExercise.id)
-    setExercises(newExercises)
+    postData(exercisesRef, newExercise).then((newExercise) => {
+      const newExercises = [...exercises, newExercise]
+      setExercises(newExercises)
+    })
+    setSelectedExercise(newExercise)
   }
 
   function handleExerciseChange(exercise) {
     const newExercises = [...exercises]
-    const index = newExercises.findIndex(e => e.id === selectedExerciseId)
+    const index = newExercises.findIndex(
+      (e) => e.name === selectedExercise.name
+    )
     newExercises[index] = exercise
-    setExercises(newExercises)
+    patchData(exercisesRef, exercise.id, exercise).then(
+      setExercises(newExercises)
+    )
   }
 
   return {
     exercises,
-    selectedExerciseId,
+    selectedExercise,
     handleExerciseSelect,
     handleExerciseAdd,
     handleExerciseChange,

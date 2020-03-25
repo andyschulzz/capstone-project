@@ -9,23 +9,24 @@ import PropTypes from 'prop-types'
 
 Workouts.propTypes = {
   exercises: PropTypes.array.isRequired,
+  handleWorkoutExercises: PropTypes.func.isRequired,
   handleWorkoutAdd: PropTypes.func.isRequired,
-  handleWorkoutSubmit: PropTypes.func.isRequired,
   handleWorkoutTitle: PropTypes.func.isRequired,
-  selectedWorkouts: PropTypes.array.isRequired,
+  selectedWorkouts: PropTypes.object.isRequired,
   workouts: PropTypes.array.isRequired,
 }
 
 export default function Workouts({
   exercises,
+  workouts,
+  selectedWorkouts,
+  workoutExercises,
+  handleWorkoutExercises,
   handleWorkoutAdd,
-  handleWorkoutSubmit,
   handleWorkoutTitle,
   handleWorkoutDelete,
   handleWorkoutEdit,
   handleWorkoutChange,
-  selectedWorkouts,
-  workouts,
 }) {
   const { path } = useRouteMatch()
   return (
@@ -41,15 +42,15 @@ export default function Workouts({
         <Route path={`${path}/add`}>
           <Add
             exercises={exercises}
-            handleWorkoutAdd={handleWorkoutAdd}
+            handleWorkoutExercises={handleWorkoutExercises}
             handleWorkoutTitle={handleWorkoutTitle}
-            selectedWorkouts={selectedWorkouts}
+            workoutExercises={workoutExercises}
           />
         </Route>
         <Route path={`${path}/details`}>
           <WorkoutDetails
-            selectedWorkouts={selectedWorkouts}
-            handleWorkoutSubmit={handleWorkoutSubmit}
+            workoutExercises={workoutExercises}
+            handleWorkoutAdd={handleWorkoutAdd}
           />
         </Route>
         <Route path={`${path}/edit`}>

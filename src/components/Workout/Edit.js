@@ -7,7 +7,7 @@ import * as S from './Edit.styles'
 import PropTypes from 'prop-types'
 
 WorkoutDetails.propTypes = {
-  selectedWorkouts: PropTypes.array.isRequired,
+  selectedWorkouts: PropTypes.object.isRequired,
   handleWorkoutChange: PropTypes.func.isRequired,
 }
 
@@ -16,9 +16,8 @@ export default function WorkoutDetails({
   handleWorkoutChange,
 }) {
   const { register, handleSubmit, setValue } = useForm()
-
   useEffect(() => {
-    selectedWorkouts.forEach((workout, index) => {
+    Object.entries(selectedWorkouts).forEach(([id, workout], index) => {
       setValue('name', workout.title)
       setValue(`weight[${index}]`, workout.weight)
       setValue(`reps[${index}]`, workout.reps)
@@ -51,14 +50,9 @@ export default function WorkoutDetails({
         minLength="1"
         maxLength="30"
       />
-      {selectedWorkouts.map((workout, index) => {
+      {Object.entries(selectedWorkouts).map(([id, item], index) => {
         return (
-          <Details
-            register={register}
-            key={workout.id}
-            {...workout}
-            index={index}
-          />
+          <Details register={register} key={item.id} {...item} index={index} />
         )
       })}
     </S.Form>

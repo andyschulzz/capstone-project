@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 
 Detail.propTypes = {
   register: PropTypes.func.isRequired,
-  name: PropTypes.string.isRequired,
+  name: PropTypes.string,
   index: PropTypes.number.isRequired,
   sets: PropTypes.string,
   reps: PropTypes.string,

@@ -11,7 +11,8 @@ import useSearch from './components/hooks/useSearch'
 function App() {
   const {
     exercises,
-    selectedExerciseId,
+    selectedExercise,
+    currentExercise,
     handleExerciseSelect,
     handleExerciseAdd,
     handleExerciseChange,
@@ -19,10 +20,11 @@ function App() {
 
   const {
     workouts,
+    workoutExercises,
     selectedWorkouts,
-    handleWorkoutAdd,
+    handleWorkoutExercises,
     handleWorkoutTitle,
-    handleWorkoutSubmit,
+    handleWorkoutAdd,
     handleSelectedWorkoutsReset,
     handleWorkoutDelete,
     handleWorkoutEdit,
@@ -31,11 +33,8 @@ function App() {
 
   const { handleSearch, search } = useSearch()
 
-  const searchedExercise = exercises.filter(exercise =>
-    exercise.name
-      .toLowerCase()
-      .trim()
-      .includes(search)
+  const searchedExercise = exercises.filter((exercise) =>
+    exercise.name.toLowerCase().trim().includes(search)
   )
 
   return (
@@ -46,7 +45,8 @@ function App() {
           <Exercises
             exercises={searchedExercise}
             search={search}
-            selectedExerciseId={selectedExerciseId}
+            selectedExercise={selectedExercise}
+            currentExercise={currentExercise}
             handleExerciseSelect={handleExerciseSelect}
             handleExerciseAdd={handleExerciseAdd}
             handleExerciseChange={handleExerciseChange}
@@ -57,10 +57,11 @@ function App() {
           <Workouts
             exercises={searchedExercise}
             workouts={workouts}
-            handleWorkoutAdd={handleWorkoutAdd}
-            handleWorkoutTitle={handleWorkoutTitle}
-            handleWorkoutSubmit={handleWorkoutSubmit}
+            workoutExercises={workoutExercises}
             selectedWorkouts={selectedWorkouts}
+            handleWorkoutExercises={handleWorkoutExercises}
+            handleWorkoutTitle={handleWorkoutTitle}
+            handleWorkoutAdd={handleWorkoutAdd}
             handleWorkoutDelete={handleWorkoutDelete}
             handleWorkoutEdit={handleWorkoutEdit}
             handleWorkoutChange={handleWorkoutChange}

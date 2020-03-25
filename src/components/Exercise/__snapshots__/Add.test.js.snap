@@ -208,7 +208,7 @@ exports[`<Add /> should render correctly 1`] = `
         <img
           alt=""
           class="c2"
-          src="back.png"
+          src="/icons/back.png"
         />
       </a>
       <button

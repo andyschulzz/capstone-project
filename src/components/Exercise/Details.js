@@ -7,10 +7,13 @@ import * as S from './Form.styles'
 import PropTypes from 'prop-types'
 
 Details.propTypes = {
-  selectedExercise: PropTypes.object,
+  name: PropTypes.string,
+  type: PropTypes.string,
+  instructions: PropTypes.string,
+  image: PropTypes.string,
 }
 
-export default function Details({ name, type, instructions, image }) {
+export default function Details({ name, image, type, instructions }) {
   const { register } = useForm({
     defaultValues: {
       name,
@@ -18,6 +21,7 @@ export default function Details({ name, type, instructions, image }) {
       instructions,
     },
   })
+
   return (
     <S.Form data-testid="details" id="details">
       <S.ButtonWrapper>

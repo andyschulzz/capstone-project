@@ -9,16 +9,20 @@ import Form from './Form'
 
 Edit.propTypes = {
   handleExerciseChange: PropTypes.func.isRequired,
-  selectedExercise: PropTypes.object,
+  exercises: PropTypes.array,
+  name: PropTypes.string,
+  type: PropTypes.string,
+  instructions: PropTypes.string,
+  image: PropTypes.string,
 }
 
 export default function Edit({
   handleExerciseChange,
-  id,
   name,
+  image,
   type,
   instructions,
-  image,
+  id,
 }) {
   const [disabled, setDisabled] = useState(false)
   const { register, handleSubmit } = useForm({

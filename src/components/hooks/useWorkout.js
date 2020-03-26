@@ -1,5 +1,5 @@
-import { useState, useEffect, useCallback } from 'react'
-import { workoutsRef } from '../../firebase'
+import { useState } from 'react'
+import { usersRef, firebaseAuth } from '../../firebase'
 import useExercise from './useExercise'
 import useServices from './useServices'
 
@@ -7,20 +7,10 @@ export default function useWorkout() {
   const [workouts, setWorkouts] = useState([])
   const [selectedWorkouts, setSelectedWorkouts] = useState({})
   const [workoutExercises, setWorkoutExercises] = useState([])
-  const [update, updateState] = useState()
   const { exercises } = useExercise()
-  const { getData, deleteData, postWorkout, patchWorkout } = useServices()
-  const forceUpdate = useCallback(() => updateState({}), [])
+  const { deleteData, postWorkout, patchWorkout } = useServices()
 
-  useEffect(() => {
-    getData(workoutsRef).then(setWorkouts)
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
-
-  useEffect(() => {
-    getData(workoutsRef).then(setWorkouts)
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [update])
+  let user = firebaseAuth.currentUser
 
   function handleWorkoutExercises(id) {
     const newExercises = [...exercises]
@@ -41,7 +31,8 @@ export default function useWorkout() {
     const workoutToDelete = newWorkouts[index]
     const key = Object.keys(workoutToDelete)[0]
     const documentId = workoutToDelete[key].title
-    deleteData(workoutsRef, documentId).then(forceUpdate())
+    const removeWorkout = newWorkouts.filter((w, i) => i !== index)
+    deleteData(usersRef, user.uid, documentId).then(setWorkouts(removeWorkout))
   }
 
   function handleWorkoutEdit(index) {
@@ -66,7 +57,7 @@ export default function useWorkout() {
       selectedWorkouts[key].weight = data.weight[index]
       selectedWorkouts[key].title = data.name
     })
-    patchWorkout(workoutsRef, title, selectedWorkouts)
+    patchWorkout(usersRef, user.uid, title, selectedWorkouts)
   }
 
   function handleWorkoutAdd(data) {
@@ -84,7 +75,7 @@ export default function useWorkout() {
     const workout = convertArrayToObject(addDetails, 'id')
     const newWorkoutList = [...workouts, workout]
 
-    postWorkout(workoutsRef, workout).then(setWorkouts(newWorkoutList))
+    postWorkout(usersRef, workout).then(setWorkouts(newWorkoutList))
     setWorkoutExercises([])
   }
 
@@ -94,6 +85,7 @@ export default function useWorkout() {
 
   return {
     workouts,
+    setWorkouts,
     exercises,
     selectedWorkouts,
     workoutExercises,

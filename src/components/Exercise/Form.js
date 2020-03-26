@@ -3,7 +3,7 @@ import * as S from './Form.styles'
 
 export default function Form({ disabled = true, register, image }) {
   return (
-    <>
+    <S.Wrapper>
       <S.Textarea
         ref={register({
           required: true,
@@ -46,6 +46,6 @@ export default function Form({ disabled = true, register, image }) {
         minLength="4"
         disabled={disabled}
       />
-    </>
+    </S.Wrapper>
   )
 }

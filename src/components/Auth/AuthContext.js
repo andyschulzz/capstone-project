@@ -6,7 +6,7 @@ import { NewUserProfile } from '../common/NewUserProfile'
 
 const AuthContext = React.createContext()
 
-function AuthProvider({ history, children, profile, setProfile }) {
+function AuthProvider({ history, children, setProfile, setWorkouts }) {
   const [user, setUser] = useState({})
 
   useEffect(() => {
@@ -18,6 +18,7 @@ function AuthProvider({ history, children, profile, setProfile }) {
         })
         window.localStorage.setItem('uid', user.uid)
         getUserInformation()
+        fetchWorkouts().then(setWorkouts)
       } else {
         setUser({})
         setProfile(NewUserProfile)
@@ -26,6 +27,10 @@ function AuthProvider({ history, children, profile, setProfile }) {
     })
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
+
+  // useEffect(() => {
+  //   fetchWorkouts().then(setWorkouts)
+  // }, [update])
 
   async function getUserInformation() {
     // console.log('Getting user information ...')
@@ -42,6 +47,21 @@ function AuthProvider({ history, children, profile, setProfile }) {
       })
       .catch((error) => {
         console.error('Error writing document: ', error)
+      })
+  }
+
+  function fetchWorkouts() {
+    return db
+      .collection('users')
+      .doc(firebaseAuth.currentUser.uid)
+      .collection('workouts')
+      .get()
+      .then((querySnapshot) => {
+        const data = []
+        querySnapshot.docs.forEach((doc) => {
+          data.push(doc.data())
+        })
+        return data
       })
   }
 

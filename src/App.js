@@ -24,6 +24,7 @@ function App() {
 
   const {
     workouts,
+    setWorkouts,
     workoutExercises,
     selectedWorkouts,
     handleWorkoutExercises,
@@ -36,7 +37,6 @@ function App() {
   } = useWorkout()
 
   const { handleSearch, search } = useSearch()
-
   const { profile, setProfile } = useUserServices()
 
   const searchedExercise = exercises.filter((exercise) =>
@@ -44,7 +44,7 @@ function App() {
   )
 
   return (
-    <AuthProvider profile={profile} setProfile={setProfile}>
+    <AuthProvider setProfile={setProfile} setWorkouts={setWorkouts}>
       <AuthConsumer>
         {({ user }) => (
           <AppGrid>

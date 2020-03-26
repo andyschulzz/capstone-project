@@ -29,6 +29,7 @@ const Workouts = styled(MdPlaylistAdd)`
 const Navigation = styled.nav`
   display: grid;
   grid-auto-flow: column;
+  height: 48px;
 `
 
 const Wrapper = styled.div`

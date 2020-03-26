@@ -47,9 +47,7 @@ export default function Edit({
           </BlueButton>
         )}
       </S.ButtonWrapper>
-      <S.Wrapper>
-        <Form register={register} image={image} disabled={disabled} />
-      </S.Wrapper>
+      <Form register={register} image={image} disabled={disabled} />
     </S.Form>
   )
 

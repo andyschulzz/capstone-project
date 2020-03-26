@@ -1,7 +1,8 @@
 import React from 'react'
 import PageLayout from './PageLayout'
 import { useForm } from 'react-hook-form'
-import { BlueButton } from '../common/Button'
+import { RedButton } from '../common/Button'
+import { GreenButton } from '../common/Button'
 import * as S from './SignUp.styles'
 import { useHistory } from 'react-router-dom'
 import useUserServices from '../hooks/useUserServices'
@@ -17,28 +18,36 @@ export default function SignUp() {
       <S.Main>
         <p>Sign up. It's for free.</p>
         <S.Form onChange={handleSubmit(onSubmit)}>
-          <S.Input
-            ref={register}
-            type="email"
-            name="email"
-            placeholder="Enter your E-Mail"
-          />
-          <S.Input
-            ref={register}
-            type="password"
-            name="password"
-            placeholder="Password"
-          />
-          <S.ButtonRow>
-            <BlueButton name="cancel">Cancel</BlueButton>
-            <BlueButton
+          <S.InputWrapper>
+            <S.MailIcon />
+            <S.Input
+              ref={register}
+              type="email"
+              name="email"
+              placeholder="Enter your E-Mail"
+            />
+          </S.InputWrapper>
+          <S.InputWrapper bottom>
+            <S.LockIcon />
+            <S.Input
+              ref={register}
+              type="password"
+              name="password"
+              placeholder="Password"
+            />
+          </S.InputWrapper>
+          <S.ButtonWrapper>
+            <RedButton onClick={handleCancel} name="cancel">
+              Cancel
+            </RedButton>
+            <GreenButton
               onClick={() => handleSignup(profile)}
               name="signUp"
               type="submit"
             >
               Sign Up
-            </BlueButton>
-          </S.ButtonRow>
+            </GreenButton>
+          </S.ButtonWrapper>
         </S.Form>
       </S.Main>
     </PageLayout>
@@ -50,5 +59,9 @@ export default function SignUp() {
   function handleSignup(profile) {
     signUp(profile)
     history.push('/exercises')
+  }
+
+  function handleCancel() {
+    history.push('/')
   }
 }

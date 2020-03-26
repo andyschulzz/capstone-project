@@ -20,5 +20,6 @@ export const exercisesRef = db.collection('exercises')
 
 export const workoutsRef = db.collection('workouts')
 
-export const firebaseAuth = firebase.auth()
+export const usersRef = db.collection('users')
 
+export const firebaseAuth = firebase.auth()

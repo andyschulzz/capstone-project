@@ -5,24 +5,6 @@ import { NewUserProfile } from '../common/NewUserProfile'
 export default function useWorkout() {
   const [profile, setProfile] = useState(NewUserProfile)
 
-  function getUser(id) {
-    // console.log('Getting user information ...')
-    return db
-      .collection('users')
-      .doc(id)
-      .get()
-      .then((doc) => {
-        // console.log('User found in DB:', doc.exists)
-        return doc.exists && doc.data()
-      })
-      .then((data) => {
-        return data
-      })
-      .catch((error) => {
-        console.error('Error writing document: ', error)
-      })
-  }
-
   async function signUp({ email, password }) {
     await firebaseAuth
       .createUserWithEmailAndPassword(email, password)
@@ -55,33 +37,6 @@ export default function useWorkout() {
       .signInWithEmailAndPassword(email, password)
       .then((res) => res)
       .catch((error) => error)
-  }
-
-  function updateUser(profile) {
-    db.collection('users')
-      .doc(profile._id)
-      .set({
-        ...profile,
-      })
-      .then(function () {
-        // console.log('User successfully updated!')
-      })
-      .catch(function (error) {
-        console.error('Error writing document: ', error)
-      })
-  }
-  function updateAbout(profile) {
-    db.collection('users')
-      .doc(profile._id)
-      .update({
-        about: profile.about,
-      })
-      .then(function () {
-        // console.log('User successfully updated!')
-      })
-      .catch(function (error) {
-        console.error('Error writing document: ', error)
-      })
   }
 
   return {

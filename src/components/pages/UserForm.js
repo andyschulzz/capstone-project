@@ -1,63 +1,53 @@
-import React, { useEffect } from 'react'
-import { AuthConsumer } from '../Auth/AuthContext'
-import { Button } from '../common/Button'
+import React from 'react'
+import { BlueButton } from '../common/Button'
 import * as S from './UserForm.styles'
 import PageLayout from './PageLayout'
 import { useForm } from 'react-hook-form'
+import useUserServices from '../hooks/useUserServices'
 
-export default function UserForm({ profile, setProfile }) {
-  const { register, handleSubmit, formState, setValue } = useForm({
+export default function UserForm() {
+  const { register, handleSubmit, formState } = useForm({
     mode: 'onChange',
   })
-
-  // useEffect(() => {
-  //     setValue('email', profile.email)
-  //     setValue('password', profile.password)
-  //   },[profile])
+  const { logIn, setProfile, profile } = useUserServices()
 
   return (
-    <AuthConsumer>
-      {({ logIn }) => (
-        <PageLayout>
-          <S.Form onSubmit={logIn}>
-            <S.Input
-              type="email"
-              name="email"
-              placeholder="Enter your E-Mail"
-              value={profile.email}
-              onChange={handleChange}
-            />
-            <S.Input
-              type="password"
-              name="password"
-              placeholder="Password"
-              value={profile.password}
-              onChange={handleChange}
-            />
-            <S.ButtonWrapper>
-              <Button
-                name="logIn"
-                callback={(event) => handleClick(event, logIn)}
-                text="Login"
-                color="tertiary"
-              />
-              <S.Anchor name="signUp" to={'/signup'}>
-                Sign Up
-              </S.Anchor>
-            </S.ButtonWrapper>
-          </S.Form>
-        </PageLayout>
-      )}
-    </AuthConsumer>
+    <PageLayout>
+      <S.Form onChange={handleSubmit(onSubmit)}>
+        <S.Input
+          ref={register}
+          type="email"
+          name="email"
+          placeholder="Enter your E-Mail"
+        />
+        <S.Input
+          ref={register}
+          type="password"
+          name="password"
+          placeholder="Password"
+        />
+        <S.ButtonWrapper>
+          <BlueButton
+            name="logIn"
+            onClick={(e) => handleSignup(e)}
+            type="submit"
+          >
+            Login
+          </BlueButton>
+          <S.Anchor name="signUp" to={'/signup'}>
+            Sign Up
+          </S.Anchor>
+        </S.ButtonWrapper>
+      </S.Form>
+    </PageLayout>
   )
-  function handleChange(event) {
-    event.target.name === 'email' &&
-      setProfile({ ...profile, email: event.target.value })
-    event.target.name === 'password' &&
-      setProfile({ ...profile, password: event.target.value })
+
+  function onSubmit(data) {
+    setProfile({ ...profile, email: data.email, password: data.password })
   }
-  function handleClick(event, callback) {
-    event.preventDefault()
-    event.target.name = 'logIn' && callback(event)
+
+  function handleSignup(e) {
+    e.preventDefault()
+    logIn(profile)
   }
 }

@@ -1,12 +1,5 @@
 import styled from 'styled-components/macro'
 
-const Claim = styled.h2`
-  text-align: center;
-  font-size: 1.2rem;
-  line-height: 1.6rem;
-  margin: 0;
-`
-
 const Form = styled.form`
   display: grid;
   grid-gap: 12px;
@@ -31,4 +24,4 @@ const Main = styled.main`
   align-items: center;
 `
 
-export { Claim, Form, Input, ButtonRow, Main }
+export { Form, Input, ButtonRow, Main }

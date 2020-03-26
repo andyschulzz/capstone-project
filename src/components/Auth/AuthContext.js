@@ -24,6 +24,7 @@ function AuthProvider({ history, children, profile, setProfile }) {
         window.localStorage.removeItem('uid')
       }
     })
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   async function getUserInformation() {
@@ -56,19 +57,6 @@ function AuthProvider({ history, children, profile, setProfile }) {
       })
   }
 
-  async function logIn(event) {
-    try {
-      event.preventDefault()
-      await firebaseAuth.signInWithEmailAndPassword(
-        profile.email,
-        profile.password
-      )
-      history.push('/')
-    } catch (error) {
-      console.error(`Error logging in user.`, error)
-    }
-  }
-
   async function logOut(event) {
     try {
       event.preventDefault()
@@ -84,7 +72,6 @@ function AuthProvider({ history, children, profile, setProfile }) {
     <AuthContext.Provider
       value={{
         user,
-        logIn,
         logOut,
       }}
     >

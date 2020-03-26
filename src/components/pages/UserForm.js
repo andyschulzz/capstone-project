@@ -10,26 +10,29 @@ export default function UserForm({ profile, setProfile }) {
     mode: 'onChange',
   })
 
-  useEffect(() => {
-      setValue('email', profile.email)
-      setValue('password', profile.password)
-    },[profile])
+  // useEffect(() => {
+  //     setValue('email', profile.email)
+  //     setValue('password', profile.password)
+  //   },[profile])
 
   return (
     <AuthConsumer>
       {({ logIn }) => (
         <PageLayout>
-          <S.Form onSubmit={handleSubmit(onSubmit)}>
+          <S.Form onSubmit={logIn}>
             <S.Input
-              ref={register()}
               type="email"
               name="email"
               placeholder="Enter your E-Mail"
+              value={profile.email}
+              onChange={handleChange}
             />
             <S.Input
               type="password"
               name="password"
               placeholder="Password"
+              value={profile.password}
+              onChange={handleChange}
             />
             <S.ButtonWrapper>
               <Button
@@ -37,7 +40,7 @@ export default function UserForm({ profile, setProfile }) {
                 callback={event => handleClick(event, logIn)}
                 text="Login"
                 color="tertiary"
-              >Login</Button>
+              />
               <S.Anchor name="signUp" to={'/signup'}>
                 Sign Up
               </S.Anchor>
@@ -47,10 +50,11 @@ export default function UserForm({ profile, setProfile }) {
       )}
     </AuthConsumer>
   )
-
-  function onSubmit(data) {
-    setProfile({ ...profile, email: data.email})
-    setProfile({ ...profile, password: data.password })
+  function handleChange(event) {
+    event.target.name === 'email' &&
+    setProfile({ ...profile, email: event.target.value })
+    event.target.name === 'password' &&
+    setProfile({ ...profile, password: event.target.value })
   }
   function handleClick(event, callback) {
     event.preventDefault()

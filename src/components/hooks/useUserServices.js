@@ -1,4 +1,4 @@
-import { db, authentication, storage } from './firebase'
+import { db, firebaseAuth } from '../../firebase'
 
 function getUser(id) {
   // console.log('Getting user information ...')
@@ -19,7 +19,7 @@ function getUser(id) {
 }
 
 async function signUp({ email, password, firstName, lastName }) {
-  return await authentication
+  return await firebaseAuth
     .createUserWithEmailAndPassword(email, password)
     .then(res => {
       addUserToDB(res.user, firstName, lastName)
@@ -53,7 +53,7 @@ async function addUserToDB(user, firstName, lastName) {
 }
 
 async function updateUsersDisplayName(firstName, lastName) {
-  return await authentication.currentUser
+  return await firebaseAuth.currentUser
     .updateProfile({
       displayName: `${firstName} ${lastName}`,
     })
@@ -61,7 +61,7 @@ async function updateUsersDisplayName(firstName, lastName) {
       // console.log("User's display name successfully updated.")
     })
     .then(() => {
-      authentication.currentUser.sendEmailVerification()
+      firebaseAuth.currentUser.sendEmailVerification()
     })
     .catch(error => {
       console.error(`Error updating user's display name:`, error)
@@ -69,7 +69,7 @@ async function updateUsersDisplayName(firstName, lastName) {
 }
 
 async function logIn({ email, password }) {
-  return await authentication
+  return await firebaseAuth
     .signInWithEmailAndPassword(email, password)
     .then(res => res)
     .catch(error => error)

@@ -2,21 +2,15 @@ import React, { useEffect, useState } from 'react'
 import { withRouter } from 'react-router-dom'
 import { firebaseAuth } from '../../firebase'
 import { db } from '../../firebase'
+import { NewUserProfile } from '../common/NewUserProfile'
 
 const AuthContext = React.createContext()
 
-function AuthProvider({
-                        history,
-                        children,
-                        profile,
-                        setProfile,
-                        profileRetrieved,
-                        setProfileRetrieved,
-                      }) {
+function AuthProvider({ history, children, profile, setProfile }) {
   const [user, setUser] = useState({})
 
   useEffect(() => {
-    firebaseAuth.onAuthStateChanged(user => {
+    firebaseAuth.onAuthStateChanged((user) => {
       if (user) {
         setUser({
           id: user.uid,
@@ -26,13 +20,7 @@ function AuthProvider({
         getUserInformation()
       } else {
         setUser({})
-        setProfile({
-          email: '',
-          password: '',
-          firstName: '',
-          lastName: '',
-          id: '',
-        })
+        setProfile(NewUserProfile)
         window.localStorage.removeItem('uid')
       }
     })
@@ -40,80 +28,19 @@ function AuthProvider({
 
   async function getUserInformation() {
     // console.log('Getting user information ...')
-    const user = await firebaseAuth.currentUser
     await db
       .collection('users')
-      .doc(user.uid)
+      .doc(firebaseAuth.currentUser.uid)
       .get()
-      .then(doc => {
+      .then((doc) => {
         // console.log('User found in DB:', doc.exists)
         return doc.exists && doc.data()
       })
-      .then(data => {
-        Object.assign(profile, {
-          firstName: data.firstName,
-          lastName: data.lastName,
-          id: data._id,
-        })
+      .then(async (data) => {
+        await setProfile({ ...data })
       })
-      .catch(error => {
+      .catch((error) => {
         console.error('Error writing document: ', error)
-      })
-    setProfile(profile)
-    setProfileRetrieved(true)
-    // console.log('Updating profile:', profile)
-  }
-  async function signUp(event) {
-    // console.log('Signup called')
-    try {
-      event.preventDefault()
-      await firebaseAuth
-        .createUserWithEmailAndPassword(profile.email, profile.password)
-        .then(res => {
-          addUserToDB(res.user)
-        })
-        .catch(function(error) {
-          console.error('Error creating new user: ', error)
-        })
-      history.push('/')
-    } catch (err) {}
-  }
-
-  async function addUserToDB(user) {
-    db.collection('users')
-      .doc(user.uid)
-      .set({
-        _id: user.uid,
-        firstName: profile.firstName,
-        lastName: profile.lastName,
-        email: user.email,
-        registered: new Date().getTime(),
-        emailVerified: user.emailVerified,
-      })
-      .then(function() {
-        // console.log('User successfully stored in DB!')
-      })
-      .then(() => updateUsersDisplayName())
-      .catch(function(error) {
-        console.error('Error writing document: ', error)
-      })
-  }
-
-  async function updateUsersDisplayName() {
-    const user = await firebaseAuth.currentUser
-
-    user
-      .updateProfile({
-        displayName: `${profile.firstName} ${profile.lastName}`,
-      })
-      .then(() => {
-        // console.log("User's display name successfully updated.")
-      })
-      .then(() => {
-        sendEmailVerification()
-      })
-      .catch(error => {
-        console.error(`Error updating user's display name:`, error)
       })
   }
 
@@ -124,7 +51,7 @@ function AuthProvider({
       .then(() => {
         // console.log('Verification email sent to user.')
       })
-      .catch(error => {
+      .catch((error) => {
         console.error(`Error sending verification email to user.`, error)
       })
   }
@@ -147,22 +74,16 @@ function AuthProvider({
       event.preventDefault()
       firebaseAuth.signOut()
       setUser({})
-      setProfile({
-        email: '',
-        password: '',
-        firstName: '',
-        lastName: '',
-        id: '',
-      })
+      setProfile(NewUserProfile)
       // console.log('User logged out. Profile resetted.')
       history.push('/')
     } catch (err) {}
   }
+
   return (
     <AuthContext.Provider
       value={{
         user,
-        signUp,
         logIn,
         logOut,
       }}

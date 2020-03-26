@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { AuthConsumer } from '../Auth/AuthContext'
-import {Button } from '../common/Button'
+import { Button } from '../common/Button'
 import * as S from './UserForm.styles'
 import PageLayout from './PageLayout'
 import { useForm } from 'react-hook-form'
@@ -37,7 +37,7 @@ export default function UserForm({ profile, setProfile }) {
             <S.ButtonWrapper>
               <Button
                 name="logIn"
-                callback={event => handleClick(event, logIn)}
+                callback={(event) => handleClick(event, logIn)}
                 text="Login"
                 color="tertiary"
               />
@@ -52,9 +52,9 @@ export default function UserForm({ profile, setProfile }) {
   )
   function handleChange(event) {
     event.target.name === 'email' &&
-    setProfile({ ...profile, email: event.target.value })
+      setProfile({ ...profile, email: event.target.value })
     event.target.name === 'password' &&
-    setProfile({ ...profile, password: event.target.value })
+      setProfile({ ...profile, password: event.target.value })
   }
   function handleClick(event, callback) {
     event.preventDefault()

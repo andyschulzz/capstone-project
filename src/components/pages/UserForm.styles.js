@@ -21,6 +21,7 @@ const Input = styled.input`
   font-family: inherit;
   font-size: 1rem;
   font-weight: inherit;
+  width: 100%;
 `
 
 const InputWrapper = styled.div`
@@ -49,7 +50,7 @@ const Anchor = styled(NavLink)`
   padding: 8px;
   text-align: center;
   font-size: 1rem;
-  color: hsl(120, 50%, 50%);
+  color: hsl(200, 100%, 50%);
   text-decoration: none;
   align-self: center;
   cursor: pointer;
@@ -66,6 +67,18 @@ const Paragraph = styled.p`
   margin-top: 40px;
 `
 
+const Error = styled.p`
+  color: #bf1650;
+  font-size: 0.8rem;
+  align-self: start;
+  margin-bottom: 10px;
+
+  &::before {
+    display: inline;
+    content: '⚠ ';
+  }
+`
+
 export {
   Form,
   ButtonWrapper,
@@ -76,4 +89,5 @@ export {
   InputWrapper,
   MailIcon,
   LockIcon,
+  Error,
 }

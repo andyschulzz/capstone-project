@@ -10,7 +10,7 @@ export default {
   title: 'Exercise/List',
   component: List,
   decorators: [
-    renderComponent => (
+    (renderComponent) => (
       <div style={{ padding: 20, width: 400 }}>{renderComponent()}</div>
     ),
   ],

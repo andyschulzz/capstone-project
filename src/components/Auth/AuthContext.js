@@ -28,18 +28,12 @@ function AuthProvider({ history, children, setProfile, setWorkouts }) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
-  // useEffect(() => {
-  //   fetchWorkouts().then(setWorkouts)
-  // }, [update])
-
   async function getUserInformation() {
-    // console.log('Getting user information ...')
     await db
       .collection('users')
       .doc(firebaseAuth.currentUser.uid)
       .get()
       .then((doc) => {
-        // console.log('User found in DB:', doc.exists)
         return doc.exists && doc.data()
       })
       .then(async (data) => {
@@ -69,9 +63,7 @@ function AuthProvider({ history, children, setProfile, setWorkouts }) {
     const user = await firebaseAuth.currentUser
     user
       .sendEmailVerification()
-      .then(() => {
-        // console.log('Verification email sent to user.')
-      })
+      .then(() => {})
       .catch((error) => {
         console.error(`Error sending verification email to user.`, error)
       })
@@ -83,7 +75,6 @@ function AuthProvider({ history, children, setProfile, setWorkouts }) {
       firebaseAuth.signOut()
       setUser({})
       setProfile(NewUserProfile)
-      // console.log('User logged out. Profile resetted.')
       history.push('/')
     } catch (err) {}
   }

@@ -7,10 +7,7 @@ const Header = () => (
     {({ user, logOut }) => (
       <React.Fragment>
         {user.id ? (
-          <React.Fragment>
-            {/*<small>user: {user.email}</small>*/}
-            <S.LogoutIcon onClick={(e) => logOut(e)}>Log out</S.LogoutIcon>
-          </React.Fragment>
+          <S.LogoutIcon onClick={(e) => logOut(e)} />
         ) : (
           <S.Wrapper>Pumpele</S.Wrapper>
         )}

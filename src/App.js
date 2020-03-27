@@ -1,6 +1,9 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Exercises from './components/pages/Exercises'
 import Workouts from './components/pages/Workouts'
+import UserForm from './components/pages/UserForm'
+import NoMatch from './components/pages/NoMatch'
+import SignUp from './components/pages/SignUp'
 import Navigation from './components/common/Navigation'
 import { Route, Switch, Redirect } from 'react-router-dom'
 import styled from 'styled-components/macro'
@@ -8,8 +11,6 @@ import useExercise from './components/hooks/useExercise'
 import useWorkout from './components/hooks/useWorkout'
 import useSearch from './components/hooks/useSearch'
 import AuthProvider, { AuthConsumer } from './components/Auth/AuthContext'
-import UserForm from './components/pages/UserForm'
-import SignUp from './components/pages/SignUp'
 import useUserServices from './components/hooks/useUserServices'
 
 function App() {
@@ -37,7 +38,8 @@ function App() {
   } = useWorkout()
 
   const { handleSearch, search } = useSearch()
-  const { profile, setProfile } = useUserServices()
+
+  const { signUp, logIn, profile, setProfile } = useUserServices()
 
   const searchedExercise = exercises.filter((exercise) =>
     exercise.name.toLowerCase().trim().includes(search)
@@ -63,7 +65,11 @@ function App() {
                     handleSearch={handleSearch}
                   />
                 ) : (
-                  <UserForm profile={profile} setProfile={setProfile} />
+                  <UserForm
+                    logIn={logIn}
+                    profile={profile}
+                    setProfile={setProfile}
+                  />
                 )}
               </Route>
               <Route path="/workouts">
@@ -81,11 +87,22 @@ function App() {
                     handleWorkoutChange={handleWorkoutChange}
                   />
                 ) : (
-                  <UserForm profile={profile} setProfile={setProfile} />
+                  <UserForm
+                    logIn={logIn}
+                    profile={profile}
+                    setProfile={setProfile}
+                  />
                 )}
               </Route>
               <Route exact path="/signup">
-                <SignUp profile={profile} setProfile={setProfile} />
+                <SignUp
+                  signUp={signUp}
+                  profile={profile}
+                  setProfile={setProfile}
+                />
+              </Route>
+              <Route>
+                <NoMatch />
               </Route>
             </Switch>
             {user && user.id && (

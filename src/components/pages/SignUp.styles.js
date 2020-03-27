@@ -19,6 +19,7 @@ const Input = styled.input`
   font-family: inherit;
   font-size: 1rem;
   font-weight: inherit;
+  width: 100%;
 `
 
 const MailIcon = styled(GoMail)`
@@ -32,7 +33,7 @@ const LockIcon = styled(GoLock)`
 const InputWrapper = styled.div`
   border-bottom: 1px solid #ccc;
   width: 100%;
-  margin-bottom: ${(props) => (props.bottom ? '40px' : '20px')};
+  margin-bottom: 20px;
   display: flex;
   align-items: center;
 `
@@ -40,6 +41,7 @@ const InputWrapper = styled.div`
 const ButtonWrapper = styled.div`
   display: flex;
   justify-content: space-evenly;
+  margin-top: 20px;
 
   button:first-child {
     margin-right: 20px;
@@ -55,4 +57,25 @@ const Main = styled.main`
   align-items: center;
 `
 
-export { Form, Input, ButtonWrapper, Main, InputWrapper, MailIcon, LockIcon }
+const Error = styled.p`
+  color: #bf1650;
+  font-size: 0.8rem;
+  align-self: start;
+  margin-bottom: 10px;
+
+  &::before {
+    display: inline;
+    content: '⚠ ';
+  }
+`
+
+export {
+  Form,
+  Input,
+  ButtonWrapper,
+  Main,
+  InputWrapper,
+  MailIcon,
+  LockIcon,
+  Error,
+}

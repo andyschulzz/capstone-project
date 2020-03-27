@@ -29,7 +29,7 @@ export default function List({
     const letterExercises = filterExercises(letter)
     if (letterExercises.length) {
       acc.push(<S.Span key={letter}>{letter}</S.Span>)
-      letterExercises.forEach(lc => acc.push(lc))
+      letterExercises.forEach((lc) => acc.push(lc))
     }
     return acc
   }, [])
@@ -56,10 +56,8 @@ export default function List({
 
   function filterExercises(letter) {
     const filter = exercises
-      .filter(exercise =>
-        String(exercise.name)
-          .toUpperCase()
-          .startsWith(letter)
+      .filter((exercise) =>
+        String(exercise.name).toUpperCase().startsWith(letter)
       )
       .map((exercise, index) => {
         return (

@@ -1,11 +1,11 @@
 import React from 'react'
-import {Button} from './Button'
+import { Button } from './Button'
 
 export default {
   title: 'Exercise/Button',
   component: Button,
   decorators: [
-    renderComponent => (
+    (renderComponent) => (
       <div style={{ padding: 20, width: 400 }}>{renderComponent()}</div>
     ),
   ],

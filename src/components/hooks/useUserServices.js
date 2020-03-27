@@ -2,11 +2,11 @@ import { db, firebaseAuth } from '../../firebase'
 import { useState } from 'react'
 import { NewUserProfile } from '../common/NewUserProfile'
 
-export default function useWorkout() {
+export default function useUserServices() {
   const [profile, setProfile] = useState(NewUserProfile)
 
   async function signUp({ email, password }) {
-    await firebaseAuth
+    return await firebaseAuth
       .createUserWithEmailAndPassword(email, password)
       .then((res) => {
         addUserToDB(res.user)
@@ -38,11 +38,5 @@ export default function useWorkout() {
       .then((res) => res)
       .catch((error) => error)
   }
-
-  return {
-    signUp,
-    logIn,
-    profile,
-    setProfile,
-  }
+  return { signUp, logIn, profile, setProfile }
 }

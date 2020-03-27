@@ -9,7 +9,6 @@ export default function PageLayout({ title, children }) {
         <S.Anchor to="/">
           <S.Image src="/icons/logo2.png" alt="" />
         </S.Anchor>
-
         <S.Wrapper>{title}</S.Wrapper>
         <UserHeader />
       </S.Header>

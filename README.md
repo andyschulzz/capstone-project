@@ -6,7 +6,7 @@
 
 I developed Pumpele as my final project during the [neuefische](https://www.neuefische.de) web developer bootcamp in spring 2020.
 
-It is a workout planner and knowledge base app made with [Create React App](https://github.com/facebook/create-react-app) and [Firebase](https://firebase.google.com/) backend. 
+Pumpele a workout planner and knowledge base app made with [Create React App](https://github.com/facebook/create-react-app) and [Firebase](https://firebase.google.com/) backend. 
 The user can not only create individual workouts regarding his needs and track his own progress but also get inspired by a great variety of exercises from the database to steadily improve his knowledge and workouts.
 
 ## Preview

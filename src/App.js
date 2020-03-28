@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import Exercises from './components/pages/Exercises'
 import Workouts from './components/pages/Workouts'
 import UserForm from './components/pages/UserForm'
@@ -39,7 +39,13 @@ function App() {
 
   const { handleSearch, search } = useSearch()
 
-  const { signUp, logIn, profile, setProfile } = useUserServices()
+  const {
+    signUp,
+    logIn,
+    resetPassword,
+    profile,
+    setProfile,
+  } = useUserServices()
 
   const searchedExercise = exercises.filter((exercise) =>
     exercise.name.toLowerCase().trim().includes(search)
@@ -67,6 +73,7 @@ function App() {
                 ) : (
                   <UserForm
                     logIn={logIn}
+                    resetPassword={resetPassword}
                     profile={profile}
                     setProfile={setProfile}
                   />
@@ -89,6 +96,7 @@ function App() {
                 ) : (
                   <UserForm
                     logIn={logIn}
+                    resetPassword={resetPassword}
                     profile={profile}
                     setProfile={setProfile}
                   />

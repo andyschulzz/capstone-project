@@ -12,6 +12,15 @@ const Form = styled.form`
   > * {
     margin: 0;
   }
+
+  button {
+    margin-top: 20px;
+  }
+
+  span {
+    font-weight: bold;
+    cursor: pointer;
+  }
 `
 
 const Input = styled.input`
@@ -27,7 +36,7 @@ const Input = styled.input`
 const InputWrapper = styled.div`
   border-bottom: 1px solid #ccc;
   width: 100%;
-  margin-bottom: ${(props) => (props.bottom ? '40px' : '20px')};
+  margin-bottom: 20px;
   display: flex;
   align-items: center;
 `
@@ -42,6 +51,7 @@ const LockIcon = styled(GoLock)`
 
 const ButtonWrapper = styled.div`
   display: flex;
+  margin-top: 20px;
 `
 
 const Anchor = styled(NavLink)`

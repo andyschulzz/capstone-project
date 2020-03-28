@@ -38,5 +38,10 @@ export default function useUserServices() {
       .then((res) => res)
       .catch((error) => error)
   }
-  return { signUp, logIn, profile, setProfile }
+
+  function resetPassword({ email }) {
+    firebaseAuth.sendPasswordResetEmail(email)
+  }
+
+  return { signUp, logIn, resetPassword, profile, setProfile }
 }

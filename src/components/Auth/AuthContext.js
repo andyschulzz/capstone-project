@@ -59,16 +59,6 @@ function AuthProvider({ history, children, setProfile, setWorkouts }) {
       })
   }
 
-  async function sendEmailVerification() {
-    const user = await firebaseAuth.currentUser
-    user
-      .sendEmailVerification()
-      .then(() => {})
-      .catch((error) => {
-        console.error(`Error sending verification email to user.`, error)
-      })
-  }
-
   async function logOut(event) {
     try {
       event.preventDefault()

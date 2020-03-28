@@ -3,7 +3,12 @@ import { BlueButton } from '../common/Button'
 import * as S from './UserForm.styles'
 import { useForm } from 'react-hook-form'
 
-export default function UserForm({ setProfile, logIn, resetPassword }) {
+export default function UserForm({
+  profile,
+  setProfile,
+  logIn,
+  resetPassword,
+}) {
   const { register, handleSubmit, errors, setError } = useForm()
   const [loginCounter, setLoginCounter] = useState(0)
 
@@ -39,7 +44,7 @@ export default function UserForm({ setProfile, logIn, resetPassword }) {
       {errors.password && errors.password.type === 'reset' && (
         <S.Error>
           {errors.password.message}
-          <span onClick={resetPassword}> reset your password?</span>
+          <span onClick={handleReset}> reset your password?</span>
         </S.Error>
       )}
       {errors.password && errors.password.type === 'tooMany' && (
@@ -61,7 +66,7 @@ export default function UserForm({ setProfile, logIn, resetPassword }) {
         if (res.code === 'auth/user-not-found') {
           return setError('email', 'notFound', 'E-mail address not found')
         }
-        if (res.code === 'auth/wrong-password' && loginCounter <= 1) {
+        if (res.code === 'auth/wrong-password' && loginCounter < 1) {
           setLoginCounter(loginCounter + 1)
           return setError(
             'password',
@@ -91,5 +96,9 @@ export default function UserForm({ setProfile, logIn, resetPassword }) {
           error
         )
       })
+  }
+
+  function handleReset() {
+    resetPassword(profile)
   }
 }

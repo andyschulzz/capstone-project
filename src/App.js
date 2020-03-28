@@ -133,4 +133,8 @@ const AppGrid = styled.div`
   position: fixed;
   width: 100%;
   height: 100%;
+
+  @media only screen and (min-device-width: 640px) {
+    justify-content: center;
+  }
 `

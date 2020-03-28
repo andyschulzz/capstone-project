@@ -11,7 +11,7 @@ The user can not only create individual workouts regarding his needs and track h
 
 ## Preview
 
-![Pumpele](https://user-images.githubusercontent.com/46409110/77826472-f9588e80-710f-11ea-8a84-91ecc42f4c48.gif 'Pumpele showcase')
+![Pumpele](https://user-images.githubusercontent.com/46409110/77832977-35a0e480-713a-11ea-863e-f25fa3152860.gif 'Pumpele showcase')
 
 ## Tech stack
 

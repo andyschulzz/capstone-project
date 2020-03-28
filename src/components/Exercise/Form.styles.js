@@ -38,15 +38,15 @@ const Textarea = styled.textarea`
   display: flex;
   border: none;
   outline: none;
-  padding: ${props => (props.isExerciseName ? 0 : 10)}px;
+  padding: ${(props) => (props.isExerciseName ? 0 : 10)}px;
   margin-bottom: 10px;
   width: 100%;
-  height: ${props => (props.isTitle ? 40 : 400)}px;
+  height: ${(props) => (props.isTitle ? 40 : 400)}px;
   resize: none;
-  font-size: ${props => (props.isExerciseName ? 1.7 : 1)}rem;
-  font-weight: ${props => (props.isExerciseName ? 'bold' : 400)};
+  font-size: ${(props) => (props.isExerciseName ? 1.7 : 1)}rem;
+  font-weight: ${(props) => (props.isExerciseName ? 'bold' : 400)};
   background-color: #fff;
-  overflow-y: ${props => (props.isTitle ? 'hidden' : 'auto')};
+  overflow-y: hidden;
   color: #333;
 
   ::placeholder {

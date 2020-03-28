@@ -4,7 +4,7 @@ import * as S from '../common/ButtonBackToHome.styles'
 
 export default function ButtonBackToHome() {
   return (
-    <Link to="/">
+    <Link to="/exercises">
       <S.Image src="/icons/back.png" alt="" />
     </Link>
   )

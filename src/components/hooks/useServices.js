@@ -1,3 +1,5 @@
+import { firebaseAuth } from '../../firebase'
+
 export default function useServices() {
   function getData(dataRef) {
     return fetchData(dataRef)
@@ -29,6 +31,8 @@ export default function useServices() {
     const key = Object.keys(data)[0]
     const documentId = data[key].title
     return dataRef
+      .doc(firebaseAuth.currentUser.uid)
+      .collection('workouts')
       .doc(documentId)
       .set(data)
       .then(() => {
@@ -43,15 +47,21 @@ export default function useServices() {
       })
   }
 
-  function patchWorkout(dataRef, documentId, data) {
+  function patchWorkout(dataRef, userId, documentId, data) {
     const key = Object.keys(data)[0]
     const newId = data[key].title
     return dataRef
+      .doc(userId)
+      .collection('workouts')
       .doc(newId)
       .set(data)
       .then(() => {
         if (documentId !== newId) {
-          return dataRef.doc(documentId).delete()
+          return dataRef
+            .doc(userId)
+            .collection('workouts')
+            .doc(documentId)
+            .delete()
         }
       })
       .then(() => {
@@ -66,8 +76,8 @@ export default function useServices() {
       })
   }
 
-  function deleteData(dataRef, documentId) {
-    return dataRef.doc(documentId).delete()
+  function deleteData(dataRef, userId, documentId) {
+    return dataRef.doc(userId).collection('workouts').doc(documentId).delete()
   }
 
   function patchData(dataRef, documentId, data) {

@@ -27,9 +27,7 @@ export default function Add({ handleExerciseAdd }) {
           </GreenButton>
         )) || <ButtonEdit />}
       </S.ButtonWrapper>
-      <S.Wrapper>
-        <Form register={register} disabled={disabled} />
-      </S.Wrapper>
+      <Form register={register} disabled={disabled} />
     </S.Form>
   )
   function handleAdd(data) {

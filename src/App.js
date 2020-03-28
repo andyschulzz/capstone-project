@@ -1,12 +1,17 @@
 import React from 'react'
 import Exercises from './components/pages/Exercises'
 import Workouts from './components/pages/Workouts'
+import UserForm from './components/pages/UserForm'
+import NoMatch from './components/pages/NoMatch'
+import SignUp from './components/pages/SignUp'
 import Navigation from './components/common/Navigation'
 import { Route, Switch, Redirect } from 'react-router-dom'
 import styled from 'styled-components/macro'
 import useExercise from './components/hooks/useExercise'
 import useWorkout from './components/hooks/useWorkout'
 import useSearch from './components/hooks/useSearch'
+import AuthProvider, { AuthConsumer } from './components/Auth/AuthContext'
+import useUserServices from './components/hooks/useUserServices'
 
 function App() {
   const {
@@ -20,6 +25,7 @@ function App() {
 
   const {
     workouts,
+    setWorkouts,
     workoutExercises,
     selectedWorkouts,
     handleWorkoutExercises,
@@ -33,43 +39,89 @@ function App() {
 
   const { handleSearch, search } = useSearch()
 
+  const {
+    signUp,
+    logIn,
+    resetPassword,
+    profile,
+    setProfile,
+  } = useUserServices()
+
   const searchedExercise = exercises.filter((exercise) =>
     exercise.name.toLowerCase().trim().includes(search)
   )
 
   return (
-    <AppGrid>
-      <Switch>
-        <Redirect exact from="/" to="exercises" />
-        <Route path="/exercises">
-          <Exercises
-            exercises={searchedExercise}
-            search={search}
-            selectedExercise={selectedExercise}
-            currentExercise={currentExercise}
-            handleExerciseSelect={handleExerciseSelect}
-            handleExerciseAdd={handleExerciseAdd}
-            handleExerciseChange={handleExerciseChange}
-            handleSearch={handleSearch}
-          />
-        </Route>
-        <Route path="/workouts">
-          <Workouts
-            exercises={searchedExercise}
-            workouts={workouts}
-            workoutExercises={workoutExercises}
-            selectedWorkouts={selectedWorkouts}
-            handleWorkoutExercises={handleWorkoutExercises}
-            handleWorkoutTitle={handleWorkoutTitle}
-            handleWorkoutAdd={handleWorkoutAdd}
-            handleWorkoutDelete={handleWorkoutDelete}
-            handleWorkoutEdit={handleWorkoutEdit}
-            handleWorkoutChange={handleWorkoutChange}
-          />
-        </Route>
-      </Switch>
-      <Navigation handleSelectedWorkoutsReset={handleSelectedWorkoutsReset} />
-    </AppGrid>
+    <AuthProvider setProfile={setProfile} setWorkouts={setWorkouts}>
+      <AuthConsumer>
+        {({ user }) => (
+          <AppGrid>
+            <Switch>
+              <Redirect exact from="/" to="exercises" />
+              <Route path="/exercises">
+                {user && user.id ? (
+                  <Exercises
+                    exercises={searchedExercise}
+                    search={search}
+                    selectedExercise={selectedExercise}
+                    currentExercise={currentExercise}
+                    handleExerciseSelect={handleExerciseSelect}
+                    handleExerciseAdd={handleExerciseAdd}
+                    handleExerciseChange={handleExerciseChange}
+                    handleSearch={handleSearch}
+                  />
+                ) : (
+                  <UserForm
+                    logIn={logIn}
+                    resetPassword={resetPassword}
+                    profile={profile}
+                    setProfile={setProfile}
+                  />
+                )}
+              </Route>
+              <Route path="/workouts">
+                {user && user.id ? (
+                  <Workouts
+                    exercises={searchedExercise}
+                    workouts={workouts}
+                    workoutExercises={workoutExercises}
+                    selectedWorkouts={selectedWorkouts}
+                    handleWorkoutExercises={handleWorkoutExercises}
+                    handleWorkoutTitle={handleWorkoutTitle}
+                    handleWorkoutAdd={handleWorkoutAdd}
+                    handleWorkoutDelete={handleWorkoutDelete}
+                    handleWorkoutEdit={handleWorkoutEdit}
+                    handleWorkoutChange={handleWorkoutChange}
+                  />
+                ) : (
+                  <UserForm
+                    logIn={logIn}
+                    resetPassword={resetPassword}
+                    profile={profile}
+                    setProfile={setProfile}
+                  />
+                )}
+              </Route>
+              <Route exact path="/signup">
+                <SignUp
+                  signUp={signUp}
+                  profile={profile}
+                  setProfile={setProfile}
+                />
+              </Route>
+              <Route>
+                <NoMatch />
+              </Route>
+            </Switch>
+            {user && user.id && (
+              <Navigation
+                handleSelectedWorkoutsReset={handleSelectedWorkoutsReset}
+              />
+            )}
+          </AppGrid>
+        )}
+      </AuthConsumer>
+    </AuthProvider>
   )
 }
 

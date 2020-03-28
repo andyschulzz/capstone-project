@@ -1,5 +1,5 @@
 <div align="center">
-<img src="/icons/logo2.png" width="100"/>
+<img src="https://user-images.githubusercontent.com/46409110/77826997-66215800-7113-11ea-8a69-65f1552d6ab7.png" width="100"/>
 </div>
 
 # Pumpele

@@ -23,7 +23,6 @@ export default function Edit({ selectedWorkouts, handleWorkoutChange }) {
   }, [selectedWorkouts, setValue])
 
   const history = useHistory()
-  console.log(selectedWorkouts)
 
   return (
     <S.Form

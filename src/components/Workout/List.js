@@ -18,10 +18,9 @@ export default function List({
   const [selectedWorkout, setSelectedWorkout] = useState()
   const [openMenu, setOpenMenu] = useState(false)
 
-  const refOne = useRef()
-  const refTwo = useRef()
+  const ref = useRef()
 
-  useOnclickOutside([refOne, refTwo], () => {
+  useOnclickOutside(ref, () => {
     setOpenMenu(false)
   })
 
@@ -31,20 +30,22 @@ export default function List({
 
   const renderWorkouts = workouts.map((workout, index) => (
     <S.WorkoutWrapper key={index}>
-      {selectedWorkout === index && openMenu && (
-        <WorkoutMenu
-          index={index}
-          handleWorkoutDelete={handleWorkoutDelete}
-          handleWorkoutEdit={handleWorkoutEdit}
-          ref={refTwo}
-        />
-      )}
-      <S.TitleWrapper ref={refOne}>
+      <S.TitleWrapper>
         <h3>{title[index][0]}</h3>
         <S.MenuIcon
           data-testid="menu-icon"
           onClick={() => handleToggle(index)}
         />
+        {selectedWorkout === index && openMenu && (
+          <WorkoutMenu
+            index={index}
+            handleWorkoutDelete={handleWorkoutDelete}
+            handleWorkoutEdit={handleWorkoutEdit}
+            openMenu={openMenu}
+            setOpenMenu={setOpenMenu}
+            ref={ref}
+          />
+        )}
       </S.TitleWrapper>
       {Object.entries(workout).map(([id, item], index) => (
         <S.Wrapper key={index}>

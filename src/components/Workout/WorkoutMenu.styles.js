@@ -1,6 +1,24 @@
 import styled from 'styled-components/macro'
 import { MdEdit, MdDelete } from 'react-icons/md'
 
+import { MdMoreHoriz } from 'react-icons/md'
+
+const MenuIcon = styled(MdMoreHoriz)`
+  font-size: 28px;
+  align-self: center;
+  margin: -10px 20px 5px auto;
+  color: hsl(200, 100%, 50%);
+  cursor: pointer;
+`
+const MenuWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  right: 0;
+  z-index: 1;
+  background: #fff;
+`
+
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
@@ -10,10 +28,6 @@ const Wrapper = styled.div`
   padding: 20px;
   background: #57595d;
   color: white;
-  position: absolute;
-  top: 50px;
-  right: 0;
-  z-index: 1;
 
   p {
     margin: 0;
@@ -42,4 +56,4 @@ const DeleteIcon = styled(MdDelete)`
   color: hsl(0, 100%, 50%);
 `
 
-export { Wrapper, EditIcon, DeleteIcon }
+export { Wrapper, EditIcon, DeleteIcon, MenuIcon, MenuWrapper }

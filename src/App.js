@@ -37,7 +37,7 @@ function App() {
     handleWorkoutChange,
   } = useWorkout()
 
-  const { handleSearch, search } = useSearch()
+  const { handleSearch, search, setSearch } = useSearch()
 
   const {
     signUp,
@@ -46,10 +46,6 @@ function App() {
     profile,
     setProfile,
   } = useUserServices()
-
-  const searchedExercise = exercises.filter((exercise) =>
-    exercise.name.toLowerCase().trim().includes(search)
-  )
 
   return (
     <AuthProvider setProfile={setProfile} setWorkouts={setWorkouts}>
@@ -61,8 +57,9 @@ function App() {
               <Route path="/exercises">
                 {user && user.id ? (
                   <Exercises
-                    exercises={searchedExercise}
+                    exercises={exercises}
                     search={search}
+                    setSearch={setSearch}
                     selectedExercise={selectedExercise}
                     currentExercise={currentExercise}
                     handleExerciseSelect={handleExerciseSelect}
@@ -82,7 +79,7 @@ function App() {
               <Route path="/workouts">
                 {user && user.id ? (
                   <Workouts
-                    exercises={searchedExercise}
+                    exercises={exercises}
                     workouts={workouts}
                     workoutExercises={workoutExercises}
                     selectedWorkouts={selectedWorkouts}

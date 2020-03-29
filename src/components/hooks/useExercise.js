@@ -5,7 +5,7 @@ import useServices from './useServices'
 export default function useExercise() {
   const { getData, patchData, postData } = useServices()
   const [exercises, setExercises] = useState([])
-  const [selectedExercise, setSelectedExercise] = useState([])
+  const [selectedExercise, setSelectedExercise] = useState({})
 
   useEffect(() => {
     getData(exercisesRef).then(setExercises)

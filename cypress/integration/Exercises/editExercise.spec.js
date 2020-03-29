@@ -1,11 +1,11 @@
 describe('Edit exercise', () => {
   beforeEach(() => {
-    cy.visit('/')
-    cy.contains('Arnold Press').click()
+    cy.visit('/exercises')
+    cy.contains('Test Curl').click()
   })
   it('goes to the edit page', () => {
     cy.get('a[href="/exercises/edit"]').click()
-    cy.location().should(loc => {
+    cy.location().should((loc) => {
       expect(loc.pathname).to.equal('/exercises/edit')
     })
   })

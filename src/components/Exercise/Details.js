@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import { useForm } from 'react-hook-form'
 import ButtonBackToHome from '../common/ButtonBackToHome'
 import ButtonEdit from './ButtonEdit'
@@ -22,13 +22,15 @@ export default function Details({ name, image, type, instructions }) {
     },
   })
 
+  const mainRef = useRef(null)
+
   return (
     <S.Form data-testid="details" id="details">
       <S.ButtonWrapper>
         <ButtonBackToHome />
         <ButtonEdit />
       </S.ButtonWrapper>
-      <Form register={register} image={image} />
+      <Form mainRef={mainRef} register={register} image={image} />
     </S.Form>
   )
 }

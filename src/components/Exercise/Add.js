@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { useHistory } from 'react-router-dom'
 import Form from './Form'
@@ -17,6 +17,12 @@ export default function Add({ handleExerciseAdd }) {
   const { register, handleSubmit } = useForm()
   const history = useHistory()
 
+  const mainRef = useRef(null)
+
+  useEffect(() => {
+    mainRef.current.focus()
+  }, [mainRef])
+
   return (
     <S.Form data-testid="add-form" id="add" onSubmit={handleSubmit(handleAdd)}>
       <S.ButtonWrapper>
@@ -27,7 +33,7 @@ export default function Add({ handleExerciseAdd }) {
           </GreenButton>
         )) || <ButtonEdit />}
       </S.ButtonWrapper>
-      <Form register={register} disabled={disabled} />
+      <Form mainRef={mainRef} register={register} disabled={disabled} />
     </S.Form>
   )
   function handleAdd(data) {

@@ -1,15 +1,19 @@
 import React from 'react'
 import * as S from './Form.styles'
 
-export default function Form({ disabled = true, register, image }) {
+export default function Form({ disabled = true, register, image, mainRef }) {
   return (
     <S.Wrapper>
       <S.Textarea
-        ref={register({
-          required: true,
-          minLength: 4,
-          maxLength: 50,
-        })}
+        // ref={register({
+        //   required: true,
+        //   minLength: 4,
+        //   maxLength: 50,
+        // })}
+        ref={(e) => {
+          register(e, { required: true, minLength: 4, maxLength: 50 })
+          mainRef.current = e
+        }}
         isTitle
         isExerciseName
         type="text"

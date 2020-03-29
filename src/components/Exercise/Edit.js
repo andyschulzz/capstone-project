@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types'
-import React, { useState } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import { useForm } from 'react-hook-form'
 import ButtonBackToHome from '../common/ButtonBackToHome'
 import { GreenButton } from '../common/Button'
@@ -33,12 +33,18 @@ export default function Edit({
     },
   })
 
+  const mainRef = useRef(null)
+
+  useEffect(() => {
+    mainRef.current.focus()
+  }, [disabled])
+
   return (
     <S.Form id="edit" onSubmit={handleSubmit(handleChange)}>
       <S.ButtonWrapper>
         <ButtonBackToHome />
         {(!disabled && (
-          <GreenButton mla inactive>
+          <GreenButton inactive mla>
             Save
           </GreenButton>
         )) || (
@@ -47,7 +53,12 @@ export default function Edit({
           </BlueButton>
         )}
       </S.ButtonWrapper>
-      <Form register={register} image={image} disabled={disabled} />
+      <Form
+        mainRef={mainRef}
+        register={register}
+        image={image}
+        disabled={disabled}
+      />
     </S.Form>
   )
 

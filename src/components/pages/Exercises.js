@@ -2,27 +2,22 @@ import React, { useEffect } from 'react'
 import List from '../Exercise/List'
 import Add from '../Exercise/Add'
 import Details from '../Exercise/Details'
-import Edit from '../Exercise/Edit'
 import { Switch, Route, useRouteMatch, useLocation } from 'react-router-dom'
 import PageLayout from './PageLayout'
 import PropTypes from 'prop-types'
 
 Exercises.propTypes = {
   exercises: PropTypes.array.isRequired,
-  handleExerciseSelect: PropTypes.func.isRequired,
   handleExerciseAdd: PropTypes.func.isRequired,
   handleExerciseChange: PropTypes.func.isRequired,
-  selectedExercise: PropTypes.object,
   handleSearch: PropTypes.func.isRequired,
   search: PropTypes.string,
 }
 
 export default function Exercises({
   exercises,
-  handleExerciseSelect,
   handleExerciseAdd,
   handleExerciseChange,
-  selectedExercise,
   search,
   setSearch,
   handleSearch,
@@ -44,14 +39,12 @@ export default function Exercises({
         <Route exact path={path}>
           <List
             exercises={searchedExercise}
-            handleExerciseSelect={handleExerciseSelect}
             handleSearch={handleSearch}
             search={search}
           />
         </Route>
         <Route path={`${path}/details/:id`}>
           <Details
-            {...selectedExercise}
             exercises={exercises}
             handleExerciseChange={handleExerciseChange}
           />
@@ -61,13 +54,6 @@ export default function Exercises({
             setSearch={setSearch}
             handleExerciseAdd={handleExerciseAdd}
             handleExerciseChange={handleExerciseChange}
-          />
-        </Route>
-        <Route path={`${path}/:id/edit`}>
-          <Edit
-            {...selectedExercise}
-            handleExerciseChange={handleExerciseChange}
-            exercises={exercises}
           />
         </Route>
       </Switch>

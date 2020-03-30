@@ -5,10 +5,9 @@ import Exercise from './Exercise'
 
 ExerciseList.propTypes = {
   exercises: PropTypes.array.isRequired,
-  handleExerciseSelect: PropTypes.func.isRequired,
 }
 
-function ExerciseList({ exercises, handleExerciseSelect }) {
+function ExerciseList({ exercises }) {
   const lettersAtoZ = [...Array(26)].map((_, i) =>
     String.fromCharCode('A'.charCodeAt(0) + i)
   )
@@ -27,15 +26,8 @@ function ExerciseList({ exercises, handleExerciseSelect }) {
       .filter((exercise) =>
         String(exercise.name).toUpperCase().startsWith(letter)
       )
-      .map((exercise, index) => {
-        return (
-          <Exercise
-            key={exercise.id}
-            {...exercise}
-            index={index}
-            handleExerciseSelect={handleExerciseSelect}
-          />
-        )
+      .map((exercise) => {
+        return <Exercise key={exercise.id} {...exercise} />
       })
     return filter
   }

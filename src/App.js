@@ -18,7 +18,6 @@ function App() {
     exercises,
     selectedExercise,
     currentExercise,
-    handleExerciseSelect,
     handleExerciseAdd,
     handleExerciseChange,
   } = useExercise()
@@ -62,7 +61,6 @@ function App() {
                     setSearch={setSearch}
                     selectedExercise={selectedExercise}
                     currentExercise={currentExercise}
-                    handleExerciseSelect={handleExerciseSelect}
                     handleExerciseAdd={handleExerciseAdd}
                     handleExerciseChange={handleExerciseChange}
                     handleSearch={handleSearch}

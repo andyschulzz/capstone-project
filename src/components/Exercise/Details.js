@@ -1,7 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import ButtonBackToHome from '../common/ButtonBackToHome'
-import ButtonEdit from './ButtonEdit'
 import Form from './Form'
 import * as S from './Form.styles'
 import PropTypes from 'prop-types'

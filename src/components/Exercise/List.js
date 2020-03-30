@@ -8,17 +8,11 @@ import ExerciseList from './ExerciseList'
 
 List.propTypes = {
   exercises: PropTypes.array.isRequired,
-  handleExerciseSelect: PropTypes.func.isRequired,
   handleSearch: PropTypes.func.isRequired,
   search: PropTypes.string,
 }
 
-export default function List({
-  exercises,
-  handleExerciseSelect,
-  handleSearch,
-  search,
-}) {
+export default function List({ exercises, handleSearch, search }) {
   const { url } = useRouteMatch()
   const { register, handleSubmit, reset } = useForm({ mode: 'onChange' })
 
@@ -36,10 +30,7 @@ export default function List({
         />
       </S.ButtonWrapper>
       {exercises.length ? (
-        <ExerciseList
-          exercises={exercises}
-          handleExerciseSelect={handleExerciseSelect}
-        />
+        <ExerciseList exercises={exercises} />
       ) : (
         <S.Container>No exercise found!</S.Container>
       )}

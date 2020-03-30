@@ -12,11 +12,6 @@ export default function useExercise() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
-  function handleExerciseSelect(id) {
-    const selectedExercise = exercises.find((exercise) => exercise.id === id)
-    setSelectedExercise(selectedExercise)
-  }
-
   function handleExerciseAdd(data) {
     const newExercise = {
       ...data,
@@ -49,7 +44,6 @@ export default function useExercise() {
   return {
     exercises,
     selectedExercise,
-    handleExerciseSelect,
     handleExerciseAdd,
     handleExerciseChange,
   }

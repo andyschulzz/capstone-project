@@ -52,10 +52,10 @@ const Textarea = styled.textarea`
   ::placeholder {
     font-weight: 300;
   }
-`
 
-const Input = styled.input`
-  display: none;
+  &:disabled::placeholder {
+    color: transparent;
+  }
 `
 
 const Image = styled.img`
@@ -72,4 +72,4 @@ const ButtonWrapper = styled.div`
   background: #fff;
 `
 
-export { Wrapper, Textarea, Image, ButtonWrapper, Label, Form, Input }
+export { Wrapper, Textarea, Image, ButtonWrapper, Label, Form }

@@ -23,7 +23,7 @@ export default function Exercise({
   const { url } = useRouteMatch()
   return (
     <S.Exercise
-      to={`${url}/details/${index + 1}`}
+      to={`${url}/details/${id}`}
       onClick={() => handleExerciseSelect(id)}
     >
       <S.Image src={image} alt="" />

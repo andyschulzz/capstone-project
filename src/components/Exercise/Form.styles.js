@@ -54,6 +54,10 @@ const Textarea = styled.textarea`
   }
 `
 
+const Input = styled.input`
+  display: none;
+`
+
 const Image = styled.img`
   width: 25px;
   height: 25px;
@@ -68,4 +72,4 @@ const ButtonWrapper = styled.div`
   background: #fff;
 `
 
-export { Wrapper, Textarea, Image, ButtonWrapper, Label, Form }
+export { Wrapper, Textarea, Image, ButtonWrapper, Label, Form, Input }

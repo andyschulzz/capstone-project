@@ -6,6 +6,7 @@ import { BlueButton } from '../common/Button'
 import * as S from './Form.styles'
 import Form from './Form'
 import PropTypes from 'prop-types'
+import { useParams } from 'react-router-dom'
 
 Edit.propTypes = {
   handleExerciseChange: PropTypes.func.isRequired,
@@ -22,18 +23,28 @@ export default function Edit({
   image,
   type,
   instructions,
-  id,
+  exercises,
 }) {
   const [disabled, setDisabled] = useState(false)
-  const { register, handleSubmit } = useForm({
+  const { register, handleSubmit, setValue } = useForm({
     defaultValues: {
       name,
       type,
       instructions,
     },
   })
-
   const mainRef = useRef(null)
+  const { id } = useParams()
+
+  const selectedExercise = exercises.filter((exercise) => exercise.id === id)
+
+  useEffect(() => {
+    selectedExercise.forEach((exercise) => {
+      setValue('name', exercise.name)
+      setValue('type', exercise.type)
+      setValue('instructions', exercise.instructions)
+    })
+  }, [selectedExercise, setValue])
 
   useEffect(() => {
     mainRef.current.focus()

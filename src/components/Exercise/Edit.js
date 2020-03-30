@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types'
 import React, { useState, useEffect, useRef } from 'react'
 import { useForm } from 'react-hook-form'
 import ButtonBackToHome from '../common/ButtonBackToHome'
@@ -6,6 +5,7 @@ import { GreenButton } from '../common/Button'
 import { BlueButton } from '../common/Button'
 import * as S from './Form.styles'
 import Form from './Form'
+import PropTypes from 'prop-types'
 
 Edit.propTypes = {
   handleExerciseChange: PropTypes.func.isRequired,

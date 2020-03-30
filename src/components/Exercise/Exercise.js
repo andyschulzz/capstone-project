@@ -9,6 +9,7 @@ Exercise.propTypes = {
   handleExerciseSelect: PropTypes.func,
   id: PropTypes.string,
   index: PropTypes.number,
+  image: PropTypes.string,
 }
 
 export default function Exercise({

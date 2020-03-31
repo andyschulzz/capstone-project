@@ -12,6 +12,10 @@ const AppGrid = styled.div`
     z-index: 3;
     width: 375px;
     height: 667px;
+    margin-top: -15px;
+  }
+
+  @media screen and (min--moz-device-pixel-ratio: 0) {
     margin-top: -24px;
   }
 `

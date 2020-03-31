@@ -12,13 +12,13 @@ import useWorkout from './components/hooks/useWorkout'
 import useSearch from './components/hooks/useSearch'
 import AuthProvider, { AuthConsumer } from './components/Auth/AuthContext'
 import useUserServices from './components/hooks/useUserServices'
+import * as S from './App.styles'
 
 function App() {
   const {
     exercises,
     selectedExercise,
     currentExercise,
-    handleExerciseSelect,
     handleExerciseAdd,
     handleExerciseChange,
   } = useExercise()
@@ -37,7 +37,7 @@ function App() {
     handleWorkoutChange,
   } = useWorkout()
 
-  const { handleSearch, search } = useSearch()
+  const { handleSearch, search, setSearch } = useSearch()
 
   const {
     signUp,
@@ -47,78 +47,78 @@ function App() {
     setProfile,
   } = useUserServices()
 
-  const searchedExercise = exercises.filter((exercise) =>
-    exercise.name.toLowerCase().trim().includes(search)
-  )
-
   return (
     <AuthProvider setProfile={setProfile} setWorkouts={setWorkouts}>
       <AuthConsumer>
         {({ user }) => (
-          <AppGrid>
-            <Switch>
-              <Redirect exact from="/" to="exercises" />
-              <Route path="/exercises">
-                {user && user.id ? (
-                  <Exercises
-                    exercises={searchedExercise}
-                    search={search}
-                    selectedExercise={selectedExercise}
-                    currentExercise={currentExercise}
-                    handleExerciseSelect={handleExerciseSelect}
-                    handleExerciseAdd={handleExerciseAdd}
-                    handleExerciseChange={handleExerciseChange}
-                    handleSearch={handleSearch}
-                  />
-                ) : (
-                  <UserForm
-                    logIn={logIn}
-                    resetPassword={resetPassword}
+          <S.DesktopView>
+            <S.AppGrid>
+              <Switch>
+                <Redirect exact from="/" to="exercises" />
+                <Route path="/exercises">
+                  {user && user.id ? (
+                    <Exercises
+                      exercises={exercises}
+                      search={search}
+                      setSearch={setSearch}
+                      selectedExercise={selectedExercise}
+                      currentExercise={currentExercise}
+                      handleExerciseAdd={handleExerciseAdd}
+                      handleExerciseChange={handleExerciseChange}
+                      handleSearch={handleSearch}
+                    />
+                  ) : (
+                    <UserForm
+                      logIn={logIn}
+                      resetPassword={resetPassword}
+                      profile={profile}
+                      setProfile={setProfile}
+                    />
+                  )}
+                </Route>
+                <Route path="/workouts">
+                  {user && user.id ? (
+                    <Workouts
+                      exercises={exercises}
+                      workouts={workouts}
+                      workoutExercises={workoutExercises}
+                      selectedWorkouts={selectedWorkouts}
+                      handleWorkoutExercises={handleWorkoutExercises}
+                      handleWorkoutTitle={handleWorkoutTitle}
+                      handleWorkoutAdd={handleWorkoutAdd}
+                      handleWorkoutDelete={handleWorkoutDelete}
+                      handleWorkoutEdit={handleWorkoutEdit}
+                      handleWorkoutChange={handleWorkoutChange}
+                    />
+                  ) : (
+                    <UserForm
+                      logIn={logIn}
+                      resetPassword={resetPassword}
+                      profile={profile}
+                      setProfile={setProfile}
+                    />
+                  )}
+                </Route>
+                <Route exact path="/signup">
+                  <SignUp
+                    signUp={signUp}
                     profile={profile}
                     setProfile={setProfile}
                   />
-                )}
-              </Route>
-              <Route path="/workouts">
-                {user && user.id ? (
-                  <Workouts
-                    exercises={searchedExercise}
-                    workouts={workouts}
-                    workoutExercises={workoutExercises}
-                    selectedWorkouts={selectedWorkouts}
-                    handleWorkoutExercises={handleWorkoutExercises}
-                    handleWorkoutTitle={handleWorkoutTitle}
-                    handleWorkoutAdd={handleWorkoutAdd}
-                    handleWorkoutDelete={handleWorkoutDelete}
-                    handleWorkoutEdit={handleWorkoutEdit}
-                    handleWorkoutChange={handleWorkoutChange}
-                  />
-                ) : (
-                  <UserForm
-                    logIn={logIn}
-                    resetPassword={resetPassword}
-                    profile={profile}
-                    setProfile={setProfile}
-                  />
-                )}
-              </Route>
-              <Route exact path="/signup">
-                <SignUp
-                  signUp={signUp}
-                  profile={profile}
-                  setProfile={setProfile}
+                </Route>
+                <Route>
+                  <NoMatch />
+                </Route>
+              </Switch>
+              {user && user.id && (
+                <Navigation
+                  handleSelectedWorkoutsReset={handleSelectedWorkoutsReset}
                 />
-              </Route>
-              <Route>
-                <NoMatch />
-              </Route>
-            </Switch>
-            {user && user.id && (
-              <Navigation
-                handleSelectedWorkoutsReset={handleSelectedWorkoutsReset}
-              />
-            )}
-          </AppGrid>
+              )}
+            </S.AppGrid>
+            <S.MobilFrame alt="" src="/images/mobile.svg" />
+            <S.BackgroundLogo alt="" src="/images/logo.svg" />
+          </S.DesktopView>
         )}
       </AuthConsumer>
     </AuthProvider>
@@ -126,11 +126,3 @@ function App() {
 }
 
 export default App
-
-const AppGrid = styled.div`
-  display: grid;
-  grid-template-rows: auto 48px;
-  position: fixed;
-  width: 100%;
-  height: 100%;
-`

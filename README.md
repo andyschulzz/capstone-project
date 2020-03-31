@@ -1,16 +1,17 @@
 <div align="center">
-<img src="/icons/logo2.png" width="100"/>
+<img src="https://user-images.githubusercontent.com/46409110/77826997-66215800-7113-11ea-8a69-65f1552d6ab7.png" width="100"/>
 </div>
 
 # Pumpele
 
 I developed Pumpele as my final project during the [neuefische](https://www.neuefische.de) web developer bootcamp in spring 2020.
 
-It is a workout planner and knowledge base app made with [Create React App](https://github.com/facebook/create-react-app). The user can create different workouts and track his progress or a get a deeper understanding about a variety of exercises from the database.
+Pumpele a workout planner and knowledge base app made with [Create React App](https://github.com/facebook/create-react-app) and [Firebase](https://firebase.google.com/) backend. 
+The user can not only create individual workouts regarding his needs and track his own progress but also get inspired by a great variety of exercises from the database to steadily improve his knowledge and workouts.
 
 ## Preview
 
-![Pumpele](https://user-images.githubusercontent.com/46409110/77826472-f9588e80-710f-11ea-8a84-91ecc42f4c48.gif 'Pumpele showcase')
+![Pumpele](https://user-images.githubusercontent.com/46409110/77832977-35a0e480-713a-11ea-863e-f25fa3152860.gif 'Pumpele showcase')
 
 ## Tech stack
 
@@ -18,4 +19,17 @@ It is a workout planner and knowledge base app made with [Create React App](http
 - Firebase
 - Node.js
 
-#### A live demo is available [here](https://capstone-project-fitness.web.app).
+## Additional dependencies
+
+- Storybook
+- styled-components
+- react-router-dom
+- testing-library
+- jest
+- cypress
+- prop-types
+- react-hook-form
+- react-icons
+
+
+### A live demo is available [here](https://capstone-project-fitness.web.app).

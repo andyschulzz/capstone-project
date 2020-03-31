@@ -1,9 +1,9 @@
 import React from 'react'
-import Exercise from './Exercise'
+import ButtonReset from './ButtonReset'
 
 export default {
-  title: 'Exercise/Exercise',
-  component: Exercise,
+  title: 'ButtonReset',
+  component: ButtonReset,
   decorators: [
     (renderComponent) => (
       <div style={{ padding: 20, width: 400 }}>{renderComponent()}</div>
@@ -12,9 +12,5 @@ export default {
 }
 
 export const Default = () => {
-  return (
-    <>
-      <Exercise name="Ab Wheel" type="Core" image="/images/Abwheel.png" />
-    </>
-  )
+  return <ButtonReset />
 }

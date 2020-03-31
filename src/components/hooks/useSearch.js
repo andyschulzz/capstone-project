@@ -10,5 +10,6 @@ export default function useSearch() {
   return {
     handleSearch,
     search,
+    setSearch,
   }
 }

@@ -1,13 +1,21 @@
 import React, { useEffect, useState } from 'react'
 import { withRouter } from 'react-router-dom'
+import { useHistory } from 'react-router-dom'
 import { firebaseAuth } from '../../firebase'
 import { db } from '../../firebase'
 import { NewUserProfile } from '../common/NewUserProfile'
+import PropTypes from 'prop-types'
+
+AuthProvider.propTypes = {
+  setProfile: PropTypes.func.isRequired,
+  setWorkouts: PropTypes.func.isRequired,
+}
 
 const AuthContext = React.createContext()
 
-function AuthProvider({ history, children, setProfile, setWorkouts }) {
+function AuthProvider({ children, setProfile, setWorkouts }) {
   const [user, setUser] = useState({})
+  const history = useHistory()
 
   useEffect(() => {
     firebaseAuth.onAuthStateChanged((user) => {

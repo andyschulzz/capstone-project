@@ -6,25 +6,14 @@ import PropTypes from 'prop-types'
 Exercise.propTypes = {
   name: PropTypes.string,
   type: PropTypes.string,
-  handleExerciseSelect: PropTypes.func,
   id: PropTypes.string,
-  index: PropTypes.number,
+  image: PropTypes.string,
 }
 
-export default function Exercise({
-  name,
-  type,
-  handleExerciseSelect,
-  id,
-  index,
-  image,
-}) {
+export default function Exercise({ name, type, id, image }) {
   const { url } = useRouteMatch()
   return (
-    <S.Exercise
-      to={`${url}/details/${index + 1}`}
-      onClick={() => handleExerciseSelect(id)}
-    >
+    <S.Exercise to={`${url}/details/${id}`}>
       <S.Image src={image} alt="" />
       <S.Wrapper>
         <S.Text isName>{name}</S.Text>

@@ -5,17 +5,12 @@ import useServices from './useServices'
 export default function useExercise() {
   const { getData, patchData, postData } = useServices()
   const [exercises, setExercises] = useState([])
-  const [selectedExercise, setSelectedExercise] = useState([])
+  const [selectedExercise, setSelectedExercise] = useState({})
 
   useEffect(() => {
     getData(exercisesRef).then(setExercises)
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
-
-  function handleExerciseSelect(id) {
-    const selectedExercise = exercises.find((exercise) => exercise.id === id)
-    setSelectedExercise(selectedExercise)
-  }
 
   function handleExerciseAdd(data) {
     const newExercise = {
@@ -49,7 +44,6 @@ export default function useExercise() {
   return {
     exercises,
     selectedExercise,
-    handleExerciseSelect,
     handleExerciseAdd,
     handleExerciseChange,
   }

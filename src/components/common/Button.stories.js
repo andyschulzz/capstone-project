@@ -1,8 +1,9 @@
 import React from 'react'
-import { Button } from './Button'
+import { BlueButton, Button, GreenButton } from './Button'
+import ButtonBackToHome from './ButtonBackToHome'
 
 export default {
-  title: 'Exercise/Button',
+  title: 'Button',
   component: Button,
   decorators: [
     (renderComponent) => (
@@ -11,10 +12,14 @@ export default {
   ],
 }
 
-export const primary = () => {
-  return <Button primary>Primary</Button>
+export const blue = () => {
+  return <BlueButton>Next</BlueButton>
 }
 
-export const danger = () => {
-  return <Button danger>Danger</Button>
+export const green = () => {
+  return <GreenButton>Save</GreenButton>
+}
+
+export const back = () => {
+  return <ButtonBackToHome />
 }

@@ -4,7 +4,7 @@ describe('Add exercise', () => {
     cy.get('a[href="/exercises/add"]').click()
   })
   it('goes to the add page', () => {
-    cy.location().should(loc => {
+    cy.location().should((loc) => {
       expect(loc.pathname).to.equal('/exercises/add')
     })
   })
@@ -16,11 +16,6 @@ describe('Add exercise', () => {
       'textarea[id="instructions"]'
     ).type('This is just a testing description.', { force: true })
     cy.contains('Save').click()
-    cy.get('textarea[id="name"]').should('have.value', 'Test Curl')
-    cy.get('textarea[id="type"]').should('have.value', 'Test')
-    cy.get('textarea[id="instructions"]').should(
-      'have.value',
-      'This is just a testing description.'
-    )
+    cy.contains('Test Curl').should('exist')
   })
 })

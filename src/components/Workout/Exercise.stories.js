@@ -2,7 +2,7 @@ import React from 'react'
 import Exercise from './Exercise'
 
 export default {
-  title: 'Exercise/Exercise',
+  title: 'Workout/Exercise',
   component: Exercise,
   decorators: [
     (renderComponent) => (

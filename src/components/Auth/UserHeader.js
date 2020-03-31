@@ -2,7 +2,7 @@ import React from 'react'
 import { AuthConsumer } from './AuthContext'
 import * as S from './UserHeader.styles'
 
-const Header = () => (
+const Logout = () => (
   <AuthConsumer>
     {({ user, logOut }) => (
       <React.Fragment>
@@ -16,4 +16,4 @@ const Header = () => (
   </AuthConsumer>
 )
 
-export default Header
+export default Logout

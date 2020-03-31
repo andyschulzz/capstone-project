@@ -7,8 +7,8 @@ Exercise.propTypes = {
   name: PropTypes.string.isRequired,
   type: PropTypes.string.isRequired,
   handleWorkoutExercises: PropTypes.func,
-  id: PropTypes.string.isRequired,
-  image: PropTypes.string.isRequired,
+  id: PropTypes.string,
+  image: PropTypes.string,
 }
 
 export default function Exercise({

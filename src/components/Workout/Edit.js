@@ -6,15 +6,12 @@ import { useHistory } from 'react-router-dom'
 import * as S from './Edit.styles'
 import PropTypes from 'prop-types'
 
-WorkoutDetails.propTypes = {
+Edit.propTypes = {
   selectedWorkouts: PropTypes.object.isRequired,
   handleWorkoutChange: PropTypes.func.isRequired,
 }
 
-export default function WorkoutDetails({
-  selectedWorkouts,
-  handleWorkoutChange,
-}) {
+export default function Edit({ selectedWorkouts, handleWorkoutChange }) {
   const { register, handleSubmit, setValue } = useForm()
   useEffect(() => {
     Object.entries(selectedWorkouts).forEach(([id, workout], index) => {
@@ -52,7 +49,7 @@ export default function WorkoutDetails({
       />
       {Object.entries(selectedWorkouts).map(([id, item], index) => {
         return (
-          <Details register={register} key={item.id} {...item} index={index} />
+          <Details register={register} key={index} {...item} index={index} />
         )
       })}
     </S.Form>

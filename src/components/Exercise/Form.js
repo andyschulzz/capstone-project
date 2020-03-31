@@ -1,15 +1,22 @@
 import React from 'react'
 import * as S from './Form.styles'
+import PropTypes from 'prop-types'
 
-export default function Form({ disabled = true, register, image }) {
+Form.propTypes = {
+  disabled: PropTypes.bool,
+  register: PropTypes.func.isRequired,
+  image: PropTypes.string,
+  mainRef: PropTypes.object.isRequired,
+}
+
+export default function Form({ disabled = true, register, image, mainRef }) {
   return (
     <S.Wrapper>
       <S.Textarea
-        ref={register({
-          required: true,
-          minLength: 4,
-          maxLength: 50,
-        })}
+        ref={(e) => {
+          register(e, { required: true, minLength: 4, maxLength: 50 })
+          mainRef.current = e
+        }}
         isTitle
         isExerciseName
         type="text"

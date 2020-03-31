@@ -52,6 +52,10 @@ const Textarea = styled.textarea`
   ::placeholder {
     font-weight: 300;
   }
+
+  &:disabled::placeholder {
+    color: transparent;
+  }
 `
 
 const Image = styled.img`

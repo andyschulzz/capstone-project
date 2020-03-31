@@ -161,7 +161,7 @@ exports[`<Details /> should render correctly 1`] = `
   font-size: 1rem;
   font-weight: 400;
   background-color: #fff;
-  overflow-y: auto;
+  overflow-y: hidden;
   color: #333;
 }
 
@@ -203,7 +203,7 @@ exports[`<Details /> should render correctly 1`] = `
       class="c1"
     >
       <a
-        href="/"
+        href="/exercises"
       >
         <img
           alt=""

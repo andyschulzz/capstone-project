@@ -1,9 +1,9 @@
 import React from 'react'
-import Exercise from './Exercise'
+import ButtonNew from './ButtonNew'
 
 export default {
-  title: 'Exercise/Exercise',
-  component: Exercise,
+  title: 'Workout/ButtonNew',
+  component: ButtonNew,
   decorators: [
     (renderComponent) => (
       <div style={{ padding: 20, width: 400 }}>{renderComponent()}</div>
@@ -14,7 +14,7 @@ export default {
 export const Default = () => {
   return (
     <>
-      <Exercise name="Ab Wheel" type="Core" image="/images/Abwheel.png" />
+      <ButtonNew />
     </>
   )
 }

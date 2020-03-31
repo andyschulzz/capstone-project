@@ -9,8 +9,8 @@ const Wrapper = styled.div`
 `
 
 const Span = styled.span`
-    font-size: ${props => (props.isWeight ? 0.9 : 1.1)}rem;
-    margin: 0 ${props => (props.isWeight ? 10 : 5)}px;
+    font-size: ${(props) => (props.isWeight ? 0.9 : 1.1)}rem;
+    margin: 0 ${(props) => (props.isWeight ? 10 : 5)}px;
   }
 `
 
@@ -23,7 +23,6 @@ const DetailsWrapper = styled.div`
 
 const MenuIcon = styled(MdMoreHoriz)`
   font-size: 28px;
-  align-self: center;
   margin-left: auto;
   margin-top: -10px;
   color: hsl(200, 100%, 50%);

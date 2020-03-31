@@ -1,9 +1,10 @@
 import React from 'react'
-import Exercise from './Exercise'
+import SearchBox from './SearchBox'
+import { useForm } from 'react-hook-form'
 
 export default {
-  title: 'Exercise/Exercise',
-  component: Exercise,
+  title: 'SearchBox',
+  component: SearchBox,
   decorators: [
     (renderComponent) => (
       <div style={{ padding: 20, width: 400 }}>{renderComponent()}</div>
@@ -12,9 +13,6 @@ export default {
 }
 
 export const Default = () => {
-  return (
-    <>
-      <Exercise name="Ab Wheel" type="Core" image="/images/Abwheel.png" />
-    </>
-  )
+  const { register } = useForm()
+  return <SearchBox register={register} />
 }

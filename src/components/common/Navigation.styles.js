@@ -30,10 +30,6 @@ const Navigation = styled.nav`
   display: grid;
   grid-auto-flow: column;
   height: 48px;
-
-  @media only screen and (min-device-width: 770px) {
-    min-width: 375px;
-  }
 `
 
 const Wrapper = styled.div`

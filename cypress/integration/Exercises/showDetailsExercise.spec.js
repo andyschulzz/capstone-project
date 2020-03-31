@@ -1,4 +1,4 @@
-describe('Add exercise', () => {
+describe('Show details', () => {
   beforeEach(() => {
     cy.visit('/exercises')
   })

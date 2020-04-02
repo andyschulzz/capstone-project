@@ -1,7 +1,10 @@
 {
-  "name": "capstone-project",
-  "version": "0.1.0",
-  "private": true,
+  "name": "Pumpele",
+  "version": "1.0.0",
+  "author": {
+    "name": "Andy Schulz",
+    "email": "myandy@gmx.net"
+  },
   "dependencies": {
     "@testing-library/jest-dom": "4.2.4",
     "@testing-library/react": "9.4.1",
